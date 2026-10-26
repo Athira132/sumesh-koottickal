@@ -1,38 +1,51 @@
+import React from 'react';
 import { motion } from 'framer-motion';
 
 interface HeroBannerProps {
   title: string;
-  subtitle?: string;
-  category?: string;
+  imageSrc?: string;
+  imageFallback?: string;
 }
 
-export const HeroBanner: React.FC<HeroBannerProps> = ({ title, subtitle, category }) => {
+export const HeroBanner: React.FC<HeroBannerProps> = ({
+  title,
+  imageSrc = '/images/page-hero.jpg',
+  imageFallback = 'https://i.ibb.co/DPwR983z/image.png',
+}) => {
   return (
-    <section className="relative w-full bg-black pt-36 pb-20 md:pt-44 md:pb-28 border-b border-white/10 flex flex-col items-center justify-center text-center px-6">
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className="max-w-4xl mx-auto flex flex-col items-center"
-      >
-        {category && (
-          <span className="text-xs md:text-sm font-sans tracking-widest text-neutral-400 uppercase mb-4">
-            {category}
-          </span>
-        )}
-        
-        <h1 className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-cinematic text-white uppercase">
+    <section
+      className="relative w-full h-[36vh] min-h-[260px] md:h-[44vh] md:min-h-[340px] flex items-center justify-center overflow-hidden border-b border-white/10"
+      aria-label={`${title} Banner`}
+    >
+      {/* Background Image with Black-and-White treatment */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src={imageSrc}
+          alt={`${title} banner atmosphere`}
+          onError={(e) => {
+            if (e.currentTarget.src !== imageFallback) {
+              e.currentTarget.src = imageFallback;
+            }
+          }}
+          className="w-full h-full object-cover object-center grayscale contrast-125 select-none"
+        />
+
+        {/* Black contrast overlay */}
+        <div className="absolute inset-0 bg-black/65 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/70 pointer-events-none" />
+      </div>
+
+      {/* Centered Page Title */}
+      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center justify-center">
+        <motion.h1
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-cinematic text-white uppercase drop-shadow-lg"
+        >
           {title}
-        </h1>
-
-        {subtitle && (
-          <p className="mt-4 md:mt-6 text-sm md:text-base text-neutral-400 max-w-2xl font-sans tracking-wide leading-relaxed">
-            {subtitle}
-          </p>
-        )}
-
-        <div className="w-12 h-[1px] bg-white/20 mt-8 md:mt-10" />
-      </motion.div>
+        </motion.h1>
+      </div>
     </section>
   );
 };

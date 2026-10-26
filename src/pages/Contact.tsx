@@ -61,12 +61,8 @@ export const Contact: React.FC = () => {
 
   return (
     <div className="w-full bg-black text-white">
-      {/* Required Hero Banner */}
-      <HeroBanner
-        title="CONTACT"
-        subtitle="Direct communication for concerts, film music commissions, and stage appearances."
-        category="GET IN TOUCH"
-      />
+      {/* Standard Reusable Hero Banner */}
+      <HeroBanner title="CONTACT" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-20 md:py-32">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">

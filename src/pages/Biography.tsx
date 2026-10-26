@@ -13,12 +13,8 @@ export const Biography: React.FC = () => {
 
   return (
     <div className="w-full bg-black text-white">
-      {/* Required Hero Banner */}
-      <HeroBanner
-        title="BIOGRAPHY"
-        subtitle="The journey of an artist uniting cinematic soundscapes, live stage virtuosity, and mentalism."
-        category="ARTIST PROFILE"
-      />
+      {/* Standard Reusable Hero Banner */}
+      <HeroBanner title="BIOGRAPHY" />
 
       {/* Main Editorial Biography Section */}
       <section className="py-20 md:py-32">

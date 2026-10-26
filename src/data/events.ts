@@ -1,35 +1,48 @@
 export interface EventItem {
   id: string;
   title: string;
-  subtitle?: string;
   date: string;
-  time?: string;
   venue: string;
-  city: string;
-  status: 'Announced' | 'Sold Out' | 'Completed' | 'Upcoming';
-  type: 'Concert' | 'College Fest' | 'Private Gala' | 'Festival' | 'Stage Performance';
+  city?: string;
   description?: string;
-  posterUrl?: string;
-  bookingUrl?: string;
+  image?: string;
+  status: 'upcoming' | 'past';
+  type?: string;
+  externalLink?: string;
 }
 
-export const EVENTS_DATA = {
-  headline: "LIVE ON STAGE",
-  subheadline: "EXPERIENCE THE HIGH-VOLTAGE AUDITORY ENERGY AND MENTALISM FEATS IN PERSON",
-  
-  // Empty state active until artist supplies verified tour dates
-  upcomingEvents: [] as EventItem[],
-  
-  emptyStateNotice: "UPCOMING PERFORMANCES WILL BE ANNOUNCED SOON.",
-  emptyStateDescription: "Tour dates, college festivals, and arena appearances are currently being scheduled for the upcoming season. For festival bookings, corporate performances, and live stage appearances, please submit an enquiry.",
-  
-  // Past events data template (can be populated when user provides historical concert data)
-  pastEvents: [] as EventItem[],
-  
-  bookingInfo: {
-    title: "BOOK SUMESH KOOTTICKAL",
-    description: "Available for live music festivals, college fests, corporate events, and specialized performance art / mentalism shows across India and worldwide.",
-    directContact: "+91 8113070209",
-    email: "koottickalsumesh@gmail.com"
+/**
+ * CENTRALIZED EVENTS DATA
+ * Add your verified events below.
+ * - Set `status: 'upcoming'` for future shows.
+ * - Set `status: 'past'` for past concerts/shows.
+ * If there are no upcoming events, the page automatically presents the elegant
+ * "STAY TUNED - NEW PERFORMANCES WILL BE ANNOUNCED SOON" state.
+ */
+export const EVENTS_LIST: EventItem[] = [
+  // When real events are announced, add them here:
+  /*
+  {
+    id: 'concert-1',
+    title: 'Live Keytar Concert Showcase',
+    date: 'To Be Announced',
+    venue: 'Arena Stage',
+    city: 'Kochi, Kerala',
+    description: 'Electrifying live concert with multi-tier keyboard arrangements.',
+    status: 'upcoming',
+    type: 'Live Concert'
   }
+  */
+];
+
+export const EVENTS_PAGE_CONFIG = {
+  heroTitle: 'EVENTS',
+  pastHeading: 'PAST EVENTS',
+  pastEmptyNotice: 'PAST EVENT ARCHIVE WILL BE UPDATED SHORTLY.',
+  upcomingHeading: 'UPCOMING EVENTS',
+  stayTunedHeading: 'STAY TUNED',
+  stayTunedMessage: 'NEW PERFORMANCES WILL BE ANNOUNCED SOON.',
+  stayTunedSubtext: 'Tour dates, college festivals, and arena appearances are currently being scheduled for the upcoming season. For performance bookings and private event enquiries, please reach out via the contact desk.',
+  bookingNoticeTitle: 'BOOK SUMESH KOOTTICKAL FOR YOUR EVENT',
+  bookingNoticeDescription: 'Available for live music festivals, college fests, corporate events, and specialized performance art shows across India and worldwide.',
 };

@@ -1,3 +1,4 @@
+import React from 'react';
 import type { MusicProject } from '../data/music';
 import { Disc3, ExternalLink } from 'lucide-react';
 
@@ -7,13 +8,7 @@ interface ProjectCardProps {
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
-    <article
-      className={`p-6 sm:p-8 rounded-xl bg-surface-card border transition-all duration-300 flex flex-col justify-between ${
-        project.isPlaceholder
-          ? 'border-dashed border-neutral-700 bg-neutral-950/60'
-          : 'border-white/10 hover:border-white/30 hover:bg-surface-elevated'
-      }`}
-    >
+    <article className="p-6 sm:p-8 rounded-xl bg-surface-card border border-white/10 hover:border-white/30 hover:bg-surface-elevated transition-all duration-300 flex flex-col justify-between">
       <div>
         {/* Header row */}
         <div className="flex items-start justify-between gap-4 mb-4">
@@ -26,26 +21,19 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             </span>
           </div>
 
-          <div className="flex items-center gap-2">
-            {project.badge && (
-              <span className="px-2.5 py-1 text-[10px] font-sans font-semibold tracking-wider uppercase rounded-full bg-white/10 text-neutral-200 border border-white/15">
-                {project.badge}
-              </span>
-            )}
-            <span className="text-xs font-mono text-neutral-400">
-              {project.year}
-            </span>
-          </div>
+          <span className="text-xs font-mono text-neutral-400">
+            {project.year}
+          </span>
         </div>
 
-        {/* Title */}
+        {/* Project Title & Film/Album */}
         <h3 className="font-display text-xl sm:text-2xl font-bold tracking-wider text-white uppercase mb-1">
-          {project.title}
+          {project.projectTitle}
         </h3>
         
-        {project.subtitle && (
+        {project.filmOrAlbum && (
           <p className="text-xs text-neutral-400 font-sans mb-4">
-            {project.subtitle}
+            {project.filmOrAlbum}
           </p>
         )}
 
@@ -58,46 +46,54 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         <div className="border-t border-white/5 pt-4 space-y-1.5 text-xs font-sans text-neutral-400">
           <div>
             <span className="text-neutral-400">Music Direction: </span>
-            <span className="text-neutral-200 font-medium">{project.credits.musicDirector}</span>
+            <span className="text-neutral-200 font-medium">
+              {project.musicCredits.musicDirector}
+            </span>
           </div>
-          {project.credits.singers && (
+          {project.musicCredits.singers && (
             <div>
               <span className="text-neutral-400">Vocals: </span>
-              <span className="text-neutral-200 font-medium">{project.credits.singers}</span>
+              <span className="text-neutral-200 font-medium">
+                {project.musicCredits.singers}
+              </span>
             </div>
           )}
-          {project.credits.lyrics && (
+          {project.musicCredits.lyrics && (
             <div>
               <span className="text-neutral-400">Lyrics: </span>
-              <span className="text-neutral-200 font-medium">{project.credits.lyrics}</span>
+              <span className="text-neutral-200 font-medium">
+                {project.musicCredits.lyrics}
+              </span>
             </div>
           )}
-          {project.credits.director && (
+          {project.musicCredits.director && (
             <div>
               <span className="text-neutral-400">Film Director: </span>
-              <span className="text-neutral-200 font-medium">{project.credits.director}</span>
+              <span className="text-neutral-200 font-medium">
+                {project.musicCredits.director}
+              </span>
             </div>
           )}
         </div>
       </div>
 
-      {/* Streaming / Link Footer */}
-      {project.streamingLinks && (
-        <div className="mt-6 pt-4 border-t border-white/10 flex items-center gap-3">
-          {project.streamingLinks.appleMusic && (
+      {/* Streaming / Link Footer if links exist */}
+      {(project.audioUrl || project.youtubeUrl) && (
+        <div className="mt-6 pt-4 border-t border-white/10 flex flex-wrap items-center gap-3">
+          {project.audioUrl && (
             <a
-              href={project.streamingLinks.appleMusic}
+              href={project.audioUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded border border-white/20 bg-white/5 hover:bg-white text-xs font-display tracking-wider text-neutral-200 hover:text-black transition-all"
             >
-              <span>APPLE MUSIC</span>
+              <span>LISTEN NOW</span>
               <ExternalLink className="w-3 h-3" />
             </a>
           )}
-          {project.streamingLinks.youtube && (
+          {project.youtubeUrl && (
             <a
-              href={project.streamingLinks.youtube}
+              href={project.youtubeUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded border border-white/20 bg-white/5 hover:bg-white text-xs font-display tracking-wider text-neutral-200 hover:text-black transition-all"

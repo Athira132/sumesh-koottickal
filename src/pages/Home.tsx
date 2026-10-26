@@ -2,13 +2,12 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ARTIST_DATA } from '../data/artist';
 import { BIOGRAPHY_DATA } from '../data/biography';
-import { MUSIC_DATA } from '../data/music';
-import { EVENTS_DATA } from '../data/events';
+import { MUSIC_PAGE_DATA } from '../data/music';
+import { EVENTS_PAGE_CONFIG } from '../data/events';
 import { GALLERY_ITEMS } from '../data/gallery';
 import { ProjectCard } from '../components/ProjectCard';
-import { GalleryGrid } from '../components/GalleryGrid';
 import { SectionHeading } from '../components/SectionHeading';
-import { ArrowDown, ArrowUpRight, Calendar, Eye } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, Calendar } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export const Home: React.FC = () => {
@@ -22,10 +21,10 @@ export const Home: React.FC = () => {
       {/* 1. HOMEPAGE HERO (DOMINANT VISUAL PRIORITY)               */}
       {/* ========================================================= */}
       <section
-        className="relative w-full min-h-[92vh] sm:min-h-screen flex flex-col justify-end overflow-hidden pb-16 md:pb-24 pt-32"
+        className="relative w-full h-screen min-h-[600px] flex flex-col justify-end overflow-hidden pb-10 sm:pb-14"
         aria-label="Sumesh Koottickal Main Hero"
       >
-        {/* Background Main Hero Photograph */}
+        {/* Background Main Hero Photograph (Preserved) */}
         <div className="absolute inset-0 z-0">
           <img
             src={ARTIST_DATA.heroImage.src}
@@ -41,55 +40,28 @@ export const Home: React.FC = () => {
           {/* Cinematic Vignette & Edge Fades for pristine text contrast */}
           <div className="absolute inset-0 hero-top-fade pointer-events-none" />
           <div className="absolute inset-0 hero-bottom-fade pointer-events-none" />
-          <div className="absolute inset-0 bg-black/35 pointer-events-none" />
+          <div className="absolute inset-0 bg-black/25 pointer-events-none" />
         </div>
 
-        {/* Minimal Artist Identification Overlay */}
+        {/* Elegant Minimal Line Near Bottom */}
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="max-w-4xl"
+            transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-col sm:flex-row items-center sm:items-end justify-between gap-4 border-t border-white/10 pt-6"
           >
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 border border-white/20 backdrop-blur-md mb-4 text-xs font-sans tracking-widest text-neutral-300">
-              <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-              <span>OFFICIAL ARTIST PORTFOLIO</span>
-            </div>
-
-            <h1 className="font-display text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-bold tracking-cinematic text-white uppercase leading-none drop-shadow-2xl">
-              {ARTIST_DATA.name}
-            </h1>
-
-            <p className="mt-4 md:mt-6 font-display text-base sm:text-xl md:text-2xl tracking-widest text-neutral-300 uppercase">
-              {ARTIST_DATA.descriptor}
+            <p className="font-sans text-xs sm:text-sm md:text-base tracking-[0.25em] text-white uppercase font-light text-center sm:text-left drop-shadow-lg">
+              MUSIC DIRECTOR · PERFORMER · MENTALIST
             </p>
 
-            {/* Quick Actions & Scroll Indicator */}
-            <div className="mt-8 md:mt-10 flex flex-wrap items-center gap-4 sm:gap-6 pt-2">
-              <Link
-                to="/music"
-                className="px-6 py-3 rounded bg-white text-black font-display tracking-widest text-xs sm:text-sm font-semibold hover:bg-neutral-200 transition-colors uppercase inline-flex items-center gap-2"
-              >
-                <span>EXPLORE MUSIC</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </Link>
-
-              <Link
-                to="/biography"
-                className="px-6 py-3 rounded bg-black/70 hover:bg-neutral-900 text-white border border-white/25 hover:border-white/60 font-display tracking-widest text-xs sm:text-sm font-semibold transition-all uppercase inline-flex items-center gap-2 backdrop-blur-md"
-              >
-                <span>BIOGRAPHY</span>
-              </Link>
+            {/* Subtle Scroll Indicator */}
+            <div className="flex items-center gap-2 text-xs font-sans tracking-widest text-neutral-400">
+              <span className="w-5 h-[1px] bg-neutral-600 hidden sm:inline-block" />
+              <span className="uppercase text-[10px] tracking-[0.2em] text-neutral-400">SCROLL</span>
+              <ArrowDown className="w-3.5 h-3.5 text-neutral-400 animate-bounce" />
             </div>
           </motion.div>
-
-          {/* Scroll Indicator */}
-          <div className="mt-12 md:mt-16 flex items-center gap-2 text-xs font-sans tracking-widest text-neutral-400">
-            <span className="w-6 h-[1px] bg-neutral-600" />
-            <span className="uppercase text-[11px]">SCROLL TO EXPLORE</span>
-            <ArrowDown className="w-3.5 h-3.5 text-neutral-400 animate-bounce" />
-          </div>
         </div>
       </section>
 
@@ -176,7 +148,7 @@ export const Home: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {MUSIC_DATA.projects.slice(0, 3).map((project) => (
+            {MUSIC_PAGE_DATA.projects.slice(0, 3).map((project) => (
               <ProjectCard key={project.id} project={project} />
             ))}
           </div>
@@ -198,10 +170,10 @@ export const Home: React.FC = () => {
           <div className="max-w-2xl mx-auto my-8 p-8 md:p-12 rounded-2xl border border-white/10 bg-neutral-900/60 backdrop-blur-md">
             <Calendar className="w-10 h-10 text-neutral-400 mx-auto mb-4" />
             <h3 className="font-display text-xl md:text-2xl font-bold tracking-wider text-white uppercase mb-2">
-              {EVENTS_DATA.emptyStateNotice}
+              {EVENTS_PAGE_CONFIG.stayTunedHeading}
             </h3>
             <p className="text-sm text-neutral-400 font-sans leading-relaxed mb-6">
-              {EVENTS_DATA.emptyStateDescription}
+              {EVENTS_PAGE_CONFIG.stayTunedMessage}
             </p>
             <Link
               to="/contact"
@@ -218,12 +190,11 @@ export const Home: React.FC = () => {
       {/* 5. MENTALISM PREVIEW (COMING SOON)                        */}
       {/* ========================================================= */}
       <section className="py-24 md:py-32 border-t border-white/10 bg-black relative overflow-hidden">
-        <div className="max-w-5xl mx-auto px-6 md:px-12 text-center flex flex-col items-center relative z-10">
-          <div className="w-12 h-12 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-white mb-6">
-            <Eye className="w-5 h-5 text-neutral-300" />
-          </div>
+        {/* Subtle stage spotlight atmospheric lighting */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-gradient-to-b from-white/10 via-white/5 to-transparent blur-3xl pointer-events-none" />
 
-          <span className="text-xs font-sans tracking-widest text-neutral-400 uppercase mb-3">
+        <div className="max-w-5xl mx-auto px-6 md:px-12 text-center flex flex-col items-center relative z-10">
+          <span className="text-xs font-sans tracking-[0.25em] text-neutral-400 uppercase mb-4">
             STAGE ILLUSION & PSYCHOLOGICAL ART
           </span>
 
@@ -236,7 +207,7 @@ export const Home: React.FC = () => {
           </div>
 
           <p className="text-sm md:text-base text-neutral-400 font-sans max-w-xl leading-relaxed mb-8">
-            A theatrical exploration of thought perception, telepathic illusion, and mind-reading performance art. Stay tuned for dates and tour announcements.
+            An enigmatic theatrical exploration of thought perception, telepathic illusion, and mind-reading performance art.
           </p>
 
           <Link
@@ -250,27 +221,64 @@ export const Home: React.FC = () => {
       </section>
 
       {/* ========================================================= */}
-      {/* 6. GALLERY PREVIEW                                        */}
+      {/* 6. GALLERY PREVIEW (EXACTLY THREE IMAGES)                 */}
       {/* ========================================================= */}
       <section className="py-24 md:py-32 border-t border-white/10 bg-neutral-950">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-6">
-            <SectionHeading
-              tag="VISUAL ARCHIVE"
-              title="STAGE & PORTRAIT GALLERY"
-              subtitle="Moments captured across concerts, recording sessions, and live performance art."
-              className="mb-0"
-            />
+          <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
+            <span className="text-xs font-sans tracking-widest text-neutral-400 uppercase block mb-3">
+              VISUAL ARCHIVE
+            </span>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-cinematic text-white uppercase mb-4">
+              STAGE & PORTRAIT GALLERY
+            </h2>
+            <p className="text-sm text-neutral-400 font-sans">
+              Moments captured across concerts, live keytar performances, and promotional captures.
+            </p>
+          </div>
+
+          {/* Exactly 3 uniform 4:3 images */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            {GALLERY_ITEMS.slice(0, 3).map((item) => (
+              <Link
+                key={item.id}
+                to="/gallery"
+                className="group block relative aspect-[4/3] rounded-xl overflow-hidden bg-neutral-900 border border-white/10 hover:border-white/30 transition-all duration-300"
+              >
+                <img
+                  src={item.src}
+                  alt={item.alt}
+                  loading="lazy"
+                  onError={(e) => {
+                    if (e.currentTarget.src !== item.fallbackSrc) {
+                      e.currentTarget.src = item.fallbackSrc;
+                    }
+                  }}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-300" />
+                <div className="absolute bottom-0 left-0 w-full p-5 text-white">
+                  <span className="text-[10px] font-sans tracking-widest text-neutral-400 uppercase block mb-1">
+                    {item.category}
+                  </span>
+                  <h3 className="font-display text-base sm:text-lg font-bold tracking-wider uppercase truncate">
+                    {item.title}
+                  </h3>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          {/* Centered VIEW MORE Button */}
+          <div className="mt-12 md:mt-16 text-center">
             <Link
               to="/gallery"
-              className="inline-flex items-center gap-2 text-xs font-display tracking-widest text-neutral-300 hover:text-white uppercase shrink-0 py-2"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded bg-white text-black font-display tracking-widest text-xs font-bold uppercase hover:bg-neutral-200 transition-colors shadow-lg"
             >
-              <span>VIEW FULL GALLERY</span>
+              <span>VIEW MORE</span>
               <ArrowUpRight className="w-4 h-4" />
             </Link>
           </div>
-
-          <GalleryGrid items={GALLERY_ITEMS.slice(0, 4)} enableFiltering={false} />
         </div>
       </section>
 

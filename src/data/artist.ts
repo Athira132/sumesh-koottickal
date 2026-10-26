@@ -36,6 +36,12 @@ export interface ArtistInfo {
     alt: string;
     title: string;
   };
+  pageHeroImage: {
+    src: string;
+    fallbackSrc: string;
+    alt: string;
+    title: string;
+  };
 }
 
 export const ARTIST_DATA: ArtistInfo = {
@@ -73,5 +79,11 @@ export const ARTIST_DATA: ArtistInfo = {
     fallbackSrc: "https://i.ibb.co/q3SFWrKF/Electric-Blue-Keytar-Performance.png",
     alt: "Sumesh Koottickal performing live with custom electric blue keytar",
     title: "Electric Blue Keytar Live Performance"
+  },
+  pageHeroImage: {
+    src: "/images/page-hero.jpg",
+    fallbackSrc: "https://i.ibb.co/DPwR983z/image.png",
+    alt: "Sumesh Koottickal stage lighting atmospheric hero banner",
+    title: "Sumesh Koottickal Stage Atmospheric Banner"
   }
 };
