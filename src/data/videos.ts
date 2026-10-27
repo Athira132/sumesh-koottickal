@@ -26,8 +26,8 @@ export const VIDEO_ITEMS: VideoItem[] = [
   },
   {
     id: 'video-4',
-    youtubeId: '9lTHRPhr6PI',
-    youtubeUrl: 'https://www.youtube.com/embed/9lTHRPhr6PI',
+    youtubeId: 'dg_GBq7O1-o',
+    youtubeUrl: 'https://www.youtube.com/embed/dg_GBq7O1-o',
   },
   {
     id: 'video-5',

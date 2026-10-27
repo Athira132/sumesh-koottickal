@@ -26,6 +26,24 @@ export interface BiographyData {
     alt: string;
     caption: string;
   };
+  keyAchievements: {
+    cinemaDirection: {
+      film: string;
+      year?: string;
+      details: string;
+    }[];
+    theevraBand: {
+      name: string;
+      description: string;
+      image: string;
+      alt: string;
+    };
+    notableSingles: string[];
+    stagePerformances: {
+      event: string;
+      type: string;
+    }[];
+  };
 }
 
 export const BIOGRAPHY_DATA: BiographyData = {
@@ -102,5 +120,53 @@ export const BIOGRAPHY_DATA: BiographyData = {
     fallbackSrc: "https://i.ibb.co/ZR4TCXkh/dd93e88d-f105-43d1-af6d-b5d7a29ba1c3.jpg",
     alt: "Sumesh Koottickal formal artist portrait",
     caption: "Sumesh Koottickal — Music Director, Performer, and Mentalist"
+  },
+  keyAchievements: {
+    cinemaDirection: [
+      {
+        film: "Vishudha Pusthakam",
+        year: "2019",
+        details: "Music direction and film score composition for the Malayalam feature film."
+      },
+      {
+        film: "Mr. Hacker",
+        details: "Music direction and composition, including the notable songs 'Manjuthulli Pole' and 'Chankinu Chanke'."
+      }
+    ],
+    theevraBand: {
+      name: "Theevra",
+      description: "Association with Theevra, a musical group known for live performances and keytar-driven fusion music.",
+      image: "/images/theevra-band.jpg",
+      alt: "Theevra band"
+    },
+    notableSingles: [
+      "Ore Oru Rajavu Messi",
+      "Swargam Thurannu Nee Irangeedane",
+      "Kalyani",
+      "Amsham",
+      "Nishani"
+    ],
+    stagePerformances: [
+      {
+        event: "5th Anand TV Film Awards",
+        type: "Featured Performance"
+      },
+      {
+        event: "ZEPHYR 2025",
+        type: "Live Concert Appearance"
+      },
+      {
+        event: "Star and Success Awards 2025",
+        type: "Event Appearance & Performance"
+      },
+      {
+        event: "Asian Paints Darbar Awards 2023",
+        type: "Stage Performance"
+      },
+      {
+        event: "CSM Community Social Marketing Grand Achievers Award Ceremony 2026",
+        type: "Event Performance Participation"
+      }
+    ]
   }
 };

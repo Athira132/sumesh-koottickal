@@ -44,13 +44,10 @@ export const Gallery: React.FC = () => {
           <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
             <h2
               id="videos-heading"
-              className="font-display text-2xl sm:text-3xl md:text-4xl font-bold tracking-cinematic text-white uppercase mb-2"
+              className="font-display text-2xl sm:text-3xl md:text-4xl font-bold tracking-cinematic text-white uppercase"
             >
-              {VIDEO_SECTION_CONFIG.heading}
+              VIDEOS
             </h2>
-            <p className="text-xs sm:text-sm font-sans tracking-widest text-neutral-400 uppercase">
-              {VIDEO_SECTION_CONFIG.subtitle}
-            </p>
           </div>
 
           {/* Uniform 16:9 Video Grid */}

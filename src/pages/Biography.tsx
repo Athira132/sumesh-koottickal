@@ -106,69 +106,120 @@ export const Biography: React.FC = () => {
             </div>
           </div>
 
-          {/* Career & Achievements Section */}
+          {/* Key Achievements & Career Highlights Section */}
           <div className="py-16 border-t border-white/10">
             <SectionHeading
-              tag="CHRONOLOGY"
-              title="CAREER & ACHIEVEMENTS"
-              subtitle="Verifiable artistic milestones in music direction, recordings, and performance."
+              tag="CAREER RECORD"
+              title="KEY ACHIEVEMENTS & CAREER HIGHLIGHTS"
+              subtitle="Curated film music direction, band collaborations, notable releases, and performance highlights."
             />
 
-            <div className="space-y-6">
-              {BIOGRAPHY_DATA.careerMilestones.map((milestone, idx) => (
-                <div
-                  key={idx}
-                  className="p-6 md:p-8 rounded-xl bg-surface-card border border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-6 hover:border-white/25 transition-all"
-                >
-                  <div className="flex items-start md:items-center gap-6">
-                    <span className="w-16 h-16 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center font-display text-lg text-white font-bold shrink-0">
-                      {milestone.year}
-                    </span>
-                    <div>
-                      <span className="text-xs font-sans tracking-widest text-neutral-400 uppercase block mb-1">
-                        {milestone.role}
+            {/* Subsection 1: Music Direction in Malayalam Cinema */}
+            <div className="mb-14">
+              <h3 className="text-xs font-sans tracking-[0.2em] text-neutral-400 uppercase mb-6 flex items-center gap-3">
+                <span className="w-6 h-[1px] bg-white/20" />
+                <span>MUSIC DIRECTION IN MALAYALAM CINEMA</span>
+              </h3>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {BIOGRAPHY_DATA.keyAchievements.cinemaDirection.map((item, idx) => (
+                  <div
+                    key={idx}
+                    className="p-6 md:p-8 rounded-xl bg-surface-card border border-white/10 hover:border-white/25 transition-all"
+                  >
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-xs font-sans tracking-widest text-neutral-400 uppercase">
+                        FEATURE FILM
                       </span>
-                      <h3 className="font-display text-xl md:text-2xl font-bold tracking-wider text-white uppercase">
-                        {milestone.title}
-                      </h3>
-                      <p className="text-sm text-neutral-300 font-sans mt-2 max-w-3xl leading-relaxed">
-                        {milestone.description}
-                      </p>
+                      {item.year && <span className="font-mono text-xs text-neutral-400">{item.year}</span>}
                     </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Selected Verified Works Section */}
-          <div className="py-16 border-t border-white/10">
-            <SectionHeading
-              tag="SELECTED WORKS"
-              title="NOTABLE COMPOSITIONS"
-              subtitle="Verified highlights from Malayalam cinema releases and studio recordings."
-            />
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {BIOGRAPHY_DATA.verifiedWorks.map((work, idx) => (
-                <div
-                  key={idx}
-                  className="p-6 rounded-xl bg-neutral-950 border border-white/10 flex flex-col justify-between"
-                >
-                  <div>
-                    <div className="flex items-center justify-between mb-3 text-xs text-neutral-400 font-sans">
-                      <span className="uppercase tracking-widest">{work.category}</span>
-                      {work.year && <span className="font-mono">{work.year}</span>}
-                    </div>
-                    <h3 className="font-display text-lg font-bold tracking-wider text-white uppercase mb-2">
-                      {work.title}
-                    </h3>
-                    <p className="text-xs text-neutral-400 font-sans leading-relaxed">
-                      {work.details}
+                    <h4 className="font-display text-xl md:text-2xl font-bold tracking-wider text-white uppercase mb-2">
+                      {item.film}
+                    </h4>
+                    <p className="text-sm text-neutral-300 font-sans leading-relaxed">
+                      {item.details}
                     </p>
                   </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Subsection 2: Theevra Band */}
+            <div className="mb-14">
+              <h3 className="text-xs font-sans tracking-[0.2em] text-neutral-400 uppercase mb-6 flex items-center gap-3">
+                <span className="w-6 h-[1px] bg-white/20" />
+                <span>THEEVRA BAND</span>
+              </h3>
+
+              <div className="p-6 md:p-8 rounded-xl bg-surface-card border border-white/10 hover:border-white/25 transition-all grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                <div className="md:col-span-5 aspect-[4/3] rounded-lg overflow-hidden bg-neutral-900 border border-white/10">
+                  <img
+                    src={BIOGRAPHY_DATA.keyAchievements.theevraBand.image}
+                    alt={BIOGRAPHY_DATA.keyAchievements.theevraBand.alt}
+                    loading="lazy"
+                    className="w-full h-full object-cover select-none"
+                  />
                 </div>
-              ))}
+                <div className="md:col-span-7 flex flex-col justify-center">
+                  <span className="text-xs font-sans tracking-widest text-neutral-400 uppercase mb-2">
+                    LIVE FUSION ENSEMBLE
+                  </span>
+                  <h4 className="font-display text-2xl sm:text-3xl font-bold tracking-wider text-white uppercase mb-4">
+                    {BIOGRAPHY_DATA.keyAchievements.theevraBand.name}
+                  </h4>
+                  <p className="text-sm sm:text-base text-neutral-300 font-sans leading-relaxed">
+                    {BIOGRAPHY_DATA.keyAchievements.theevraBand.description}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Subsection 3: Notable Singles and Albums */}
+            <div className="mb-14">
+              <h3 className="text-xs font-sans tracking-[0.2em] text-neutral-400 uppercase mb-6 flex items-center gap-3">
+                <span className="w-6 h-[1px] bg-white/20" />
+                <span>NOTABLE SINGLES AND ALBUMS</span>
+              </h3>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                {BIOGRAPHY_DATA.keyAchievements.notableSingles.map((single, idx) => (
+                  <div
+                    key={idx}
+                    className="p-5 rounded-xl bg-surface-card border border-white/10 hover:border-white/25 transition-all flex flex-col justify-between"
+                  >
+                    <span className="text-[10px] font-mono text-neutral-400 mb-2 block">
+                      TRACK 0{idx + 1}
+                    </span>
+                    <h4 className="font-display text-base font-bold tracking-wide text-white uppercase leading-snug">
+                      {single}
+                    </h4>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Subsection 4: Stage and Award Performances */}
+            <div>
+              <h3 className="text-xs font-sans tracking-[0.2em] text-neutral-400 uppercase mb-6 flex items-center gap-3">
+                <span className="w-6 h-[1px] bg-white/20" />
+                <span>STAGE AND AWARD PERFORMANCES</span>
+              </h3>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {BIOGRAPHY_DATA.keyAchievements.stagePerformances.map((perf, idx) => (
+                  <div
+                    key={idx}
+                    className="p-6 rounded-xl bg-surface-card border border-white/10 hover:border-white/25 transition-all flex flex-col justify-between"
+                  >
+                    <span className="text-xs font-sans tracking-widest text-neutral-400 uppercase mb-2 block">
+                      {perf.type}
+                    </span>
+                    <h4 className="font-display text-lg font-bold tracking-wider text-white uppercase">
+                      {perf.event}
+                    </h4>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 

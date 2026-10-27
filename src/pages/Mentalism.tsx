@@ -1,98 +1,76 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 export const Mentalism: React.FC = () => {
   useEffect(() => {
-    document.title = 'Mentalism — Sumesh Koottickal | Something Extraordinary Is Coming';
+    document.title = 'Mentalism — Sumesh Koottickal | Something Big Is Coming';
   }, []);
 
   return (
-    <main
-      className="relative w-full min-h-screen bg-black text-white flex flex-col items-center justify-center px-6 py-32 overflow-hidden select-none"
-      aria-label="Mentalism Announcement"
-    >
+    <div className="w-full bg-black text-white select-none">
       {/* ========================================================= */}
-      {/* THEATRICAL STAGE ATMOSPHERE (MONOCHROME LIGHTING & HAZE)   */}
+      {/* 1. DEDICATED HERO BANNER (FIRST SECTION VISITORS SEE)     */}
       {/* ========================================================= */}
-      {/* Deep dark backdrop with vignette */}
-      <div className="absolute inset-0 bg-radial-gradient pointer-events-none" />
-
-      {/* Narrow Overhead Theatrical Spotlight Beam */}
-      <div
-        className="absolute -top-24 left-1/2 -translate-x-1/2 w-[320px] sm:w-[480px] md:w-[620px] h-[90vh] pointer-events-none opacity-40 mix-blend-screen"
-        style={{
-          background:
-            'conic-gradient(from 180deg at 50% 0%, rgba(255,255,255,0.35) 0deg, rgba(255,255,255,0.08) 18deg, transparent 38deg, transparent 322deg, rgba(255,255,255,0.08) 342deg, rgba(255,255,255,0.35) 360deg)',
-          filter: 'blur(28px)',
-        }}
-      />
-
-      {/* Atmospheric Stage Haze Floor Glow */}
-      <div
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] sm:w-[1000px] h-[340px] pointer-events-none opacity-25"
-        style={{
-          background:
-            'radial-gradient(ellipse at 50% 100%, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.05) 45%, transparent 75%)',
-          filter: 'blur(40px)',
-        }}
-      />
-
-      {/* Abstract Stage Silhouette Backdrop Illusion */}
-      <div
-        aria-hidden="true"
-        className="absolute bottom-16 left-1/2 -translate-x-1/2 w-48 sm:w-64 h-72 sm:h-96 pointer-events-none opacity-20 flex items-end justify-center"
+      <section
+        className="relative w-full h-[40vh] min-h-[300px] md:h-[48vh] md:min-h-[380px] flex items-center justify-center overflow-hidden border-b border-white/10"
+        aria-label="Mentalism Dedicated Hero Banner"
       >
-        <div className="w-24 sm:w-32 h-64 sm:h-80 bg-neutral-900 rounded-t-full filter blur-xl transform scale-y-110" />
-      </div>
-
-      {/* Ambient Deep Vignette Edge Shadows */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/80 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black pointer-events-none" />
-
-      {/* ========================================================= */}
-      {/* PROMINENT MESSAGE CONTENT (NO EYE ICONS)                  */}
-      {/* ========================================================= */}
-      <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col items-center"
-        >
-          {/* Prominent Message 1: SOMETHING EXTRAORDINARY IS COMING. */}
-          <h1 className="font-display text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-cinematic text-white uppercase leading-[1.05] drop-shadow-2xl">
-            SOMETHING EXTRAORDINARY
-            <br />
-            <span className="text-neutral-300">IS COMING.</span>
-          </h1>
-
-          {/* Minimal Divider Line */}
-          <motion.div
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 1.4, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="w-20 sm:w-28 h-[1px] bg-white/30 my-8 sm:my-12 origin-center"
+        {/* Mysterious, Cinematic Atmosphere (No Face, No Eye Icon, No Homepage Hero Image) */}
+        <div className="absolute inset-0 z-0 bg-neutral-950">
+          {/* Subtle Ambient Radial Lighting & Stage Vignette */}
+          <div
+            className="absolute inset-0 pointer-events-none opacity-40"
+            style={{
+              background:
+                'radial-gradient(ellipse at 50% 40%, rgba(255, 255, 255, 0.16) 0%, rgba(20, 20, 20, 0.75) 60%, #000 100%)',
+            }}
           />
 
-          {/* Prominent Message 2: MENTALISM — COMING SOON. */}
-          <h2 className="font-display text-base sm:text-xl md:text-2xl lg:text-3xl tracking-[0.25em] text-neutral-200 uppercase font-medium">
-            MENTALISM — COMING SOON.
-          </h2>
+          {/* Narrow Overhead Theatrical Mystery Spotlight Beam */}
+          <div
+            className="absolute -top-20 left-1/2 -translate-x-1/2 w-[320px] sm:w-[500px] md:w-[640px] h-[120%] pointer-events-none opacity-30 mix-blend-screen"
+            style={{
+              background:
+                'conic-gradient(from 180deg at 50% 0%, rgba(255,255,255,0.4) 0deg, rgba(255,255,255,0.06) 16deg, transparent 34deg, transparent 326deg, rgba(255,255,255,0.06) 344deg, rgba(255,255,255,0.4) 360deg)',
+              filter: 'blur(32px)',
+            }}
+          />
 
-          {/* Contact Enquiry Action */}
-          <div className="mt-12 sm:mt-16">
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded border border-white/20 bg-black/60 hover:bg-white text-white hover:text-black font-display tracking-widest text-xs font-semibold uppercase transition-all duration-300 backdrop-blur-md shadow-2xl"
-            >
-              <span>ENQUIRE FOR PREVIEW SHOWS</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </Link>
-          </div>
-        </motion.div>
-      </div>
-    </main>
+          {/* Deep Vignette Edge Shadows */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/80 pointer-events-none" />
+        </div>
+
+        {/* Hero Title: MENTALISM */}
+        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center justify-center">
+          <motion.h1
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-cinematic text-white uppercase drop-shadow-2xl"
+          >
+            MENTALISM
+          </motion.h1>
+        </div>
+      </section>
+
+      {/* ========================================================= */}
+      {/* 2. BODY SECTION (ONLY SHORT MESSAGE: SOMETHING BIG IS COMING.) */}
+      {/* ========================================================= */}
+      <section
+        className="w-full min-h-[48vh] flex flex-col items-center justify-center px-6 py-24 md:py-36 text-center"
+        aria-label="Mentalism Announcement"
+      >
+        <div className="max-w-4xl mx-auto flex flex-col items-center">
+          <motion.h2
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-cinematic text-white uppercase leading-tight"
+          >
+            SOMETHING BIG IS COMING.
+          </motion.h2>
+        </div>
+      </section>
+    </div>
   );
 };

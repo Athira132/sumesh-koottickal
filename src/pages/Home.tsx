@@ -20,7 +20,7 @@ export const Home: React.FC = () => {
         className="relative w-full h-screen min-h-[600px] flex flex-col justify-end overflow-hidden pb-10 sm:pb-14"
         aria-label="Sumesh Koottickal Main Hero"
       >
-        {/* Background Main Hero Photograph */}
+        {/* Background Main Hero Photograph — Bright, Crisp & Clear */}
         <div className="absolute inset-0 z-0">
           <img
             src={ARTIST_DATA.heroImage.src}
@@ -30,13 +30,14 @@ export const Home: React.FC = () => {
                 e.currentTarget.src = ARTIST_DATA.heroImage.fallbackSrc;
               }
             }}
-            className="w-full h-full object-cover object-center select-none"
+            className="w-full h-full object-cover object-[center_30%] select-none"
           />
 
-          {/* Cinematic Vignette & Edge Fades */}
-          <div className="absolute inset-0 hero-top-fade pointer-events-none" />
-          <div className="absolute inset-0 hero-bottom-fade pointer-events-none" />
-          <div className="absolute inset-0 bg-black/35 pointer-events-none" />
+          {/* Ultra-subtle header shadow solely for navbar contrast */}
+          <div className="absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-black/45 to-transparent pointer-events-none" />
+          
+          {/* Subtle bottom edge gradient solely behind the tagline */}
+          <div className="absolute bottom-0 inset-x-0 h-28 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
         </div>
 
         {/* Elegant Minimal Line Near Bottom */}
