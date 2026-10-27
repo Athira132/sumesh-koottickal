@@ -86,14 +86,14 @@ export const Header: React.FC = () => {
             : 'bg-black/60 sm:bg-transparent backdrop-blur-sm sm:backdrop-blur-none py-3.5 sm:py-6'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-3.5 sm:px-6 md:px-12 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-2.5 xs:px-4 sm:px-6 md:px-12 flex items-center justify-between">
           {/* Artist Wordmark */}
           <Link
             to="/"
-            className="group flex flex-col focus:outline-none focus:ring-1 focus:ring-white/40 rounded shrink-0 mr-2"
+            className="group flex flex-col focus:outline-none focus:ring-1 focus:ring-white/40 rounded shrink-0 mr-1.5 sm:mr-2"
             aria-label="Sumesh Koottickal Homepage"
           >
-            <span className="font-display text-sm sm:text-lg md:text-2xl font-bold tracking-wider sm:tracking-cinematic text-white group-hover:text-neutral-300 transition-colors whitespace-nowrap">
+            <span className="font-display text-xs xs:text-sm sm:text-lg md:text-2xl font-bold tracking-wider sm:tracking-cinematic text-white group-hover:text-neutral-300 transition-colors whitespace-nowrap">
               {ARTIST_DATA.name}
             </span>
             <span className="text-[10px] md:text-xs text-neutral-400 font-sans tracking-widest hidden sm:block">
@@ -102,14 +102,14 @@ export const Header: React.FC = () => {
           </Link>
 
           {/* Right Controls: Social Icons & Hamburger */}
-          <div className="flex items-center gap-2 sm:gap-4 md:gap-6 shrink-0">
-            {/* Social Media Icons (visible on tablet and desktop, drawer provides full access on mobile) */}
-            <div className="hidden sm:flex items-center gap-1.5 sm:gap-2.5">
+          <div className="flex items-center gap-1.5 xs:gap-2 sm:gap-4 md:gap-6 shrink-0">
+            {/* Social Media Icons (always visible beside hamburger on mobile and desktop) */}
+            <div className="flex items-center gap-1 xs:gap-1.5 sm:gap-2.5">
               <a
                 href={ARTIST_DATA.socials.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-white/15 bg-black/60 hover:bg-white hover:text-black text-white flex items-center justify-center transition-all duration-200 focus:outline-none focus:ring-1 focus:ring-white"
+                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-white/20 bg-black/60 hover:bg-white hover:text-black text-white flex items-center justify-center transition-all duration-200 focus:outline-none focus:ring-1 focus:ring-white shrink-0"
                 aria-label="Visit Sumesh Koottickal Instagram"
               >
                 <InstagramIcon className="w-3.5 h-3.5" />
@@ -119,7 +119,7 @@ export const Header: React.FC = () => {
                 href={ARTIST_DATA.socials.youtube}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-white/15 bg-black/60 hover:bg-white hover:text-black text-white flex items-center justify-center transition-all duration-200 focus:outline-none focus:ring-1 focus:ring-white"
+                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-white/20 bg-black/60 hover:bg-white hover:text-black text-white flex items-center justify-center transition-all duration-200 focus:outline-none focus:ring-1 focus:ring-white shrink-0"
                 aria-label="Visit Sumesh Koottickal YouTube"
               >
                 <YoutubeIcon className="w-3.5 h-3.5" />
@@ -129,7 +129,7 @@ export const Header: React.FC = () => {
                 href={ARTIST_DATA.socials.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-white/15 bg-black/60 hover:bg-white hover:text-black text-white flex items-center justify-center transition-all duration-200 focus:outline-none focus:ring-1 focus:ring-white"
+                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-white/20 bg-black/60 hover:bg-white hover:text-black text-white flex items-center justify-center transition-all duration-200 focus:outline-none focus:ring-1 focus:ring-white shrink-0"
                 aria-label="Visit Sumesh Koottickal Facebook"
               >
                 <FacebookIcon className="w-3.5 h-3.5" />
@@ -139,7 +139,7 @@ export const Header: React.FC = () => {
             {/* Hamburger Toggle Button (Desktop & Mobile) */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="group flex items-center gap-2 px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-full border border-white/20 bg-black/80 hover:border-white/50 hover:bg-neutral-900 transition-all focus:outline-none focus:ring-2 focus:ring-white/60 cursor-pointer shrink-0"
+              className="group flex items-center gap-1.5 sm:gap-2 px-2 py-1.5 sm:px-4 sm:py-2 rounded-full border border-white/20 bg-black/80 hover:border-white/50 hover:bg-neutral-900 transition-all focus:outline-none focus:ring-2 focus:ring-white/60 cursor-pointer shrink-0"
               aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
               aria-expanded={isOpen}
             >

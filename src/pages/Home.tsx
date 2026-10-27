@@ -19,10 +19,11 @@ export const Home: React.FC = () => {
       />
 
       {/* ========================================================= */}
-      {/* 1. HOMEPAGE HERO (OVERLAID BUTTONS & TAGLINE ON MOBILE)    */}
+      {/* 1. HOMEPAGE HERO (~72-74% VIEWPORT HEIGHT ON MOBILE)      */}
       {/* ========================================================= */}
       <section
-        className="relative w-full h-[90vh] min-h-[580px] max-h-[820px] md:h-screen md:min-h-[600px] md:max-h-none flex flex-col justify-end overflow-hidden pb-6 sm:pb-8 md:pb-14"
+        className="relative w-full h-[72vh] min-h-[440px] max-h-[640px] md:h-screen md:min-h-[600px] md:max-h-none flex flex-col justify-end overflow-hidden pb-4 sm:pb-6 md:pb-14"
+        style={{ height: 'min(74dvh, 640px)' }}
         aria-label="Sumesh Koottickal Main Hero"
       >
         {/* Hero Photograph: Uses vertical mobile poster on mobile (<768px), wide landscape banner on desktop (>=768px) */}
@@ -46,7 +47,7 @@ export const Home: React.FC = () => {
                   e.currentTarget.src = ARTIST_DATA.heroImage.fallbackSrc;
                 }
               }}
-              className="w-full h-full object-cover object-[center_15%] md:object-[center_30%] select-none block"
+              className="w-full h-full object-cover object-top md:object-[center_30%] select-none block"
             />
           </picture>
 
@@ -54,40 +55,40 @@ export const Home: React.FC = () => {
           <div className="absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-black/60 to-transparent pointer-events-none" />
 
           {/* Subtle bottom gradient ensuring high contrast for tagline & buttons directly on top of photograph */}
-          <div className="absolute bottom-0 inset-x-0 h-64 sm:h-72 bg-gradient-to-t from-black/95 via-black/55 to-transparent pointer-events-none" />
+          <div className="absolute bottom-0 inset-x-0 h-48 sm:h-64 bg-gradient-to-t from-black/95 via-black/60 to-transparent pointer-events-none" />
         </div>
 
         {/* Hero Content: Bold Tagline & Action Buttons Directly Overlaid on Hero Image */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-12 w-full">
+        <div className="relative z-10 max-w-7xl mx-auto px-3.5 sm:px-6 md:px-12 w-full">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col md:flex-row items-start md:items-end justify-between gap-4 sm:gap-6 border-t border-white/15 pt-4 sm:pt-6 pb-1"
+            className="flex flex-col md:flex-row items-start md:items-end justify-between gap-3 sm:gap-6 border-t border-white/15 pt-3 sm:pt-6 pb-0.5 sm:pb-1"
           >
             {/* Left: Tagline + Two Action Buttons Overlaid Directly on Photograph */}
-            <div className="flex flex-col gap-3 max-w-2xl w-full">
-              <h1 className="font-sans text-xs sm:text-base md:text-lg lg:text-xl font-bold tracking-[0.16em] sm:tracking-[0.22em] text-white uppercase text-left drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
+            <div className="flex flex-col gap-2.5 sm:gap-3 max-w-2xl w-full">
+              <h1 className="font-sans text-[11px] xs:text-xs sm:text-base md:text-lg lg:text-xl font-bold tracking-[0.14em] sm:tracking-[0.22em] text-white uppercase text-left drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
                 <span className="sr-only">Sumesh Koottickal — </span>
                 MUSIC DIRECTOR · PERFORMER · MENTALIST
               </h1>
 
               {/* Two Action Buttons Directly Over the Hero Banner */}
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-4 pt-1 w-full sm:w-auto">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-4 pt-0.5 w-full sm:w-auto">
                 <Link
                   to="/biography"
-                  className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded bg-white text-black font-display tracking-widest text-xs sm:text-sm font-bold uppercase hover:bg-neutral-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black transition-all duration-200 shadow-2xl"
+                  className="inline-flex items-center justify-center gap-2 px-5 sm:px-7 py-2.5 sm:py-3 rounded bg-white text-black font-display tracking-widest text-xs sm:text-sm font-bold uppercase hover:bg-neutral-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black transition-all duration-200 shadow-2xl"
                 >
                   <span>VISIT BIOGRAPHY</span>
-                  <ArrowUpRight className="w-4 h-4" />
+                  <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </Link>
 
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded border-2 border-white bg-black/75 backdrop-blur-sm text-white font-display tracking-widest text-xs sm:text-sm font-bold uppercase hover:bg-white hover:text-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black transition-all duration-200 shadow-2xl"
+                  className="inline-flex items-center justify-center gap-2 px-5 sm:px-7 py-2.5 sm:py-3 rounded border-2 border-white bg-black/75 backdrop-blur-sm text-white font-display tracking-widest text-xs sm:text-sm font-bold uppercase hover:bg-white hover:text-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black transition-all duration-200 shadow-2xl"
                 >
                   <span>CONTACT ME</span>
-                  <ArrowUpRight className="w-4 h-4" />
+                  <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </Link>
               </div>
             </div>
@@ -105,7 +106,7 @@ export const Home: React.FC = () => {
       {/* ========================================================= */}
       {/* 2. BRIEF ARTIST INTRODUCTION                              */}
       {/* ========================================================= */}
-      <section className="py-16 md:py-28 border-t border-white/10 bg-neutral-950">
+      <section className="py-12 sm:py-16 md:py-28 border-t border-white/10 bg-neutral-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
             {/* Portrait column */}
