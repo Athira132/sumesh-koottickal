@@ -36,27 +36,49 @@ export const Home: React.FC = () => {
           {/* Ultra-subtle header shadow solely for navbar contrast */}
           <div className="absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-black/45 to-transparent pointer-events-none" />
           
-          {/* Subtle bottom edge gradient solely behind the tagline */}
-          <div className="absolute bottom-0 inset-x-0 h-28 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
+          {/* Subtle bottom edge gradient ensuring high contrast for tagline & buttons */}
+          <div className="absolute bottom-0 inset-x-0 h-44 sm:h-52 bg-gradient-to-t from-black/95 via-black/45 to-transparent pointer-events-none" />
         </div>
 
-        {/* Elegant Minimal Line Near Bottom */}
+        {/* Hero Content: Bold Tagline & Action Buttons */}
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col sm:flex-row items-center sm:items-end justify-between gap-4 border-t border-white/10 pt-6"
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 border-t border-white/15 pt-6 pb-2"
           >
-            <p className="font-sans text-xs sm:text-sm md:text-base tracking-[0.25em] text-white uppercase font-light text-center sm:text-left drop-shadow-lg">
-              MUSIC DIRECTOR · PERFORMER · MENTALIST
-            </p>
+            {/* Left: Tagline + Two Action Buttons */}
+            <div className="flex flex-col gap-3.5 max-w-2xl w-full">
+              <p className="font-sans text-sm sm:text-base md:text-lg lg:text-xl font-bold tracking-[0.22em] text-white uppercase text-left drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
+                MUSIC DIRECTOR · PERFORMER · MENTALIST
+              </p>
 
-            {/* Subtle Scroll Indicator */}
-            <div className="flex items-center gap-2 text-xs font-sans tracking-widest text-neutral-400">
-              <span className="w-5 h-[1px] bg-neutral-600 hidden sm:inline-block" />
-              <span className="uppercase text-[10px] tracking-[0.2em] text-neutral-400">SCROLL</span>
-              <ArrowDown className="w-3.5 h-3.5 text-neutral-400 animate-bounce" />
+              {/* Two Prominent Action Buttons */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-1 w-full sm:w-auto">
+                <Link
+                  to="/biography"
+                  className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded bg-white text-black font-display tracking-widest text-xs sm:text-sm font-bold uppercase hover:bg-neutral-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black transition-all duration-200 shadow-xl"
+                >
+                  <span>VISIT BIOGRAPHY</span>
+                  <ArrowUpRight className="w-4 h-4" />
+                </Link>
+
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded border-2 border-white bg-black/75 backdrop-blur-sm text-white font-display tracking-widest text-xs sm:text-sm font-bold uppercase hover:bg-white hover:text-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black transition-all duration-200 shadow-xl"
+                >
+                  <span>CONTACT ME</span>
+                  <ArrowUpRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Right: Subtle Scroll Indicator (Desktop) */}
+            <div className="hidden md:flex items-center gap-2 text-xs font-sans tracking-widest text-neutral-300 shrink-0">
+              <span className="w-6 h-[1px] bg-neutral-500 inline-block" />
+              <span className="uppercase text-[10px] tracking-[0.2em] text-neutral-300 font-medium">SCROLL</span>
+              <ArrowDown className="w-3.5 h-3.5 text-neutral-300 animate-bounce" />
             </div>
           </motion.div>
         </div>
