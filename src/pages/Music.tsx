@@ -28,16 +28,16 @@ export const Music: React.FC = () => {
       {/* Standard Reusable Hero Banner */}
       <HeroBanner title={MUSIC_PAGE_DATA.heroTitle} />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-12 sm:py-16 md:py-24">
         {/* ========================================================= */}
         {/* 1. CLEAN INTRODUCTION SECTION                             */}
         {/* ========================================================= */}
-        <section className="mb-20 md:mb-28 max-w-3xl mx-auto text-center">
+        <section className="mb-16 sm:mb-20 md:mb-28 max-w-3xl mx-auto text-center">
           <span className="text-[11px] font-sans tracking-[0.25em] text-neutral-400 uppercase block mb-3">
             ARTISTIC REPERTOIRE
           </span>
 
-          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold tracking-cinematic text-white uppercase mb-6 leading-tight">
+          <h2 className="font-display text-xl sm:text-3xl md:text-4xl font-bold tracking-wider sm:tracking-cinematic text-white uppercase mb-6 leading-tight">
             {MUSIC_PAGE_DATA.introHeading}
           </h2>
 

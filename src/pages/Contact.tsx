@@ -75,8 +75,8 @@ export const Contact: React.FC = () => {
       {/* Standard Reusable Hero Banner */}
       <HeroBanner title="CONTACT" />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-20 md:py-32">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-12 sm:py-20 md:py-32">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
           {/* ========================================================= */}
           {/* LEFT: DIRECT CONTACT DETAILS                              */}
           {/* ========================================================= */}
@@ -85,7 +85,7 @@ export const Contact: React.FC = () => {
               <span className="text-xs font-sans tracking-widest text-neutral-400 uppercase block mb-3">
                 DIRECT DETAILS
               </span>
-              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold tracking-wider text-white uppercase mb-6">
+              <h2 className="font-display text-xl sm:text-3xl md:text-4xl font-bold tracking-wider text-white uppercase mb-6">
                 MANAGEMENT & BOOKING DESK
               </h2>
               <p className="text-sm text-neutral-300 font-sans leading-relaxed mb-10">
@@ -219,7 +219,7 @@ export const Contact: React.FC = () => {
           {/* RIGHT: ENQUIRY FORM                                       */}
           {/* ========================================================= */}
           <div className="lg:col-span-7">
-            <div className="p-8 sm:p-10 rounded-2xl bg-surface-card border border-white/10 shadow-2xl">
+            <div className="p-5 sm:p-10 rounded-2xl bg-surface-card border border-white/10 shadow-2xl">
               <span className="text-xs font-sans tracking-widest text-neutral-400 uppercase block mb-2">
                 REACH OUT
               </span>

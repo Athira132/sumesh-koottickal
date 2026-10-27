@@ -19,14 +19,14 @@ export const Home: React.FC = () => {
       />
 
       {/* ========================================================= */}
-      {/* 1. HOMEPAGE HERO (CINEMATIC, MINIMAL, NO OVERSIZED NAME)   */}
+      {/* 1. HOMEPAGE HERO (FULL IMAGE ON MOBILE, DESKTOP UNCHANGED) */}
       {/* ========================================================= */}
       <section
-        className="relative w-full h-screen min-h-[600px] flex flex-col justify-end overflow-hidden pb-10 sm:pb-14"
+        className="relative w-full bg-black flex flex-col justify-start md:justify-end md:h-screen md:min-h-[600px] overflow-hidden pt-20 sm:pt-24 md:pt-0 pb-8 sm:pb-12 md:pb-14"
         aria-label="Sumesh Koottickal Main Hero"
       >
-        {/* Background Main Hero Photograph — Bright, Crisp & Clear */}
-        <div className="absolute inset-0 z-0">
+        {/* Hero Photograph: On Mobile, Full Photograph is Visible (contain, no cropping). On Desktop, Preserves Cover */}
+        <div className="w-full bg-black flex items-center justify-center md:absolute md:inset-0 md:z-0">
           <img
             src={ARTIST_DATA.heroImage.src}
             alt={ARTIST_DATA.heroImage.alt}
@@ -37,27 +37,25 @@ export const Home: React.FC = () => {
                 e.currentTarget.src = ARTIST_DATA.heroImage.fallbackSrc;
               }
             }}
-            className="w-full h-full object-cover object-[center_30%] select-none"
+            className="w-full h-auto max-h-[52vh] md:max-h-none md:h-full object-contain md:object-cover md:object-[center_30%] select-none block"
           />
 
-          {/* Ultra-subtle header shadow solely for navbar contrast */}
-          <div className="absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-black/45 to-transparent pointer-events-none" />
-          
-          {/* Subtle bottom edge gradient ensuring high contrast for tagline & buttons */}
-          <div className="absolute bottom-0 inset-x-0 h-44 sm:h-52 bg-gradient-to-t from-black/95 via-black/45 to-transparent pointer-events-none" />
+          {/* Desktop-only gradients for navbar & bottom contrast (hidden on mobile to keep entire photo crisp & clear) */}
+          <div className="hidden md:block absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-black/45 to-transparent pointer-events-none" />
+          <div className="hidden md:block absolute bottom-0 inset-x-0 h-44 sm:h-52 bg-gradient-to-t from-black/95 via-black/45 to-transparent pointer-events-none" />
         </div>
 
-        {/* Hero Content: Bold Tagline & Action Buttons */}
-        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full">
+        {/* Hero Content: Bold Tagline & Action Buttons (Positioned below photo on mobile, layered at bottom on desktop) */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-12 w-full mt-4 sm:mt-6 md:mt-0">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 border-t border-white/15 pt-6 pb-2"
+            className="flex flex-col md:flex-row items-start md:items-end justify-between gap-5 sm:gap-6 border-t border-white/15 pt-5 sm:pt-6 pb-1"
           >
             {/* Left: Tagline + Two Action Buttons */}
             <div className="flex flex-col gap-3.5 max-w-2xl w-full">
-              <h1 className="font-sans text-sm sm:text-base md:text-lg lg:text-xl font-bold tracking-[0.22em] text-white uppercase text-left drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
+              <h1 className="font-sans text-xs sm:text-base md:text-lg lg:text-xl font-bold tracking-[0.16em] sm:tracking-[0.22em] text-white uppercase text-left drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
                 <span className="sr-only">Sumesh Koottickal — </span>
                 MUSIC DIRECTOR · PERFORMER · MENTALIST
               </h1>
@@ -95,12 +93,12 @@ export const Home: React.FC = () => {
       {/* ========================================================= */}
       {/* 2. BRIEF ARTIST INTRODUCTION                              */}
       {/* ========================================================= */}
-      <section className="py-20 md:py-28 border-t border-white/10 bg-neutral-950">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <section className="py-16 md:py-28 border-t border-white/10 bg-neutral-950">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
             {/* Portrait column */}
             <div className="lg:col-span-5">
-              <div className="relative rounded-2xl overflow-hidden border border-white/15 bg-neutral-900 group aspect-[4/5] shadow-2xl">
+              <div className="relative rounded-2xl overflow-hidden border border-white/15 bg-neutral-900 group aspect-[4/5] shadow-2xl max-w-md mx-auto lg:max-w-none">
                 <img
                   src={BIOGRAPHY_DATA.portrait.src}
                   alt={BIOGRAPHY_DATA.portrait.alt}
@@ -120,7 +118,7 @@ export const Home: React.FC = () => {
               <span className="text-xs font-sans tracking-widest text-neutral-400 uppercase mb-3">
                 MEET THE ARTIST
               </span>
-              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-wide text-white uppercase leading-tight mb-6">
+              <h2 className="font-display text-2xl sm:text-4xl md:text-5xl font-bold tracking-wide text-white uppercase leading-tight mb-6">
                 MUSIC DIRECTION, ELECTRIFYING STAGE PERFORMANCE & MENTALISM
               </h2>
               <p className="text-base sm:text-lg text-neutral-300 font-sans leading-relaxed mb-6">
@@ -130,7 +128,7 @@ export const Home: React.FC = () => {
                 From landmark film vocal collaborations with legendary playback singers to high-energy keytar concerts commanding festival grounds, Sumesh Koottickal presents a singular vision of sound and performance.
               </p>
 
-              <div className="flex flex-wrap items-center gap-4">
+              <div className="flex flex-wrap items-center gap-3 sm:gap-4">
                 <Link
                   to="/biography"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded bg-white text-black font-display tracking-widest text-xs font-bold uppercase hover:bg-neutral-200 transition-colors"
@@ -153,19 +151,19 @@ export const Home: React.FC = () => {
       {/* ========================================================= */}
       {/* 3. GALLERY PREVIEW (EXACTLY THREE IMAGES, NO CAPTIONS)    */}
       {/* ========================================================= */}
-      <section className="py-20 md:py-28 border-t border-white/10 bg-black">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
+      <section className="py-16 md:py-28 border-t border-white/10 bg-black">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
+          <div className="text-center max-w-2xl mx-auto mb-10 md:mb-16">
             <span className="text-xs font-sans tracking-widest text-neutral-400 uppercase block mb-3">
               VISUAL ARCHIVE
             </span>
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-cinematic text-white uppercase mb-4">
+            <h2 className="font-display text-2xl sm:text-4xl md:text-5xl font-bold tracking-wider sm:tracking-cinematic text-white uppercase mb-4">
               GALLERY
             </h2>
           </div>
 
           {/* Exactly 3 uniform 4:3 images without captions, titles, or text overlays */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {GALLERY_ITEMS.slice(0, 3).map((item) => (
               <Link
                 key={item.id}
@@ -189,7 +187,7 @@ export const Home: React.FC = () => {
           </div>
 
           {/* Centered VIEW MORE Button linking to /gallery */}
-          <div className="mt-12 md:mt-16 text-center">
+          <div className="mt-10 md:mt-16 text-center">
             <Link
               to="/gallery"
               className="inline-flex items-center gap-2 px-8 py-3.5 rounded bg-white text-black font-display tracking-widest text-xs font-bold uppercase hover:bg-neutral-200 transition-colors shadow-lg"
@@ -204,18 +202,18 @@ export const Home: React.FC = () => {
       {/* ========================================================= */}
       {/* 4. CONTACT CTA                                            */}
       {/* ========================================================= */}
-      <section className="py-20 md:py-28 border-t border-white/10 bg-neutral-950 text-center">
-        <div className="max-w-4xl mx-auto px-6 flex flex-col items-center">
+      <section className="py-16 md:py-28 border-t border-white/10 bg-neutral-950 text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 flex flex-col items-center">
           <span className="text-xs font-sans tracking-widest text-neutral-400 uppercase mb-3">
             START A CONVERSATION
           </span>
-          <h2 className="font-display text-3xl sm:text-5xl md:text-6xl font-bold tracking-cinematic text-white uppercase mb-6">
+          <h2 className="font-display text-2xl sm:text-5xl md:text-6xl font-bold tracking-wider sm:tracking-cinematic text-white uppercase mb-6 leading-tight">
             COLLABORATE WITH SUMESH KOOTTICKAL
           </h2>
           <p className="text-sm md:text-base text-neutral-400 font-sans max-w-xl mb-8 leading-relaxed">
             For film score commissions, live concert bookings, corporate mentalism performances, and music production partnerships.
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
             <Link
               to="/contact"
               className="px-8 py-3.5 rounded bg-white text-black font-display tracking-widest text-xs font-bold uppercase hover:bg-neutral-200 transition-colors inline-flex items-center gap-2"

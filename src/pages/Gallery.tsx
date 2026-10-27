@@ -27,21 +27,21 @@ export const Gallery: React.FC = () => {
       {/* Standard Reusable Hero Banner */}
       <HeroBanner title="GALLERY" />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-24">
+      <div className="max-w-7xl mx-auto px-3.5 sm:px-6 md:px-12 py-12 sm:py-16 md:py-24">
         {/* ========================================================= */}
         {/* SECTION A: PHOTOGRAPHY (NO CAPTIONS / DESCRIPTIONS)       */}
         {/* ========================================================= */}
-        <section aria-labelledby="photography-heading" className="mb-24 md:mb-32">
-          <div className="text-center max-w-2xl mx-auto mb-10 md:mb-14">
+        <section aria-labelledby="photography-heading" className="mb-20 md:mb-32">
+          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10 md:mb-14">
             <h2
               id="photography-heading"
-              className="font-display text-2xl sm:text-3xl md:text-4xl font-bold tracking-cinematic text-white uppercase mb-3"
+              className="font-display text-xl sm:text-3xl md:text-4xl font-bold tracking-wider sm:tracking-cinematic text-white uppercase mb-3"
             >
               SUMESH KOOTTICKAL GALLERY
             </h2>
           </div>
 
-          {/* Clean Uniform 4:3 Grid without captions or text overlays */}
+          {/* Clean Uniform 4:3 Grid without captions or text overlays — Two Columns on Mobile */}
           <GalleryGrid items={GALLERY_ITEMS} enableFiltering={false} />
         </section>
 
@@ -50,19 +50,19 @@ export const Gallery: React.FC = () => {
         {/* ========================================================= */}
         <section
           aria-labelledby="videos-heading"
-          className="border-t border-white/10 pt-20 md:pt-28"
+          className="border-t border-white/10 pt-16 sm:pt-20 md:pt-28"
         >
-          <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
+          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12 md:mb-16">
             <h2
               id="videos-heading"
-              className="font-display text-2xl sm:text-3xl md:text-4xl font-bold tracking-cinematic text-white uppercase"
+              className="font-display text-xl sm:text-3xl md:text-4xl font-bold tracking-wider sm:tracking-cinematic text-white uppercase"
             >
               VIDEOS
             </h2>
           </div>
 
-          {/* Uniform 16:9 Video Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {/* Uniform 16:9 Video Grid: Exactly Two Columns on Mobile */}
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
             {VIDEO_ITEMS.map((video) => (
               <VideoCard key={video.id} video={video} />
             ))}

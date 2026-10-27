@@ -51,8 +51,8 @@ export const GalleryGrid: React.FC<GalleryGridProps> = ({
         </div>
       )}
 
-      {/* Uniform 4:3 Image Grid (Equally sized containers, no irregular masonry) */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      {/* Uniform 4:3 Image Grid: Exactly Two Columns on Mobile, Scaling Responsively to Tablet and Desktop */}
+      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
         {filteredItems.map((item) => (
           <div
             key={item.id}
@@ -66,7 +66,7 @@ export const GalleryGrid: React.FC<GalleryGridProps> = ({
                 setActiveItem(item);
               }
             }}
-            className="group relative overflow-hidden rounded-xl bg-neutral-900 border border-white/10 hover:border-white/30 transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-white/60 aspect-[4/3]"
+            className="group relative overflow-hidden rounded-lg sm:rounded-xl bg-neutral-900 border border-white/10 hover:border-white/30 transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-white/60 aspect-[4/3] w-full block"
           >
             {/* Image (Uniform 4:3 with object-cover) */}
             <img
@@ -78,12 +78,12 @@ export const GalleryGrid: React.FC<GalleryGridProps> = ({
                   e.currentTarget.src = item.fallbackSrc;
                 }
               }}
-              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out block"
             />
 
             {/* Hover expand icon */}
-            <div className="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/60 border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <Maximize2 className="w-4 h-4" />
+            <div className="absolute top-2 right-2 sm:top-4 sm:right-4 w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-black/60 border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <Maximize2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </div>
           </div>
         ))}

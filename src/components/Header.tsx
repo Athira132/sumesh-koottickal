@@ -82,18 +82,18 @@ export const Header: React.FC = () => {
       <header
         className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 ${
           scrolled || isOpen
-            ? 'bg-black/95 backdrop-blur-md border-b border-white/10 py-3.5 sm:py-4'
-            : 'bg-transparent py-5 sm:py-6'
+            ? 'bg-black/95 backdrop-blur-md border-b border-white/10 py-3 sm:py-4'
+            : 'bg-black/60 sm:bg-transparent backdrop-blur-sm sm:backdrop-blur-none py-3.5 sm:py-6'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-3.5 sm:px-6 md:px-12 flex items-center justify-between">
           {/* Artist Wordmark */}
           <Link
             to="/"
-            className="group flex flex-col focus:outline-none focus:ring-1 focus:ring-white/40 rounded"
+            className="group flex flex-col focus:outline-none focus:ring-1 focus:ring-white/40 rounded shrink-0 mr-2"
             aria-label="Sumesh Koottickal Homepage"
           >
-            <span className="font-display text-lg sm:text-xl md:text-2xl font-bold tracking-cinematic text-white group-hover:text-neutral-300 transition-colors">
+            <span className="font-display text-sm sm:text-lg md:text-2xl font-bold tracking-wider sm:tracking-cinematic text-white group-hover:text-neutral-300 transition-colors whitespace-nowrap">
               {ARTIST_DATA.name}
             </span>
             <span className="text-[10px] md:text-xs text-neutral-400 font-sans tracking-widest hidden sm:block">
@@ -102,14 +102,14 @@ export const Header: React.FC = () => {
           </Link>
 
           {/* Right Controls: Social Icons & Hamburger */}
-          <div className="flex items-center gap-4 sm:gap-6">
-            {/* Social Media Icons (white, small, evenly spaced, opens in new tab) */}
-            <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-2 sm:gap-4 md:gap-6 shrink-0">
+            {/* Social Media Icons (visible on tablet and desktop, drawer provides full access on mobile) */}
+            <div className="hidden sm:flex items-center gap-1.5 sm:gap-2.5">
               <a
                 href={ARTIST_DATA.socials.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-full border border-white/15 bg-black/60 hover:bg-white hover:text-black text-white flex items-center justify-center transition-all duration-200 focus:outline-none focus:ring-1 focus:ring-white"
+                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-white/15 bg-black/60 hover:bg-white hover:text-black text-white flex items-center justify-center transition-all duration-200 focus:outline-none focus:ring-1 focus:ring-white"
                 aria-label="Visit Sumesh Koottickal Instagram"
               >
                 <InstagramIcon className="w-3.5 h-3.5" />
@@ -119,7 +119,7 @@ export const Header: React.FC = () => {
                 href={ARTIST_DATA.socials.youtube}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-full border border-white/15 bg-black/60 hover:bg-white hover:text-black text-white flex items-center justify-center transition-all duration-200 focus:outline-none focus:ring-1 focus:ring-white"
+                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-white/15 bg-black/60 hover:bg-white hover:text-black text-white flex items-center justify-center transition-all duration-200 focus:outline-none focus:ring-1 focus:ring-white"
                 aria-label="Visit Sumesh Koottickal YouTube"
               >
                 <YoutubeIcon className="w-3.5 h-3.5" />
@@ -129,7 +129,7 @@ export const Header: React.FC = () => {
                 href={ARTIST_DATA.socials.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-full border border-white/15 bg-black/60 hover:bg-white hover:text-black text-white flex items-center justify-center transition-all duration-200 focus:outline-none focus:ring-1 focus:ring-white"
+                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-white/15 bg-black/60 hover:bg-white hover:text-black text-white flex items-center justify-center transition-all duration-200 focus:outline-none focus:ring-1 focus:ring-white"
                 aria-label="Visit Sumesh Koottickal Facebook"
               >
                 <FacebookIcon className="w-3.5 h-3.5" />
@@ -139,7 +139,7 @@ export const Header: React.FC = () => {
             {/* Hamburger Toggle Button (Desktop & Mobile) */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="group flex items-center gap-2.5 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full border border-white/20 bg-black/80 hover:border-white/50 hover:bg-neutral-900 transition-all focus:outline-none focus:ring-2 focus:ring-white/60 cursor-pointer"
+              className="group flex items-center gap-2 px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-full border border-white/20 bg-black/80 hover:border-white/50 hover:bg-neutral-900 transition-all focus:outline-none focus:ring-2 focus:ring-white/60 cursor-pointer shrink-0"
               aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
               aria-expanded={isOpen}
             >
@@ -199,7 +199,7 @@ export const Header: React.FC = () => {
               animate={{ x: 0 }}
               exit={{ x: '-100%' }}
               transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              className="fixed top-0 left-0 bottom-0 z-50 w-full max-w-sm sm:w-96 bg-black border-r border-white/15 shadow-2xl flex flex-col justify-between p-6 sm:p-8 overflow-y-auto"
+              className="fixed top-0 left-0 bottom-0 z-50 w-full max-w-[85vw] sm:max-w-sm sm:w-96 bg-black border-r border-white/15 shadow-2xl flex flex-col justify-between p-5 sm:p-8 overflow-y-auto"
               role="dialog"
               aria-modal="true"
               aria-label="Navigation Menu"

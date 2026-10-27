@@ -7,11 +7,11 @@ interface VideoCardProps {
 
 export const VideoCard: React.FC<VideoCardProps> = ({ video }) => {
   return (
-    <div className="relative w-full aspect-video rounded-xl overflow-hidden bg-neutral-900 border border-white/10 hover:border-white/30 transition-all duration-300 shadow-xl">
+    <div className="relative w-full aspect-video rounded-lg sm:rounded-xl overflow-hidden bg-neutral-900 border border-white/10 hover:border-white/30 transition-all duration-300 shadow-xl">
       <iframe
         src={`https://www.youtube.com/embed/${video.youtubeId}`}
         title={`Sumesh Koottickal performance video (${video.youtubeId})`}
-        className="w-full h-full border-0"
+        className="w-full h-full border-0 block"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen
         loading="lazy"

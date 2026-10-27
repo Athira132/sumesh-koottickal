@@ -29,13 +29,13 @@ export const Biography: React.FC = () => {
       <HeroBanner title="BIOGRAPHY" />
 
       {/* Main Editorial Biography Section */}
-      <section className="py-20 md:py-32">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <section className="py-14 sm:py-20 md:py-32">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
           {/* Top Editorial Row: Portrait & Headline */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start mb-24">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start mb-16 md:mb-24">
             {/* Portrait Area */}
             <div className="lg:col-span-5">
-              <div className="sticky top-28 rounded-2xl overflow-hidden border border-white/15 bg-neutral-900 group aspect-[4/5] shadow-2xl">
+              <div className="relative lg:sticky lg:top-28 rounded-2xl overflow-hidden border border-white/15 bg-neutral-900 group aspect-[4/5] shadow-2xl max-w-md mx-auto lg:max-w-none">
                 <img
                   src={BIOGRAPHY_DATA.portrait.src}
                   alt={BIOGRAPHY_DATA.portrait.alt}
@@ -59,7 +59,7 @@ export const Biography: React.FC = () => {
                 ARTISTIC PHILOSOPHY
               </span>
               
-              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold tracking-wide text-white uppercase leading-snug mb-8">
+              <h2 className="font-display text-xl sm:text-3xl md:text-4xl font-bold tracking-wide text-white uppercase leading-snug mb-6 sm:mb-8">
                 {BIOGRAPHY_DATA.headline}
               </h2>
 
@@ -70,7 +70,7 @@ export const Biography: React.FC = () => {
               </div>
 
               {/* Direct Page Links Required */}
-              <div className="mt-10 pt-8 border-t border-white/10 flex flex-wrap items-center gap-4">
+              <div className="mt-8 sm:mt-10 pt-6 sm:pt-8 border-t border-white/10 flex flex-wrap items-center gap-3 sm:gap-4">
                 <Link
                   to="/music"
                   className="px-6 py-3 rounded bg-white text-black font-display tracking-widest text-xs font-bold uppercase hover:bg-neutral-200 transition-colors inline-flex items-center gap-2"

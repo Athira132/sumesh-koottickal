@@ -51,12 +51,12 @@ export const Mentalism: React.FC = () => {
         </div>
 
         {/* Hero Title: MENTALISM */}
-        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center justify-center">
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center flex flex-col items-center justify-center">
           <motion.h1
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-cinematic text-white uppercase drop-shadow-2xl"
+            className="font-display text-3xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-wider sm:tracking-cinematic text-white uppercase drop-shadow-2xl"
           >
             <span className="sr-only">Sumesh Koottickal — </span>
             MENTALISM
@@ -68,7 +68,7 @@ export const Mentalism: React.FC = () => {
       {/* 2. BODY SECTION (ONLY SHORT MESSAGE: SOMETHING BIG IS COMING.) */}
       {/* ========================================================= */}
       <section
-        className="w-full min-h-[48vh] flex flex-col items-center justify-center px-6 py-24 md:py-36 text-center"
+        className="w-full min-h-[48vh] flex flex-col items-center justify-center px-4 sm:px-6 py-20 md:py-36 text-center"
         aria-label="Mentalism Announcement"
       >
         <div className="max-w-4xl mx-auto flex flex-col items-center">
@@ -76,7 +76,7 @@ export const Mentalism: React.FC = () => {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-cinematic text-white uppercase leading-tight"
+            className="font-display text-xl sm:text-3xl md:text-5xl lg:text-6xl font-bold tracking-wider sm:tracking-cinematic text-white uppercase leading-tight"
           >
             SOMETHING BIG IS COMING.
           </motion.h2>

@@ -7,15 +7,15 @@ export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full bg-black border-t border-neutral-900 text-white pt-16 md:pt-24 pb-12">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+    <footer className="w-full bg-black border-t border-neutral-900 text-white pt-12 sm:pt-16 md:pt-24 pb-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         {/* Main Footer Row */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-neutral-900">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 pb-12 sm:pb-16 border-b border-neutral-900">
           {/* Identity Column */}
           <div className="md:col-span-5 flex flex-col justify-between">
             <div>
               <Link to="/" className="inline-block group focus:outline-none">
-                <h2 className="font-display text-2xl md:text-3xl font-bold tracking-cinematic text-white group-hover:text-neutral-300 transition-colors">
+                <h2 className="font-display text-xl sm:text-2xl md:text-3xl font-bold tracking-wider sm:tracking-cinematic text-white group-hover:text-neutral-300 transition-colors">
                   {ARTIST_DATA.name}
                 </h2>
                 <p className="text-xs tracking-widest text-neutral-400 mt-1 uppercase font-sans">

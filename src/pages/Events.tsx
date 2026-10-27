@@ -56,22 +56,22 @@ export const Events: React.FC = () => {
       {/* Standard Reusable Hero Banner */}
       <HeroBanner title={EVENTS_PAGE_CONFIG.heroTitle} />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-24">
+      <div className="max-w-7xl mx-auto px-3.5 sm:px-6 md:px-12 py-12 sm:py-16 md:py-24">
         {/* ========================================================= */}
         {/* SECTION A: PAST EVENTS (14 VERIFIED IMAGES + AND MORE...) */}
         {/* ========================================================= */}
-        <section aria-labelledby="past-events-heading" className="mb-24 md:mb-32">
-          <div className="text-center max-w-2xl mx-auto mb-10 md:mb-14">
+        <section aria-labelledby="past-events-heading" className="mb-20 md:mb-32">
+          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10 md:mb-14">
             <h2
               id="past-events-heading"
-              className="font-display text-2xl sm:text-3xl md:text-4xl font-bold tracking-cinematic text-white uppercase mb-3"
+              className="font-display text-xl sm:text-3xl md:text-4xl font-bold tracking-wider sm:tracking-cinematic text-white uppercase mb-3"
             >
               {EVENTS_PAGE_CONFIG.pastHeading}
             </h2>
           </div>
 
-          {/* Consistent, Attractive 4:3 Grid for all 14 images */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {/* Consistent, Attractive 4:3 Grid: Two Columns on Mobile */}
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
             {PAST_EVENT_IMAGES.map((img) => (
               <div
                 key={img.id}
@@ -85,7 +85,7 @@ export const Events: React.FC = () => {
                     setActiveImage(img);
                   }
                 }}
-                className="group relative aspect-[4/3] rounded-xl overflow-hidden bg-neutral-900 border border-white/10 hover:border-white/30 transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-white/60"
+                className="group relative aspect-[4/3] rounded-lg sm:rounded-xl overflow-hidden bg-neutral-900 border border-white/10 hover:border-white/30 transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-white/60 block"
               >
                 <img
                   src={img.src}
@@ -96,12 +96,12 @@ export const Events: React.FC = () => {
                       e.currentTarget.src = img.fallbackSrc;
                     }
                   }}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out block"
                 />
 
                 {/* Subtle Hover expand icon */}
-                <div className="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/60 border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <Maximize2 className="w-4 h-4" />
+                <div className="absolute top-2 right-2 sm:top-4 sm:right-4 w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-black/60 border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <Maximize2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </div>
               </div>
             ))}

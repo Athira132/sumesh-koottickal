@@ -14,7 +14,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
 }) => {
   return (
     <section
-      className="relative w-full h-[36vh] min-h-[260px] md:h-[44vh] md:min-h-[340px] flex items-center justify-center overflow-hidden border-b border-white/10"
+      className="relative w-full h-[30vh] min-h-[220px] sm:h-[36vh] sm:min-h-[260px] md:h-[44vh] md:min-h-[340px] flex items-center justify-center overflow-hidden border-b border-white/10"
       aria-label={`${title} Banner`}
     >
       {/* Background Image with Black-and-White treatment */}
@@ -36,12 +36,12 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
       </div>
 
       {/* Centered Page Title */}
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center justify-center">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center flex flex-col items-center justify-center">
         <motion.h1
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-cinematic text-white uppercase drop-shadow-lg"
+          className="font-display text-2xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-wider sm:tracking-cinematic text-white uppercase drop-shadow-lg"
         >
           <span className="sr-only">Sumesh Koottickal — </span>
           {title}
