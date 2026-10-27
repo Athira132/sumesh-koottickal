@@ -1,19 +1,30 @@
-import { useEffect } from 'react';
 import { HeroBanner } from '../components/HeroBanner';
 import { ProjectCard } from '../components/ProjectCard';
 import { MUSIC_PAGE_DATA } from '../data/music';
+import { SEO } from '../components/SEO';
+import { SEO_DATA, getPersonSchema, getBreadcrumbSchema } from '../data/seo';
 import { Music as MusicIcon, ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export const Music: React.FC = () => {
-  useEffect(() => {
-    document.title = 'Music — Sumesh Koottickal | Music Director & Composer';
-  }, []);
-
   const hasProjects = MUSIC_PAGE_DATA.projects.length > 0;
 
   return (
     <div className="w-full bg-black text-white">
+      {/* Dynamic Search Engine Optimization & Structured Data */}
+      <SEO
+        title={SEO_DATA.music.title}
+        description={SEO_DATA.music.description}
+        canonicalPath={SEO_DATA.music.canonicalPath}
+        schema={[
+          getPersonSchema(),
+          getBreadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'Music', path: '/music' },
+          ]),
+        ]}
+      />
+
       {/* Standard Reusable Hero Banner */}
       <HeroBanner title={MUSIC_PAGE_DATA.heroTitle} />
 

@@ -118,7 +118,7 @@ export const BIOGRAPHY_DATA: BiographyData = {
   portrait: {
     src: "/images/artist-portrait-1.jpg",
     fallbackSrc: "https://i.ibb.co/ZR4TCXkh/dd93e88d-f105-43d1-af6d-b5d7a29ba1c3.jpg",
-    alt: "Sumesh Koottickal formal artist portrait",
+    alt: "Sumesh Koottickal, music director and keyboard artist",
     caption: "Sumesh Koottickal — Music Director, Performer, and Mentalist"
   },
   keyAchievements: {

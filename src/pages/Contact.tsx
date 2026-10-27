@@ -1,7 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { HeroBanner } from '../components/HeroBanner';
 import { ARTIST_DATA } from '../data/artist';
 import { Mail, Phone, MapPin, ExternalLink, Send, CheckCircle2, AlertCircle } from 'lucide-react';
+import { SEO } from '../components/SEO';
+import { SEO_DATA, getPersonSchema, getBreadcrumbSchema } from '../data/seo';
 
 interface FormState {
   fullName: string;
@@ -12,9 +14,6 @@ interface FormState {
 }
 
 export const Contact: React.FC = () => {
-  useEffect(() => {
-    document.title = 'Contact & Bookings — Sumesh Koottickal';
-  }, []);
 
   const [formData, setFormData] = useState<FormState>({
     fullName: '',
@@ -61,6 +60,18 @@ export const Contact: React.FC = () => {
 
   return (
     <div className="w-full bg-black text-white">
+      <SEO
+        title={SEO_DATA.contact.title}
+        description={SEO_DATA.contact.description}
+        canonicalPath={SEO_DATA.contact.canonicalPath}
+        schema={[
+          getPersonSchema(),
+          getBreadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'Contact', path: '/contact' },
+          ]),
+        ]}
+      />
       {/* Standard Reusable Hero Banner */}
       <HeroBanner title="CONTACT" />
 

@@ -77,7 +77,7 @@ export const ARTIST_DATA: ArtistInfo = {
   heroImage: {
     src: "/images/hero-home-new.jpg",
     fallbackSrc: "https://i.ibb.co/cKyDtVTN/Sumesh-Koottickal-Concert-Hero-Banner.png",
-    alt: "Sumesh Koottickal performing live on stage",
+    alt: "Sumesh Koottickal, music director and keyboard artist performing live on stage",
     title: "Sumesh Koottickal Live Concert Hero Banner"
   },
   pageHeroImage: {

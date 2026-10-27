@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://sumeshkoottickal.com/</loc>
+    <loc>https://sumesh-koottickal.vercel.app/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://sumeshkoottickal.com/biography</loc>
+    <loc>https://sumesh-koottickal.vercel.app/biography</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://sumeshkoottickal.com/music</loc>
+    <loc>https://sumesh-koottickal.vercel.app/music</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://sumeshkoottickal.com/events</loc>
+    <loc>https://sumesh-koottickal.vercel.app/events</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sumeshkoottickal.com/mentalism</loc>
+    <loc>https://sumesh-koottickal.vercel.app/mentalism</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sumeshkoottickal.com/gallery</loc>
+    <loc>https://sumesh-koottickal.vercel.app/gallery</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sumeshkoottickal.com/contact</loc>
+    <loc>https://sumesh-koottickal.vercel.app/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

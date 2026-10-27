@@ -10,7 +10,7 @@ export const VideoCard: React.FC<VideoCardProps> = ({ video }) => {
     <div className="relative w-full aspect-video rounded-xl overflow-hidden bg-neutral-900 border border-white/10 hover:border-white/30 transition-all duration-300 shadow-xl">
       <iframe
         src={`https://www.youtube.com/embed/${video.youtubeId}`}
-        title={`YouTube Video ${video.youtubeId}`}
+        title={`Sumesh Koottickal performance video (${video.youtubeId})`}
         className="w-full h-full border-0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen

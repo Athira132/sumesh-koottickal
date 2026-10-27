@@ -1,18 +1,30 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { HeroBanner } from '../components/HeroBanner';
 import { SectionHeading } from '../components/SectionHeading';
 import { BIOGRAPHY_DATA } from '../data/biography';
 import { RESEARCH_REFERENCES } from '../data/references';
+import { SEO } from '../components/SEO';
+import { SEO_DATA, getProfilePageSchema, getBreadcrumbSchema } from '../data/seo';
 import { ArrowUpRight, Compass, ExternalLink } from 'lucide-react';
 
 export const Biography: React.FC = () => {
-  useEffect(() => {
-    document.title = 'Biography — Sumesh Koottickal | Music Director · Performer · Mentalist';
-  }, []);
-
   return (
     <div className="w-full bg-black text-white">
+      {/* Dynamic Search Engine Optimization & Structured Data */}
+      <SEO
+        title={SEO_DATA.biography.title}
+        description={SEO_DATA.biography.description}
+        canonicalPath={SEO_DATA.biography.canonicalPath}
+        schema={[
+          getProfilePageSchema('/biography', 'Biography'),
+          getBreadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'Biography', path: '/biography' },
+          ]),
+        ]}
+        ogType="profile"
+      />
+
       {/* Standard Reusable Hero Banner */}
       <HeroBanner title="BIOGRAPHY" />
 

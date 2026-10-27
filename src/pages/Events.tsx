@@ -1,15 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import { HeroBanner } from '../components/HeroBanner';
 import { PAST_EVENT_IMAGES, UPCOMING_EVENTS, EVENTS_PAGE_CONFIG, type PastEventImage } from '../data/events';
+import { SEO } from '../components/SEO';
+import { SEO_DATA, getPersonSchema, getBreadcrumbSchema } from '../data/seo';
 import { ArrowUpRight, X, ChevronLeft, ChevronRight, Maximize2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export const Events: React.FC = () => {
-  useEffect(() => {
-    document.title = 'Events — Sumesh Koottickal | Live Concerts & Shows';
-  }, []);
-
   const [activeImage, setActiveImage] = useState<PastEventImage | null>(null);
 
   // Keyboard navigation for image lightbox
@@ -41,6 +39,20 @@ export const Events: React.FC = () => {
 
   return (
     <div className="w-full bg-black text-white">
+      {/* Dynamic Search Engine Optimization & Structured Data */}
+      <SEO
+        title={SEO_DATA.events.title}
+        description={SEO_DATA.events.description}
+        canonicalPath={SEO_DATA.events.canonicalPath}
+        schema={[
+          getPersonSchema(),
+          getBreadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'Events', path: '/events' },
+          ]),
+        ]}
+      />
+
       {/* Standard Reusable Hero Banner */}
       <HeroBanner title={EVENTS_PAGE_CONFIG.heroTitle} />
 
@@ -65,7 +77,7 @@ export const Events: React.FC = () => {
                 key={img.id}
                 tabIndex={0}
                 role="button"
-                aria-label="View past concert photograph"
+                aria-label={`View photograph: ${img.alt}`}
                 onClick={() => setActiveImage(img)}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') {

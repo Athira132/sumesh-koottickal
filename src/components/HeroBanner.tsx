@@ -43,6 +43,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-cinematic text-white uppercase drop-shadow-lg"
         >
+          <span className="sr-only">Sumesh Koottickal — </span>
           {title}
         </motion.h1>
       </div>

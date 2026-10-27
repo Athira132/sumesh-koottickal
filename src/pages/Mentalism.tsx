@@ -1,13 +1,23 @@
-import { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { SEO } from '../components/SEO';
+import { SEO_DATA, getPersonSchema, getBreadcrumbSchema } from '../data/seo';
 
 export const Mentalism: React.FC = () => {
-  useEffect(() => {
-    document.title = 'Mentalism — Sumesh Koottickal | Something Big Is Coming';
-  }, []);
-
   return (
     <div className="w-full bg-black text-white select-none">
+      {/* Dynamic Search Engine Optimization & Structured Data */}
+      <SEO
+        title={SEO_DATA.mentalism.title}
+        description={SEO_DATA.mentalism.description}
+        canonicalPath={SEO_DATA.mentalism.canonicalPath}
+        schema={[
+          getPersonSchema(),
+          getBreadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'Mentalism', path: '/mentalism' },
+          ]),
+        ]}
+      />
       {/* ========================================================= */}
       {/* 1. DEDICATED HERO BANNER (FIRST SECTION VISITORS SEE)     */}
       {/* ========================================================= */}
@@ -48,6 +58,7 @@ export const Mentalism: React.FC = () => {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-cinematic text-white uppercase drop-shadow-2xl"
           >
+            <span className="sr-only">Sumesh Koottickal — </span>
             MENTALISM
           </motion.h1>
         </div>

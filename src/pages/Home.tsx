@@ -1,18 +1,23 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ARTIST_DATA } from '../data/artist';
 import { BIOGRAPHY_DATA } from '../data/biography';
 import { GALLERY_ITEMS } from '../data/gallery';
+import { SEO } from '../components/SEO';
+import { SEO_DATA, getPersonSchema, getWebSiteSchema } from '../data/seo';
 import { ArrowDown, ArrowUpRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export const Home: React.FC = () => {
-  useEffect(() => {
-    document.title = 'Sumesh Koottickal — Music Director · Performer · Mentalist';
-  }, []);
-
   return (
     <div className="w-full bg-black text-white">
+      {/* Dynamic Search Engine Optimization & Structured Data */}
+      <SEO
+        title={SEO_DATA.home.title}
+        description={SEO_DATA.home.description}
+        canonicalPath={SEO_DATA.home.canonicalPath}
+        schema={[getPersonSchema(), getWebSiteSchema()]}
+      />
+
       {/* ========================================================= */}
       {/* 1. HOMEPAGE HERO (CINEMATIC, MINIMAL, NO OVERSIZED NAME)   */}
       {/* ========================================================= */}
@@ -25,6 +30,8 @@ export const Home: React.FC = () => {
           <img
             src={ARTIST_DATA.heroImage.src}
             alt={ARTIST_DATA.heroImage.alt}
+            loading="eager"
+            fetchPriority="high"
             onError={(e) => {
               if (e.currentTarget.src !== ARTIST_DATA.heroImage.fallbackSrc) {
                 e.currentTarget.src = ARTIST_DATA.heroImage.fallbackSrc;
@@ -50,9 +57,10 @@ export const Home: React.FC = () => {
           >
             {/* Left: Tagline + Two Action Buttons */}
             <div className="flex flex-col gap-3.5 max-w-2xl w-full">
-              <p className="font-sans text-sm sm:text-base md:text-lg lg:text-xl font-bold tracking-[0.22em] text-white uppercase text-left drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
+              <h1 className="font-sans text-sm sm:text-base md:text-lg lg:text-xl font-bold tracking-[0.22em] text-white uppercase text-left drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
+                <span className="sr-only">Sumesh Koottickal — </span>
                 MUSIC DIRECTOR · PERFORMER · MENTALIST
-              </p>
+              </h1>
 
               {/* Two Prominent Action Buttons */}
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-1 w-full sm:w-auto">

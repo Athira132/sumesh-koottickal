@@ -1,18 +1,29 @@
-import { useEffect } from 'react';
 import { HeroBanner } from '../components/HeroBanner';
 import { GalleryGrid } from '../components/GalleryGrid';
 import { VideoCard } from '../components/VideoCard';
 import { GALLERY_ITEMS } from '../data/gallery';
 import { VIDEO_ITEMS, VIDEO_SECTION_CONFIG } from '../data/videos';
+import { SEO } from '../components/SEO';
+import { SEO_DATA, getPersonSchema, getBreadcrumbSchema } from '../data/seo';
 import { ArrowUpRight } from 'lucide-react';
 
 export const Gallery: React.FC = () => {
-  useEffect(() => {
-    document.title = 'Gallery — Sumesh Koottickal | Photography & Videos';
-  }, []);
-
   return (
     <div className="w-full bg-black text-white">
+      {/* Dynamic Search Engine Optimization & Structured Data */}
+      <SEO
+        title={SEO_DATA.gallery.title}
+        description={SEO_DATA.gallery.description}
+        canonicalPath={SEO_DATA.gallery.canonicalPath}
+        schema={[
+          getPersonSchema(),
+          getBreadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'Gallery', path: '/gallery' },
+          ]),
+        ]}
+      />
+
       {/* Standard Reusable Hero Banner */}
       <HeroBanner title="GALLERY" />
 
@@ -26,7 +37,7 @@ export const Gallery: React.FC = () => {
               id="photography-heading"
               className="font-display text-2xl sm:text-3xl md:text-4xl font-bold tracking-cinematic text-white uppercase mb-3"
             >
-              PHOTOGRAPHY
+              SUMESH KOOTTICKAL GALLERY
             </h2>
           </div>
 
