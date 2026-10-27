@@ -22,23 +22,33 @@ export const Home: React.FC = () => {
       {/* 1. HOMEPAGE HERO (OVERLAID BUTTONS & TAGLINE ON MOBILE)    */}
       {/* ========================================================= */}
       <section
-        className="relative w-full h-[85vh] min-h-[540px] max-h-[740px] md:h-screen md:min-h-[600px] md:max-h-none flex flex-col justify-end overflow-hidden pb-6 sm:pb-8 md:pb-14"
+        className="relative w-full h-[90vh] min-h-[580px] max-h-[820px] md:h-screen md:min-h-[600px] md:max-h-none flex flex-col justify-end overflow-hidden pb-6 sm:pb-8 md:pb-14"
         aria-label="Sumesh Koottickal Main Hero"
       >
-        {/* Hero Photograph: Subject framed on mobile via object-[24%_center], desktop unchanged */}
+        {/* Hero Photograph: Uses vertical mobile poster on mobile (<768px), wide landscape banner on desktop (>=768px) */}
         <div className="absolute inset-0 z-0">
-          <img
-            src={ARTIST_DATA.heroImage.src}
-            alt={ARTIST_DATA.heroImage.alt}
-            loading="eager"
-            fetchPriority="high"
-            onError={(e) => {
-              if (e.currentTarget.src !== ARTIST_DATA.heroImage.fallbackSrc) {
-                e.currentTarget.src = ARTIST_DATA.heroImage.fallbackSrc;
-              }
-            }}
-            className="w-full h-full object-cover object-[24%_center] md:object-[center_30%] select-none block"
-          />
+          <picture className="w-full h-full block">
+            <source
+              media="(max-width: 767px)"
+              srcSet={ARTIST_DATA.heroImage.mobileSrc || ARTIST_DATA.heroImage.src}
+            />
+            <source
+              media="(min-width: 768px)"
+              srcSet={ARTIST_DATA.heroImage.src}
+            />
+            <img
+              src={ARTIST_DATA.heroImage.src}
+              alt={ARTIST_DATA.heroImage.alt}
+              loading="eager"
+              fetchPriority="high"
+              onError={(e) => {
+                if (e.currentTarget.src !== ARTIST_DATA.heroImage.fallbackSrc) {
+                  e.currentTarget.src = ARTIST_DATA.heroImage.fallbackSrc;
+                }
+              }}
+              className="w-full h-full object-cover object-[center_15%] md:object-[center_30%] select-none block"
+            />
+          </picture>
 
           {/* Top subtle navbar shadow */}
           <div className="absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-black/60 to-transparent pointer-events-none" />

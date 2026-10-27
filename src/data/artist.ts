@@ -32,7 +32,9 @@ export interface ArtistInfo {
   socials: SocialLinks;
   heroImage: {
     src: string;
+    mobileSrc?: string;
     fallbackSrc: string;
+    mobileFallbackSrc?: string;
     alt: string;
     title: string;
   };
@@ -76,7 +78,9 @@ export const ARTIST_DATA: ArtistInfo = {
   },
   heroImage: {
     src: "/images/hero-home-new.jpg",
+    mobileSrc: "/images/hero-home-mobile.jpg",
     fallbackSrc: "https://i.ibb.co/cKyDtVTN/Sumesh-Koottickal-Concert-Hero-Banner.png",
+    mobileFallbackSrc: "https://i.ibb.co/3Y774SHX/Sumesh-Koottickal-Blue-Stage-Energy.png",
     alt: "Sumesh Koottickal, music director and keyboard artist performing live on stage",
     title: "Sumesh Koottickal Live Concert Hero Banner"
   },
