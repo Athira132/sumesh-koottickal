@@ -58,20 +58,11 @@ export const Lightbox: React.FC<LightboxProps> = ({
         aria-modal="true"
         aria-label={item.title}
       >
-        {/* Top bar */}
-        <div className="flex items-center justify-between text-white z-10">
-          <div>
-            <span className="text-[10px] md:text-xs font-sans tracking-widest text-neutral-400 uppercase">
-              {item.category} · {currentIndex + 1} of {items.length}
-            </span>
-            <h3 className="font-display text-lg md:text-2xl font-bold tracking-wide">
-              {item.title}
-            </h3>
-          </div>
-
+        {/* Top bar with Close button only */}
+        <div className="flex items-center justify-end text-white z-10">
           <button
             onClick={onClose}
-            className="p-2 rounded-full border border-white/20 bg-neutral-900/80 hover:bg-white hover:text-black text-white transition-all focus:outline-none focus:ring-2 focus:ring-white"
+            className="p-2.5 rounded-full border border-white/20 bg-neutral-900/80 hover:bg-white hover:text-black text-white transition-all focus:outline-none focus:ring-2 focus:ring-white"
             aria-label="Close image lightbox (Escape)"
           >
             <X className="w-5 h-5 md:w-6 md:h-6" />
@@ -105,12 +96,11 @@ export const Lightbox: React.FC<LightboxProps> = ({
               src={item.src}
               alt={item.alt}
               onError={(e) => {
-                // Fallback to direct ibb.co image url if local path ever fails
                 if (e.currentTarget.src !== item.fallbackSrc) {
                   e.currentTarget.src = item.fallbackSrc;
                 }
               }}
-              className="max-h-[75vh] md:max-h-[82vh] max-w-full object-contain rounded-md shadow-2xl select-none"
+              className="max-h-[82vh] md:max-h-[88vh] max-w-full object-contain rounded-md shadow-2xl select-none"
             />
           </motion.div>
 
@@ -125,11 +115,6 @@ export const Lightbox: React.FC<LightboxProps> = ({
           >
             <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
           </button>
-        </div>
-
-        {/* Bottom caption */}
-        <div className="text-center max-w-2xl mx-auto text-xs md:text-sm text-neutral-400 font-sans">
-          <p>{item.caption}</p>
         </div>
       </motion.div>
     </AnimatePresence>

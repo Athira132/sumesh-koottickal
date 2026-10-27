@@ -81,25 +81,9 @@ export const GalleryGrid: React.FC<GalleryGridProps> = ({
               className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
             />
 
-            {/* Dark Gradient Overlay for text contrast */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-300" />
-
             {/* Hover expand icon */}
             <div className="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/60 border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <Maximize2 className="w-4 h-4" />
-            </div>
-
-            {/* Card Footer Content */}
-            <div className="absolute bottom-0 left-0 w-full p-5 text-white transform translate-y-1 group-hover:translate-y-0 transition-transform duration-300">
-              <span className="text-[10px] md:text-xs font-sans tracking-widest text-neutral-400 uppercase block mb-1">
-                {item.category}
-              </span>
-              <h3 className="font-display text-base md:text-lg font-bold tracking-wider uppercase mb-1 truncate">
-                {item.title}
-              </h3>
-              <p className="text-xs text-neutral-300 line-clamp-1 font-sans opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                {item.caption}
-              </p>
             </div>
           </div>
         ))}

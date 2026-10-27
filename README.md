@@ -12,39 +12,32 @@
 - **Left-Side Vertical Navigation Drawer**:
   - Hamburger toggle in header (desktop & mobile) with animated transition to close icon.
   - Opens a vertical drawer on the **LEFT** side of the screen.
-  - Exact 7-link order: `HOME`, `BIOGRAPHY`, `MUSIC`, `EVENTS`, `MENTALISM`, `GALLERY`, `CONTACT`.
+  - Plain text links without numeric prefixes: `HOME`, `BIOGRAPHY`, `MUSIC`, `EVENTS`, `MENTALISM`, `GALLERY`, `CONTACT`.
   - Accessible: click backdrop outside to close, press `Escape` to close, background scroll locked while open.
 - **Header Social Media Icons**:
   - Small, crisp white icons for **Instagram**, **YouTube**, and **Facebook** positioned in the header on desktop and in the drawer footer.
   - Links open safely in a new tab with `target="_blank"` and `rel="noopener noreferrer"`.
 - **Homepage Hero**:
-  - Large name removed from hero image; artist name preserved in the website header.
-  - Dominant visual priority with live keytar photograph (`/images/hero-keytar.png`).
-  - Small elegant line near bottom: `MUSIC DIRECTOR · PERFORMER · MENTALIST` with subtle letter spacing and subtle scroll indicator.
-- **Standard Page Hero Banners**:
-  - Reusable `HeroBanner` component using `/images/page-hero.jpg`.
-  - Used consistently across `Biography`, `Music`, `Events`, `Gallery`, and `Contact`.
-  - Black overlay for high contrast, centered bold uppercase titles.
+  - Main hero photograph from official concert visual (`/images/hero-home-new.jpg`).
+  - Artist name preserved in the website header wordmark; no large name or excessive text covering the hero.
+  - Subtle tagline near bottom: `MUSIC DIRECTOR · PERFORMER · MENTALIST` with letter spacing and scroll indicator.
+  - Homepage content focused strictly on: Hero, brief introduction, three-image gallery preview (without captions), and centered "VIEW MORE" button linking to `/gallery`.
+- **Contact Page & Digital Visiting Card**:
+  - Prominent **DIGITAL VISITING CARD** button linking directly to [https://www.vkard.pro/sumesh-koottickal](https://www.vkard.pro/sumesh-koottickal) in a new browser tab.
+  - Complete direct contact details: Phone (+91 8113070209), Email, Studio Address in Ernakulam, Google Maps link, and validated booking enquiry form.
+- **Gallery Page (Photography & Videos)**:
+  - **Section A: Photography**: Clean, image-focused uniform 4:3 grid **without any captions, descriptions, or text overlays**. Includes fullscreen image lightbox without text.
+  - **Section B: Videos**: Six embedded YouTube performances in uniform 16:9 responsive video players, followed by a centered **WATCH MORE** button opening the official YouTube channel (`https://www.youtube.com/@SumeshKoottickal`).
+- **Events Page (Past & Upcoming)**:
+  - **Section A: Past Events**: 14 verified past concert and stage photographs arranged in a uniform 4:3 grid with fullscreen view, followed by the elegant **AND MORE...** notice.
+  - **Section B: Upcoming Events**: Separate section presenting the minimal **STAY TUNED — NEW PERFORMANCES WILL BE ANNOUNCED SOON** state.
 - **Mentalism Page (Special Visual Treatment)**:
   - Custom monochrome theatrical atmosphere with overhead spotlight beam, subtle stage haze, and deep shadows.
-  - **No eye icon or eye symbol**.
-  - Prominent headline: `SOMETHING EXTRAORDINARY IS COMING.` followed by `MENTALISM — COMING SOON`.
-- **Homepage Gallery Preview**:
-  - Exactly **three** uniform 4:3 images with equal spacing.
-  - Hero photograph is excluded to prevent duplication.
-  - Centered `VIEW MORE` button linking to `/gallery`.
-- **Gallery Page (Photography & Videos)**:
-  - **Section A: Photography**: Uniform 4:3 grid, data-driven category filtering (`ALL`, `MUSIC`, `EVENTS`, `PORTRAITS`), lightbox viewer with keyboard navigation.
-  - **Section B: Videos**: Reusable 16:9 `VideoCard` component, editable `src/data/videos.ts`, and minimal `VIDEOS COMING SOON` empty state when no real videos are added.
-- **Events Page (Past & Upcoming)**:
-  - **Section A: Past Events**: Structured event cards with venue, date, image/poster, and link.
-  - **Section B: Upcoming Events**: Supports real upcoming shows, or defaults to an elegant `STAY TUNED / NEW PERFORMANCES WILL BE ANNOUNCED SOON` state.
-- **Music Page**:
-  - Minimal layout with standard hero `MUSIC`.
-  - Clean intro describing Sumesh as music director and performer strictly from supplied records.
-  - Small charcoal cards for projects (`src/data/music.ts`). No fake players or broken embeds.
-- **Biography Page**:
-  - Strictly verified facts only. No invented birthdate, education, family details, or fake awards.
+  - Retains the special banner visual and displays only:
+    `SOMETHING EXTRAORDINARY IS COMING.`
+    `MENTALISM — COMING SOON.`
+- **Standard Page Hero Banners**:
+  - Reusable `HeroBanner` component using `/images/page-hero.jpg` across `Biography`, `Music`, `Events`, `Gallery`, and `Contact`.
 - **Sticky Contact Shortcut**:
   - Fixed "LET'S TALK" pill in bottom-right corner across pages (hidden on `/contact` page).
 
@@ -71,14 +64,16 @@ sumesh-koottikal/
 │   ├── robots.txt               # Crawler instructions
 │   ├── sitemap.xml              # Search engine XML sitemap
 │   └── images/                  # High-resolution downloaded artist photographs
-│       ├── hero-keytar.png      # Homepage hero photograph
+│       ├── hero-home-new.jpg    # Homepage hero photograph
 │       ├── page-hero.jpg        # Standard page hero banner (Biography, Music, Events, Gallery, Contact)
 │       ├── artist-portrait-1.jpg
 │       ├── artist-portrait-2.jpg
 │       ├── artist-stage-1.jpg
 │       ├── artist-performance-1.jpg
 │       ├── artist-performance-2.jpg
-│       └── artist-stage-2.jpg
+│       ├── artist-stage-2.jpg
+│       └── events/              # 14 verified past event concert photographs
+│           ├── event-01.jpg ... event-14.jpg
 ├── src/
 │   ├── components/
 │   │   ├── Header.tsx           # Left-side vertical navigation drawer & social media icons
@@ -87,25 +82,24 @@ sumesh-koottikal/
 │   │   ├── Footer.tsx           # Shared minimal footer
 │   │   ├── SectionHeading.tsx   # Reusable section title component
 │   │   ├── ProjectCard.tsx      # Minimal music project card in charcoal container
-│   │   ├── EventCard.tsx        # Event schedule card supporting poster, venue, date, and links
 │   │   ├── VideoCard.tsx        # Reusable 16:9 YouTube video card component
-│   │   ├── GalleryGrid.tsx      # Uniform 4:3 grid with dynamic category pills
+│   │   ├── GalleryGrid.tsx      # Clean uniform 4:3 grid without captions or overlays
 │   │   └── Lightbox.tsx         # Fullscreen keyboard-accessible image lightbox
 │   ├── pages/
-│   │   ├── Home.tsx             # Homepage with minimal hero & 3-image preview
+│   │   ├── Home.tsx             # Homepage with hero, intro, 3-image preview, VIEW MORE button
 │   │   ├── Biography.tsx        # Verified biography & career milestones
 │   │   ├── Music.tsx            # Clean music discography & film scores
-│   │   ├── Events.tsx           # Past & Upcoming events with Stay Tuned state
+│   │   ├── Events.tsx           # 14 past event photos, AND MORE..., and Stay Tuned state
 │   │   ├── Mentalism.tsx        # Theatrical monochrome announcement (no eye icon)
-│   │   ├── Gallery.tsx          # Photography grid & video section
-│   │   └── Contact.tsx          # Direct contact & enquiry form
+│   │   ├── Gallery.tsx          # Photography grid & 6 YouTube videos with WATCH MORE button
+│   │   └── Contact.tsx          # Direct contact, DIGITAL VISITING CARD, & enquiry form
 │   ├── data/
 │   │   ├── artist.ts            # Central artist profile, social links, contact info
 │   │   ├── biography.ts         # Verified milestones, bio paragraphs, disciplines
 │   │   ├── music.ts             # Music projects, credits, and streaming links
-│   │   ├── events.ts            # Centralized events list & Stay Tuned state config
-│   │   ├── gallery.ts           # Gallery photographs and categories (Hero image excluded)
-│   │   ├── videos.ts            # Video archive & YouTube links config
+│   │   ├── events.ts            # 14 past event images & upcoming events config
+│   │   ├── gallery.ts           # Gallery photographs (Hero image excluded)
+│   │   ├── videos.ts            # 6 YouTube video IDs and channel link
 │   │   └── references.ts        # Public source registry (Apple Music, Filmibeat, etc.)
 │   ├── App.tsx                  # App root with React Router configuration
 │   ├── index.css                # Tailwind directives and custom design tokens
@@ -118,93 +112,52 @@ sumesh-koottikal/
 
 ## ✏️ How to Update Content & Data Files
 
-All project content is centralized in `src/data/`. You never need to touch complex React JSX to add or change details:
+All project content is centralized in `src/data/`:
 
-### 1. Adding or Updating Events (`src/data/events.ts`)
-Open `src/data/events.ts` and add an object to `EVENTS_LIST`:
+### 1. Managing Events (`src/data/events.ts`)
+- **Past Events**: Add/replace items in `PAST_EVENT_IMAGES`:
 ```typescript
 {
-  id: 'arena-concert-2026',
-  title: 'Live Keytar Arena Showcase',
-  date: 'November 15, 2026',
-  venue: 'Jawaharlal Nehru Stadium',
-  city: 'Kochi, Kerala',
-  description: 'Full live concert featuring multi-tier keyboard arrangements and special guest appearances.',
-  image: '/images/artist-performance-1.jpg', // optional poster image
-  status: 'upcoming',                        // 'upcoming' displays in Upcoming Events; 'past' displays in Past Events
-  externalLink: 'https://in.bookmyshow.com', // optional ticket or event link
+  id: 'past-event-15',
+  src: '/images/events/event-15.jpg',
+  fallbackSrc: 'https://...',
+  alt: 'Sumesh Koottickal live concert performance archive',
 }
 ```
-- **Stay Tuned State**: If there are no items with `status: 'upcoming'`, the page automatically displays the minimal **"STAY TUNED — NEW PERFORMANCES WILL BE ANNOUNCED SOON"** announcement.
+- **Upcoming Events**: Add items to `UPCOMING_EVENTS`. When empty, the page automatically presents the minimal **"STAY TUNED — NEW PERFORMANCES WILL BE ANNOUNCED SOON"** notice.
 
-### 2. Adding YouTube Videos (`src/data/videos.ts`)
-Open `src/data/videos.ts` and add your video entry to `VIDEO_ITEMS`:
+### 2. Managing YouTube Videos (`src/data/videos.ts`)
+Add or update video entries in `VIDEO_ITEMS`:
 ```typescript
 {
-  id: 'live-solo-2026',
-  title: 'Live Stage Keytar Solo',
-  category: 'Performances',
-  youtubeUrl: 'https://www.youtube.com/watch?v=YOUR_VIDEO_ID',
-  description: 'High-voltage live performance from festival tour.'
+  id: 'video-7',
+  youtubeId: 'YOUR_YOUTUBE_VIDEO_ID',
+  youtubeUrl: 'https://www.youtube.com/embed/YOUR_YOUTUBE_VIDEO_ID',
 }
 ```
-- When `VIDEO_ITEMS` is empty, the Gallery page automatically displays the minimal **"VIDEOS COMING SOON"** section without broken embeds or fake thumbnails.
 
-### 3. Adding Gallery Photographs (`src/data/gallery.ts`)
-1. Place your new image in `public/images/`.
-2. Open `src/data/gallery.ts` and add an entry:
+### 3. Managing Gallery Photographs (`src/data/gallery.ts`)
+Place new images in `public/images/` and add to `GALLERY_ITEMS`:
 ```typescript
 {
-  id: 'stage-moment-3',
-  title: 'Concert Spotlight',
-  category: 'Events', // 'Music' | 'Events' | 'Behind the Scenes' | 'Portraits' | 'Mentalism'
-  src: '/images/your-new-image.jpg',
-  fallbackSrc: '/images/artist-portrait-1.jpg',
-  alt: 'Sumesh Koottickal concert spotlight',
+  id: 'stage-moment-4',
+  title: 'Concert Moment',
+  category: 'Events',
+  src: '/images/your-image.jpg',
+  fallbackSrc: 'https://...',
+  alt: 'Sumesh Koottickal live performance',
   caption: 'Live performance moment.',
-}
-```
-- Containers remain uniformly 4:3 across all devices.
-- The homepage preview automatically displays the first three valid images.
-
-### 4. Adding Music Projects (`src/data/music.ts`)
-Open `src/data/music.ts` and add an item to `MUSIC_PAGE_DATA.projects`:
-```typescript
-{
-  id: 'new-single',
-  projectTitle: 'Track Name',
-  filmOrAlbum: 'Album Title',
-  category: 'Single',
-  year: '2026',
-  musicCredits: {
-    musicDirector: 'Sumesh Koottickal',
-    singers: 'Singer Name',
-    lyrics: 'Lyricist Name',
-  },
-  description: 'Track description.',
-  audioUrl: 'https://music.apple.com/...', // optional streaming link
-  youtubeUrl: 'https://youtube.com/...',   // optional YouTube link
-  isVerified: true,
 }
 ```
 
 ---
 
-## 🚀 Running Locally
+## 🚀 Running Locally & Building
 
 ```bash
-# Install dependencies
-npm install
-
 # Start Vite development server
 npm run dev
-```
 
-Visit `http://localhost:5173/` in your browser.
-
-## 📦 Production Build
-
-```bash
+# Build for production
 npm run build
 ```
-This runs TypeScript type checking (`tsc -b`) and generates the production bundle in `dist/`.

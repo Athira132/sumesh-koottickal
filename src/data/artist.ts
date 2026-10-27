@@ -75,10 +75,10 @@ export const ARTIST_DATA: ArtistInfo = {
     displayPhone: "+91 8113070209"
   },
   heroImage: {
-    src: "/images/hero-keytar.png",
-    fallbackSrc: "https://i.ibb.co/q3SFWrKF/Electric-Blue-Keytar-Performance.png",
-    alt: "Sumesh Koottickal performing live with custom electric blue keytar",
-    title: "Electric Blue Keytar Live Performance"
+    src: "/images/hero-home-new.jpg",
+    fallbackSrc: "https://i.ibb.co/cKyDtVTN/Sumesh-Koottickal-Concert-Hero-Banner.png",
+    alt: "Sumesh Koottickal performing live on stage",
+    title: "Sumesh Koottickal Live Concert Hero Banner"
   },
   pageHeroImage: {
     src: "/images/page-hero.jpg",

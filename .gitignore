@@ -36,5 +36,4 @@ pnpm-debug.log*
 # Deployment & tooling cache
 .vercel
 .turbo
-
-.vercel
+scratch/

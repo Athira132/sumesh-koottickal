@@ -1,35 +1,49 @@
 export interface VideoItem {
   id: string;
-  title: string;
-  category: 'Performances' | 'Music' | 'Behind the Scenes';
-  youtubeUrl: string; // e.g., 'https://www.youtube.com/watch?v=VIDEO_ID' or 'https://www.youtube.com/embed/VIDEO_ID'
-  description?: string;
-  isPlaceholder?: boolean;
+  youtubeId: string;
+  youtubeUrl: string;
 }
 
 /**
  * EDITABLE VIDEO ARCHIVE
- * Add your verified YouTube video links here.
- * If this array is empty or contains only placeholders, a minimal "VIDEOS COMING SOON"
- * section will be displayed automatically without broken embeds or fake thumbnails.
+ * Six official YouTube video embeds for the Gallery page.
  */
 export const VIDEO_ITEMS: VideoItem[] = [
-  // Example future video entries (leave youtubeUrl empty or commented until real links are provided):
-  /*
   {
-    id: 'keytar-live-solo',
-    title: 'Live Keytar Concert Solo',
-    category: 'Performances',
-    youtubeUrl: 'https://www.youtube.com/embed/YOUR_VIDEO_ID',
-    description: 'High-voltage live stage keytar solo from festival tour.'
-  }
-  */
+    id: 'video-1',
+    youtubeId: 'j2u4JqdjVng',
+    youtubeUrl: 'https://www.youtube.com/embed/j2u4JqdjVng',
+  },
+  {
+    id: 'video-2',
+    youtubeId: 'ekw_Cr10n4Y',
+    youtubeUrl: 'https://www.youtube.com/embed/ekw_Cr10n4Y',
+  },
+  {
+    id: 'video-3',
+    youtubeId: 'ZZ5X6iXg3Ak',
+    youtubeUrl: 'https://www.youtube.com/embed/ZZ5X6iXg3Ak',
+  },
+  {
+    id: 'video-4',
+    youtubeId: '9lTHRPhr6PI',
+    youtubeUrl: 'https://www.youtube.com/embed/9lTHRPhr6PI',
+  },
+  {
+    id: 'video-5',
+    youtubeId: 'sFRtAS0KaRw',
+    youtubeUrl: 'https://www.youtube.com/embed/sFRtAS0KaRw',
+  },
+  {
+    id: 'video-6',
+    youtubeId: 'htAUAnAmxD8',
+    youtubeUrl: 'https://www.youtube.com/embed/htAUAnAmxD8',
+  },
 ];
 
 export const VIDEO_SECTION_CONFIG = {
   heading: 'VIDEOS',
   subtitle: 'PERFORMANCES · MUSIC · BEHIND THE SCENES',
-  emptyStateTitle: 'VIDEOS COMING SOON',
-  emptyStateDescription: 'Official concert video recordings, live performance streams, and behind-the-scenes studio sessions are currently being curated for release.',
-  channelUrl: 'https://www.youtube.com/@Sumeshkoottickal',
+  watchMoreLabel: 'WATCH MORE',
+  channelUrl: 'https://www.youtube.com/@SumeshKoottickal',
 };

@@ -143,21 +143,34 @@ export const Contact: React.FC = () => {
                   </div>
                 </div>
               </div>
+
+              {/* Prominent Digital Visiting Card Link */}
+              <div className="mt-8">
+                <a
+                  href="https://www.vkard.pro/sumesh-koottickal"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-lg bg-white text-black hover:bg-neutral-200 font-display tracking-widest text-xs font-bold uppercase transition-all shadow-md group w-full sm:w-auto"
+                >
+                  <span>DIGITAL VISITING CARD</span>
+                  <ExternalLink className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                </a>
+              </div>
             </div>
 
             {/* Social & vCard shortcuts */}
             <div className="mt-12 pt-8 border-t border-white/10">
               <span className="text-xs font-sans tracking-widest text-neutral-400 uppercase block mb-3">
-                OFFICIAL LINKS & DIGITAL VCARD
+                OFFICIAL LINKS
               </span>
               <div className="flex flex-wrap gap-3">
                 <a
-                  href={ARTIST_DATA.socials.vcard}
+                  href="https://www.vkard.pro/sumesh-koottickal"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-4 py-2 rounded border border-white/20 bg-surface-card hover:bg-white text-white hover:text-black text-xs font-display tracking-widest transition-all inline-flex items-center gap-1.5"
                 >
-                  <span>VKARD PRO</span>
+                  <span>DIGITAL VISITING CARD</span>
                   <ExternalLink className="w-3 h-3" />
                 </a>
                 <a

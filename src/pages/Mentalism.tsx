@@ -61,13 +61,6 @@ export const Mentalism: React.FC = () => {
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col items-center"
         >
-          {/* Subtle Stage Atmosphere Line */}
-          <div className="inline-block px-4 py-1.5 rounded-full border border-white/15 bg-white/5 backdrop-blur-md mb-8 sm:mb-12">
-            <span className="font-sans text-[10px] sm:text-xs tracking-[0.3em] text-neutral-300 uppercase">
-              THEATRICAL PSYCHOLOGICAL ART
-            </span>
-          </div>
-
           {/* Prominent Message 1: SOMETHING EXTRAORDINARY IS COMING. */}
           <h1 className="font-display text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-cinematic text-white uppercase leading-[1.05] drop-shadow-2xl">
             SOMETHING EXTRAORDINARY
@@ -83,18 +76,13 @@ export const Mentalism: React.FC = () => {
             className="w-20 sm:w-28 h-[1px] bg-white/30 my-8 sm:my-12 origin-center"
           />
 
-          {/* Prominent Message 2: MENTALISM — COMING SOON */}
+          {/* Prominent Message 2: MENTALISM — COMING SOON. */}
           <h2 className="font-display text-base sm:text-xl md:text-2xl lg:text-3xl tracking-[0.25em] text-neutral-200 uppercase font-medium">
-            MENTALISM — COMING SOON
+            MENTALISM — COMING SOON.
           </h2>
 
-          {/* Minimal Mysterious Note */}
-          <p className="mt-6 text-xs sm:text-sm text-neutral-400 font-sans tracking-wide max-w-md leading-relaxed">
-            An immersive exploration of perception, telepathic illusion, and psychological performance.
-          </p>
-
           {/* Contact Enquiry Action */}
-          <div className="mt-10 sm:mt-12">
+          <div className="mt-12 sm:mt-16">
             <Link
               to="/contact"
               className="inline-flex items-center gap-2 px-8 py-3.5 rounded border border-white/20 bg-black/60 hover:bg-white text-white hover:text-black font-display tracking-widest text-xs font-semibold uppercase transition-all duration-300 backdrop-blur-md shadow-2xl"

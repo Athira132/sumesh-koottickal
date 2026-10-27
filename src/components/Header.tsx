@@ -239,7 +239,7 @@ export const Header: React.FC = () => {
                         <Link
                           to={link.path}
                           onClick={() => setIsOpen(false)}
-                          className={`group flex items-center justify-between py-3.5 px-3 rounded-lg border-b border-white/5 transition-all ${
+                          className={`group flex items-center py-3.5 px-3 rounded-lg border-b border-white/5 transition-all ${
                             isActive
                               ? 'text-white font-bold bg-white/5 border-l-2 border-white pl-4'
                               : 'text-neutral-400 hover:text-white hover:bg-neutral-900/60 pl-3'
@@ -247,9 +247,6 @@ export const Header: React.FC = () => {
                         >
                           <span className="font-display text-xl sm:text-2xl tracking-wider uppercase">
                             {link.name}
-                          </span>
-                          <span className="text-xs font-mono text-neutral-400 group-hover:text-white transition-colors">
-                            0{idx + 1}
                           </span>
                         </Link>
                       </motion.div>
