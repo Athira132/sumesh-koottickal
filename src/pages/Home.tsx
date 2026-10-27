@@ -19,14 +19,14 @@ export const Home: React.FC = () => {
       />
 
       {/* ========================================================= */}
-      {/* 1. HOMEPAGE HERO (FULL IMAGE ON MOBILE, DESKTOP UNCHANGED) */}
+      {/* 1. HOMEPAGE HERO (OVERLAID BUTTONS & TAGLINE ON MOBILE)    */}
       {/* ========================================================= */}
       <section
-        className="relative w-full bg-black flex flex-col justify-start md:justify-end md:h-screen md:min-h-[600px] overflow-hidden pt-20 sm:pt-24 md:pt-0 pb-8 sm:pb-12 md:pb-14"
+        className="relative w-full h-[85vh] min-h-[540px] max-h-[740px] md:h-screen md:min-h-[600px] md:max-h-none flex flex-col justify-end overflow-hidden pb-6 sm:pb-8 md:pb-14"
         aria-label="Sumesh Koottickal Main Hero"
       >
-        {/* Hero Photograph: On Mobile, Full Photograph is Visible (contain, no cropping). On Desktop, Preserves Cover */}
-        <div className="w-full bg-black flex items-center justify-center md:absolute md:inset-0 md:z-0">
+        {/* Hero Photograph: Subject framed on mobile via object-[24%_center], desktop unchanged */}
+        <div className="absolute inset-0 z-0">
           <img
             src={ARTIST_DATA.heroImage.src}
             alt={ARTIST_DATA.heroImage.alt}
@@ -37,34 +37,36 @@ export const Home: React.FC = () => {
                 e.currentTarget.src = ARTIST_DATA.heroImage.fallbackSrc;
               }
             }}
-            className="w-full h-auto max-h-[52vh] md:max-h-none md:h-full object-contain md:object-cover md:object-[center_30%] select-none block"
+            className="w-full h-full object-cover object-[24%_center] md:object-[center_30%] select-none block"
           />
 
-          {/* Desktop-only gradients for navbar & bottom contrast (hidden on mobile to keep entire photo crisp & clear) */}
-          <div className="hidden md:block absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-black/45 to-transparent pointer-events-none" />
-          <div className="hidden md:block absolute bottom-0 inset-x-0 h-44 sm:h-52 bg-gradient-to-t from-black/95 via-black/45 to-transparent pointer-events-none" />
+          {/* Top subtle navbar shadow */}
+          <div className="absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-black/60 to-transparent pointer-events-none" />
+
+          {/* Subtle bottom gradient ensuring high contrast for tagline & buttons directly on top of photograph */}
+          <div className="absolute bottom-0 inset-x-0 h-64 sm:h-72 bg-gradient-to-t from-black/95 via-black/55 to-transparent pointer-events-none" />
         </div>
 
-        {/* Hero Content: Bold Tagline & Action Buttons (Positioned below photo on mobile, layered at bottom on desktop) */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-12 w-full mt-4 sm:mt-6 md:mt-0">
+        {/* Hero Content: Bold Tagline & Action Buttons Directly Overlaid on Hero Image */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-12 w-full">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col md:flex-row items-start md:items-end justify-between gap-5 sm:gap-6 border-t border-white/15 pt-5 sm:pt-6 pb-1"
+            className="flex flex-col md:flex-row items-start md:items-end justify-between gap-4 sm:gap-6 border-t border-white/15 pt-4 sm:pt-6 pb-1"
           >
-            {/* Left: Tagline + Two Action Buttons */}
-            <div className="flex flex-col gap-3.5 max-w-2xl w-full">
-              <h1 className="font-sans text-xs sm:text-base md:text-lg lg:text-xl font-bold tracking-[0.16em] sm:tracking-[0.22em] text-white uppercase text-left drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
+            {/* Left: Tagline + Two Action Buttons Overlaid Directly on Photograph */}
+            <div className="flex flex-col gap-3 max-w-2xl w-full">
+              <h1 className="font-sans text-xs sm:text-base md:text-lg lg:text-xl font-bold tracking-[0.16em] sm:tracking-[0.22em] text-white uppercase text-left drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
                 <span className="sr-only">Sumesh Koottickal — </span>
                 MUSIC DIRECTOR · PERFORMER · MENTALIST
               </h1>
 
-              {/* Two Prominent Action Buttons */}
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-1 w-full sm:w-auto">
+              {/* Two Action Buttons Directly Over the Hero Banner */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-4 pt-1 w-full sm:w-auto">
                 <Link
                   to="/biography"
-                  className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded bg-white text-black font-display tracking-widest text-xs sm:text-sm font-bold uppercase hover:bg-neutral-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black transition-all duration-200 shadow-xl"
+                  className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded bg-white text-black font-display tracking-widest text-xs sm:text-sm font-bold uppercase hover:bg-neutral-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black transition-all duration-200 shadow-2xl"
                 >
                   <span>VISIT BIOGRAPHY</span>
                   <ArrowUpRight className="w-4 h-4" />
@@ -72,7 +74,7 @@ export const Home: React.FC = () => {
 
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded border-2 border-white bg-black/75 backdrop-blur-sm text-white font-display tracking-widest text-xs sm:text-sm font-bold uppercase hover:bg-white hover:text-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black transition-all duration-200 shadow-xl"
+                  className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded border-2 border-white bg-black/75 backdrop-blur-sm text-white font-display tracking-widest text-xs sm:text-sm font-bold uppercase hover:bg-white hover:text-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black transition-all duration-200 shadow-2xl"
                 >
                   <span>CONTACT ME</span>
                   <ArrowUpRight className="w-4 h-4" />

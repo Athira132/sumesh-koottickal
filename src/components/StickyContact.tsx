@@ -1,11 +1,27 @@
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 
 export const StickyContact: React.FC = () => {
   const location = useLocation();
+  const [scrolledPastHero, setScrolledPastHero] = useState(false);
 
-  // On the contact page itself, we can hide or soften the sticky button so it's not redundant
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolledPastHero(window.scrollY > 260);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // On the contact page itself, hide sticky button so it's not redundant
   if (location.pathname === '/contact') {
+    return null;
+  }
+
+  // On homepage, only show once scrolled past hero to ensure zero overlap with hero action buttons
+  if (location.pathname === '/' && !scrolledPastHero) {
     return null;
   }
 
