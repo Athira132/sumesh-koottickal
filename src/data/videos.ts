@@ -3,13 +3,14 @@ export interface VideoItem {
   youtubeId: string;
   youtubeUrl: string;
   customThumbnail?: string;
+  directWatchUrl?: string;
 }
 
 /**
  * 6 FEATURED POPULAR MUSIC & COMPOSITION VIDEOS
  * Strictly in user's specified order:
  * 1. S01yMutUGxk
- * 2. 2dGwbDnfmu4 (Uruki Uruki Theernnidaam - with custom cover)
+ * 2. 2dGwbDnfmu4 (Uruki Uruki Theernnidaam - redirects directly to YouTube)
  * 3. PUjf7OxZi0A
  * 4. LoM3U4wEXZE
  * 5. Ii88MEL76d0
@@ -26,6 +27,7 @@ export const FEATURED_POPULAR_VIDEOS: VideoItem[] = [
     youtubeId: '2dGwbDnfmu4',
     youtubeUrl: 'https://www.youtube.com/embed/2dGwbDnfmu4',
     customThumbnail: '/images/cover-uruki-uruki.jpg',
+    directWatchUrl: 'https://youtu.be/2dGwbDnfmu4',
   },
   {
     id: 'featured-3',

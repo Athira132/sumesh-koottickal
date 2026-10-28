@@ -128,23 +128,23 @@ export const Biography: React.FC = () => {
           </div>
 
           {/* ========================================================= */}
-          {/* SECTION 1: SELECTED FILM MUSIC                            */}
+          {/* SECTION 1: SELECTED FILM MUSIC (SELECTED MUSIC WORKS)      */}
           {/* ========================================================= */}
-          <div className="py-12 sm:py-16 md:py-20 border-t border-white/10">
+          <div className="py-10 sm:py-14 md:py-16 border-t border-white/10">
             <SectionHeading
               tag="CINEMATIC REPERTOIRE"
               title="SELECTED FILM MUSIC"
               subtitle="Feature film soundtracks, background scores, and original compositions for Malayalam cinema."
             />
 
-            {/* Consistent grid: Exactly 2 images per row on mobile, 4 on desktop with compact natural heights */}
-            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 items-start">
+            {/* Total items: 4 (even) -> Arranged into two balanced rows of 2 cards each with equal height */}
+            <div className="grid grid-cols-2 md:grid-cols-2 gap-3 sm:gap-5 md:gap-6">
               {BIOGRAPHY_DATA.selectedFilmMusic.map((film) => (
                 <div
                   key={film.id}
-                  className="group rounded-xl overflow-hidden bg-neutral-950 border border-white/10 hover:border-white/30 transition-all flex flex-col"
+                  className="group rounded-xl overflow-hidden bg-neutral-950 border border-white/10 hover:border-white/30 transition-all flex flex-col h-full shadow-lg"
                 >
-                  <div className="relative aspect-[16/10] bg-neutral-900 overflow-hidden">
+                  <div className="relative aspect-[16/10] bg-neutral-900 overflow-hidden shrink-0">
                     <img
                       src={film.image}
                       alt={`${film.title} film music poster`}
@@ -162,14 +162,16 @@ export const Biography: React.FC = () => {
                       </span>
                     )}
                   </div>
-                  <div className="p-3 sm:p-4 flex flex-col">
-                    <h4 className="font-display text-xs sm:text-sm md:text-base font-bold tracking-wider text-white uppercase mb-1">
-                      {film.title}
-                    </h4>
-                    <span className="text-[10px] sm:text-xs font-sans tracking-widest text-neutral-400 uppercase mb-1.5">
-                      {film.role}
-                    </span>
-                    <p className="text-[11px] sm:text-xs text-neutral-400 font-sans leading-relaxed">
+                  <div className="p-3.5 sm:p-5 flex flex-col flex-1 justify-between">
+                    <div>
+                      <h4 className="font-display text-xs sm:text-base font-bold tracking-wider text-white uppercase mb-1 line-clamp-1">
+                        {film.title}
+                      </h4>
+                      <span className="text-[10px] sm:text-xs font-sans tracking-widest text-neutral-400 uppercase mb-2 block line-clamp-1">
+                        {film.role}
+                      </span>
+                    </div>
+                    <p className="text-[11px] sm:text-xs text-neutral-400 font-sans leading-relaxed line-clamp-2 sm:line-clamp-3">
                       {film.details}
                     </p>
                   </div>
@@ -181,21 +183,21 @@ export const Biography: React.FC = () => {
           {/* ========================================================= */}
           {/* SECTION 2: IMPORTANT COMPOSITIONS & PROJECTS              */}
           {/* ========================================================= */}
-          <div className="py-12 sm:py-16 md:py-20 border-t border-white/10">
+          <div className="py-10 sm:py-14 md:py-16 border-t border-white/10">
             <SectionHeading
               tag="CAREER HIGHLIGHTS"
               title="IMPORTANT COMPOSITIONS & PROJECTS"
               subtitle="Landmark sports theme anthems, viral compositions, and high-impact musical commissions."
             />
 
-            {/* Balanced presentation: Image on left, details on right on desktop; stacked on mobile */}
-            <div className="space-y-5 sm:space-y-6">
+            {/* Total items: 3 (odd) -> Kept in a single row on desktop, responsive on mobile */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-5 md:gap-6">
               {BIOGRAPHY_DATA.majorProjects.map((project) => (
                 <div
                   key={project.id}
-                  className="rounded-xl overflow-hidden bg-surface-card border border-white/10 hover:border-white/25 transition-all p-4 sm:p-6 flex flex-col md:flex-row items-start gap-4 sm:gap-6"
+                  className="rounded-xl overflow-hidden bg-surface-card border border-white/10 hover:border-white/25 transition-all flex flex-col h-full shadow-lg"
                 >
-                  <div className="relative w-full md:w-5/12 aspect-[16/10] bg-neutral-900 rounded-lg overflow-hidden shrink-0">
+                  <div className="relative aspect-[16/10] bg-neutral-900 overflow-hidden shrink-0">
                     <img
                       src={project.image}
                       alt={project.title}
@@ -208,19 +210,21 @@ export const Biography: React.FC = () => {
                       className="w-full h-full object-cover block"
                     />
                     {project.note && (
-                      <span className="absolute bottom-2 left-2 px-2.5 py-1 rounded bg-black/85 backdrop-blur-sm text-[10px] font-sans font-semibold text-white border border-white/20">
+                      <span className="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-black/85 backdrop-blur-sm text-[10px] font-sans font-semibold text-white border border-white/20">
                         {project.note}
                       </span>
                     )}
                   </div>
-                  <div className="w-full md:w-7/12 flex flex-col justify-start">
-                    <span className="text-[10px] sm:text-xs font-sans tracking-widest text-neutral-400 uppercase mb-1">
-                      {project.role}
-                    </span>
-                    <h4 className="font-display text-base sm:text-xl font-bold tracking-wider text-white uppercase mb-2">
-                      {project.title}
-                    </h4>
-                    <p className="text-xs sm:text-sm text-neutral-300 font-sans leading-relaxed">
+                  <div className="p-3.5 sm:p-5 flex flex-col flex-1 justify-between">
+                    <div>
+                      <span className="text-[10px] font-sans tracking-widest text-neutral-400 uppercase mb-1 block line-clamp-1">
+                        {project.role}
+                      </span>
+                      <h4 className="font-display text-sm sm:text-base font-bold tracking-wider text-white uppercase mb-2 line-clamp-1">
+                        {project.title}
+                      </h4>
+                    </div>
+                    <p className="text-xs text-neutral-300 font-sans leading-relaxed line-clamp-3 sm:line-clamp-4">
                       {project.description}
                     </p>
                   </div>
@@ -232,21 +236,21 @@ export const Biography: React.FC = () => {
           {/* ========================================================= */}
           {/* SECTION 3: AWARDS & RECOGNITION (SINGLE AWARDS SECTION)    */}
           {/* ========================================================= */}
-          <div className="py-12 sm:py-16 md:py-20 border-t border-white/10">
+          <div className="py-10 sm:py-14 md:py-16 border-t border-white/10">
             <SectionHeading
               tag="HONORS & FELICITATIONS"
               title="AWARDS & RECOGNITION"
               subtitle="Industry honors recognizing contributions to music direction, cinematic scoring, and performance art."
             />
 
-            {/* Balanced presentation: Award image on left with year badge, award details on right */}
-            <div className="space-y-5 sm:space-y-6">
+            {/* Total items: 3 (odd) -> Kept in a single row on desktop, responsive on mobile */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-5 md:gap-6">
               {BIOGRAPHY_DATA.awardsAndRecognition.map((award) => (
                 <div
                   key={award.id}
-                  className="rounded-xl overflow-hidden bg-surface-card border border-white/10 hover:border-white/25 transition-all p-4 sm:p-6 flex flex-col sm:flex-row items-start gap-4 sm:gap-6"
+                  className="rounded-xl overflow-hidden bg-surface-card border border-white/10 hover:border-white/25 transition-all flex flex-col h-full shadow-lg"
                 >
-                  <div className="relative w-full sm:w-52 md:w-60 aspect-[4/3] bg-neutral-900 rounded-lg overflow-hidden shrink-0">
+                  <div className="relative aspect-[16/10] bg-neutral-900 overflow-hidden shrink-0">
                     <img
                       src={award.image}
                       alt={`${award.name} ceremony`}
@@ -262,20 +266,22 @@ export const Biography: React.FC = () => {
                       {award.year}
                     </span>
                   </div>
-                  <div className="flex-1 flex flex-col justify-start">
-                    <div className="flex items-center gap-2 mb-1.5 text-neutral-400">
-                      <Award className="w-4 h-4 text-white" />
-                      <span className="text-xs font-mono">{award.year} OFFICIAL AWARD</span>
+                  <div className="p-3.5 sm:p-5 flex flex-col flex-1 justify-between">
+                    <div>
+                      <div className="flex items-center gap-1.5 mb-1 text-neutral-400">
+                        <Award className="w-3.5 h-3.5 text-white" />
+                        <span className="text-[10px] font-mono">{award.year} OFFICIAL AWARD</span>
+                      </div>
+                      <h4 className="font-display text-sm sm:text-base font-bold tracking-wider text-white uppercase mb-1 line-clamp-2">
+                        {award.name}
+                      </h4>
+                      {award.presentedBy && (
+                        <p className="text-[11px] font-sans text-neutral-300 font-medium mb-2 line-clamp-1">
+                          Presented by: {award.presentedBy}
+                        </p>
+                      )}
                     </div>
-                    <h4 className="font-display text-base sm:text-xl font-bold tracking-wider text-white uppercase mb-2">
-                      {award.name}
-                    </h4>
-                    {award.presentedBy && (
-                      <p className="text-xs font-sans text-neutral-300 font-medium mb-2">
-                        Presented by: {award.presentedBy}
-                      </p>
-                    )}
-                    <p className="text-xs sm:text-sm text-neutral-400 font-sans leading-relaxed">
+                    <p className="text-xs text-neutral-400 font-sans leading-relaxed line-clamp-3 sm:line-clamp-4">
                       {award.details}
                     </p>
                   </div>
@@ -287,21 +293,21 @@ export const Biography: React.FC = () => {
           {/* ========================================================= */}
           {/* SECTION 4: LIVE PERFORMANCES & APPEARANCES                */}
           {/* ========================================================= */}
-          <div className="py-12 sm:py-16 md:py-20 border-t border-white/10">
+          <div className="py-10 sm:py-14 md:py-16 border-t border-white/10">
             <SectionHeading
               tag="INTERNATIONAL & ARENA STAGES"
               title="LIVE PERFORMANCES & APPEARANCES"
               subtitle="Keytar fusion showcases, state dignitary appearances, and high-profile corporate award nights."
             />
 
-            {/* Balanced presentation: Performance photo on left, event details on right */}
-            <div className="space-y-5 sm:space-y-6">
+            {/* Total items: 3 (odd) -> Kept in a single row on desktop, responsive on mobile */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-5 md:gap-6">
               {BIOGRAPHY_DATA.livePerformances.map((perf) => (
                 <div
                   key={perf.id}
-                  className="rounded-xl overflow-hidden bg-surface-card border border-white/10 hover:border-white/25 transition-all p-4 sm:p-6 flex flex-col sm:flex-row items-start gap-4 sm:gap-6"
+                  className="rounded-xl overflow-hidden bg-surface-card border border-white/10 hover:border-white/25 transition-all flex flex-col h-full shadow-lg"
                 >
-                  <div className="relative w-full sm:w-52 md:w-60 aspect-[4/3] bg-neutral-900 rounded-lg overflow-hidden shrink-0">
+                  <div className="relative aspect-[16/10] bg-neutral-900 overflow-hidden shrink-0">
                     <img
                       src={perf.image}
                       alt={perf.event}
@@ -314,14 +320,16 @@ export const Biography: React.FC = () => {
                       className="w-full h-full object-cover block"
                     />
                   </div>
-                  <div className="flex-1 flex flex-col justify-start">
-                    <span className="text-[10px] sm:text-xs font-sans tracking-widest text-neutral-400 uppercase mb-1">
-                      {perf.role}
-                    </span>
-                    <h4 className="font-display text-base sm:text-xl font-bold tracking-wider text-white uppercase mb-2">
-                      {perf.event}
-                    </h4>
-                    <p className="text-xs sm:text-sm text-neutral-300 font-sans leading-relaxed">
+                  <div className="p-3.5 sm:p-5 flex flex-col flex-1 justify-between">
+                    <div>
+                      <span className="text-[10px] font-sans tracking-widest text-neutral-400 uppercase mb-1 block line-clamp-1">
+                        {perf.role}
+                      </span>
+                      <h4 className="font-display text-sm sm:text-base font-bold tracking-wider text-white uppercase mb-2 line-clamp-2">
+                        {perf.event}
+                      </h4>
+                    </div>
+                    <p className="text-xs text-neutral-300 font-sans leading-relaxed line-clamp-3 sm:line-clamp-4">
                       {perf.details}
                     </p>
                   </div>
@@ -333,45 +341,46 @@ export const Biography: React.FC = () => {
           {/* ========================================================= */}
           {/* SECTION 5: CLASSIC IMPERIAL CRUISE & THEEVRA BAND         */}
           {/* ========================================================= */}
-          <div className="py-14 sm:py-20 border-t border-white/10">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Classic Imperial Cruise Card */}
-              <div className="p-6 sm:p-8 rounded-xl bg-surface-card border border-white/10 flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center gap-2 text-xs font-sans tracking-widest text-neutral-400 uppercase mb-3">
+          <div className="py-10 sm:py-14 md:py-16 border-t border-white/10">
+            {/* Total items: 2 (even) -> Arranged into two balanced rows */}
+            <div className="space-y-3.5 sm:space-y-4">
+              {/* Row 1: Classic Imperial Cruise */}
+              <div className="p-4 sm:p-6 rounded-xl bg-surface-card border border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-5 shadow-lg">
+                <div className="max-w-3xl">
+                  <div className="flex items-center gap-2 text-xs font-sans tracking-widest text-neutral-400 uppercase mb-1.5">
                     <Ship className="w-4 h-4 text-white" />
                     <span>MARITIME RESIDENCY</span>
                   </div>
-                  <h4 className="font-display text-2xl font-bold tracking-wider text-white uppercase mb-3">
+                  <h4 className="font-display text-base sm:text-xl font-bold tracking-wider text-white uppercase mb-1.5">
                     {BIOGRAPHY_DATA.classicCruise.title}
                   </h4>
-                  <p className="text-sm text-neutral-300 font-sans leading-relaxed mb-4">
+                  <p className="text-xs sm:text-sm text-neutral-300 font-sans leading-relaxed">
                     {BIOGRAPHY_DATA.classicCruise.description}
                   </p>
                 </div>
-                <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs text-neutral-400">
+                <div className="pt-2.5 sm:pt-0 sm:pl-6 sm:border-l border-white/10 text-xs text-neutral-400 shrink-0 flex sm:flex-col justify-between sm:justify-center items-start gap-1">
                   <span>Commenced: {BIOGRAPHY_DATA.classicCruise.startDate}</span>
-                  <span className="font-mono text-white">ACTIVE ARTIST</span>
+                  <span className="font-mono text-white font-semibold">LEADING KEYTARIST</span>
                 </div>
               </div>
 
-              {/* Theevra Live Band Card */}
-              <div className="p-6 sm:p-8 rounded-xl bg-surface-card border border-white/10 flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center gap-2 text-xs font-sans tracking-widest text-neutral-400 uppercase mb-3">
+              {/* Row 2: Theevra Live Band */}
+              <div className="p-4 sm:p-6 rounded-xl bg-surface-card border border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-5 shadow-lg">
+                <div className="max-w-3xl">
+                  <div className="flex items-center gap-2 text-xs font-sans tracking-widest text-neutral-400 uppercase mb-1.5">
                     <Music className="w-4 h-4 text-white" />
                     <span>LIVE FUSION ENSEMBLE</span>
                   </div>
-                  <h4 className="font-display text-2xl font-bold tracking-wider text-white uppercase mb-3">
+                  <h4 className="font-display text-base sm:text-xl font-bold tracking-wider text-white uppercase mb-1.5">
                     {BIOGRAPHY_DATA.theevraBand.name}
                   </h4>
-                  <p className="text-sm text-neutral-300 font-sans leading-relaxed mb-4">
+                  <p className="text-xs sm:text-sm text-neutral-300 font-sans leading-relaxed">
                     {BIOGRAPHY_DATA.theevraBand.description}
                   </p>
                 </div>
-                <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs text-neutral-400">
+                <div className="pt-2.5 sm:pt-0 sm:pl-6 sm:border-l border-white/10 text-xs text-neutral-400 shrink-0 flex sm:flex-col justify-between sm:justify-center items-start gap-1">
                   <span>Ensemble Collaborations</span>
-                  <span className="font-mono text-white">LIVE BAND</span>
+                  <span className="font-mono text-white font-semibold">LIVE FUSION BAND</span>
                 </div>
               </div>
             </div>
@@ -417,25 +426,28 @@ export const Biography: React.FC = () => {
           {/* ========================================================= */}
           {/* SECTION 7: THREE ARTISTIC PILLARS                         */}
           {/* ========================================================= */}
-          <div className="py-14 sm:py-20 border-t border-white/10">
+          <div className="py-10 sm:py-14 md:py-16 border-t border-white/10">
             <SectionHeading
               tag="ARTISTIC PILLARS"
               title="AREAS OF PRACTICE"
               subtitle="Sumesh Koottickal's creative identity spans three interconnected creative disciplines."
             />
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Total items: 3 (odd) -> Single row on desktop, equal height cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-5 md:gap-6">
               {BIOGRAPHY_DATA.disciplines.map((item, index) => (
                 <div
                   key={index}
-                  className="p-6 sm:p-8 rounded-xl bg-surface-card border border-white/10 hover:border-white/25 transition-all"
+                  className="p-5 sm:p-6 rounded-xl bg-surface-card border border-white/10 hover:border-white/25 transition-all h-full flex flex-col justify-between shadow-lg"
                 >
-                  <span className="text-xs font-mono text-neutral-400 mb-4 block">
-                    0{index + 1}
-                  </span>
-                  <h3 className="font-display text-lg sm:text-xl font-bold tracking-wider text-white uppercase mb-3">
-                    {item.title}
-                  </h3>
+                  <div>
+                    <span className="text-xs font-mono text-neutral-400 mb-3 block">
+                      0{index + 1}
+                    </span>
+                    <h3 className="font-display text-base sm:text-lg font-bold tracking-wider text-white uppercase mb-2">
+                      {item.title}
+                    </h3>
+                  </div>
                   <p className="text-xs sm:text-sm text-neutral-400 font-sans leading-relaxed">
                     {item.description}
                   </p>

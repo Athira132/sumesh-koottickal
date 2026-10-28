@@ -9,6 +9,37 @@ interface VideoCardProps {
 export const VideoCard: React.FC<VideoCardProps> = ({ video }) => {
   const [isPlaying, setIsPlaying] = useState(!video.customThumbnail);
 
+  // If a video specifies a directWatchUrl (only the second video), redirect directly to YouTube
+  if (video.directWatchUrl) {
+    return (
+      <a
+        href={video.directWatchUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Watch video on YouTube"
+        className="relative w-full aspect-video rounded-lg sm:rounded-xl overflow-hidden bg-neutral-900 border border-white/10 hover:border-white/30 transition-all duration-300 shadow-xl group block cursor-pointer"
+      >
+        <img
+          src={video.customThumbnail || '/images/cover-uruki-uruki.jpg'}
+          alt="Sumesh Koottickal video cover"
+          onError={(e) => {
+            if (e.currentTarget.src !== 'https://i.ibb.co/W48YX2xT/image.png') {
+              e.currentTarget.src = 'https://i.ibb.co/W48YX2xT/image.png';
+            }
+          }}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 block"
+        />
+        {/* Subtle dark gradient overlay */}
+        <div className="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition-colors pointer-events-none" />
+
+        {/* Centered Play Button */}
+        <div className="absolute inset-0 m-auto w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-white/90 group-hover:bg-white text-black flex items-center justify-center shadow-2xl transition-transform duration-300 group-hover:scale-110 pointer-events-none">
+          <Play className="w-5 h-5 sm:w-6 sm:h-6 fill-black ml-0.5" />
+        </div>
+      </a>
+    );
+  }
+
   return (
     <div className="relative w-full aspect-video rounded-lg sm:rounded-xl overflow-hidden bg-neutral-900 border border-white/10 hover:border-white/30 transition-all duration-300 shadow-xl group">
       {isPlaying ? (
