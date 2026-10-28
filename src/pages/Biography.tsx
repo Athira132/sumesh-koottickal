@@ -137,8 +137,8 @@ export const Biography: React.FC = () => {
               subtitle="Feature film soundtracks, background scores, and original compositions for Malayalam cinema."
             />
 
-            {/* Total items: 4 (even) -> Arranged into two balanced rows of 2 cards each with equal height */}
-            <div className="grid grid-cols-2 md:grid-cols-2 gap-3 sm:gap-5 md:gap-6">
+            {/* 4 Cards: Mobile = 2 rows x 2 cards per row; Laptop/Desktop = 1 single row of 4 cards */}
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5 lg:gap-6">
               {BIOGRAPHY_DATA.selectedFilmMusic.map((film) => (
                 <div
                   key={film.id}
@@ -162,12 +162,12 @@ export const Biography: React.FC = () => {
                       </span>
                     )}
                   </div>
-                  <div className="p-3.5 sm:p-5 flex flex-col flex-1 justify-between">
+                  <div className="p-3 sm:p-4 flex flex-col flex-1 justify-between">
                     <div>
-                      <h4 className="font-display text-xs sm:text-base font-bold tracking-wider text-white uppercase mb-1 line-clamp-1">
+                      <h4 className="font-display text-xs sm:text-sm md:text-sm lg:text-base font-bold tracking-wider text-white uppercase mb-1 line-clamp-1">
                         {film.title}
                       </h4>
-                      <span className="text-[10px] sm:text-xs font-sans tracking-widest text-neutral-400 uppercase mb-2 block line-clamp-1">
+                      <span className="text-[10px] sm:text-xs font-sans tracking-widest text-neutral-400 uppercase mb-1.5 block line-clamp-1">
                         {film.role}
                       </span>
                     </div>
