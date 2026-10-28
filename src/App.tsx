@@ -11,12 +11,15 @@ import { Mentalism } from './pages/Mentalism';
 import { Gallery } from './pages/Gallery';
 import { Contact } from './pages/Contact';
 
-// Scroll to top helper on route change
+import { videoPlaybackManager } from './utils/videoPlaybackManager';
+
+// Scroll to top and pause playing videos on route change
 function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    videoPlaybackManager.pauseAll();
   }, [pathname]);
 
   return null;
