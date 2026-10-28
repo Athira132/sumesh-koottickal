@@ -51,12 +51,12 @@ export const Music: React.FC = () => {
         {/* ========================================================= */}
         <section aria-labelledby="projects-heading" className="border-t border-white/10 pt-16 md:pt-20">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <h3
+            <h2
               id="projects-heading"
               className="font-display text-xl sm:text-2xl font-bold tracking-wider text-white uppercase mb-2"
             >
               SELECTED PROJECTS & COMPOSITIONS
-            </h3>
+            </h2>
             <p className="text-xs sm:text-sm text-neutral-400 font-sans">
               Feature cinema songs, film background scores, and independent releases.
             </p>

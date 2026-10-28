@@ -84,9 +84,9 @@ export const Biography: React.FC = () => {
                 ARTIST PROFILE
               </span>
 
-              <h1 className="font-display text-2xl sm:text-4xl md:text-5xl font-bold tracking-wide text-white uppercase leading-tight mb-2">
+              <h2 className="font-display text-2xl sm:text-4xl md:text-5xl font-bold tracking-wide text-white uppercase leading-tight mb-2">
                 {BIOGRAPHY_DATA.name}
-              </h1>
+              </h2>
 
               <p className="font-display text-sm sm:text-lg text-neutral-300 font-semibold uppercase tracking-wider mb-4">
                 {BIOGRAPHY_DATA.professionalTitle}
@@ -96,9 +96,9 @@ export const Biography: React.FC = () => {
                 {BIOGRAPHY_DATA.shortIntro}
               </p>
 
-              <h2 className="font-display text-lg sm:text-2xl font-bold tracking-wide text-white uppercase leading-snug mb-4">
+              <p className="font-display text-lg sm:text-2xl font-bold tracking-wide text-white uppercase leading-snug mb-4">
                 {BIOGRAPHY_DATA.headline}
-              </h2>
+              </p>
 
               <div className="space-y-4 text-sm sm:text-base text-neutral-300 font-sans leading-relaxed">
                 {BIOGRAPHY_DATA.paragraphs.map((paragraph, index) => (
@@ -147,7 +147,7 @@ export const Biography: React.FC = () => {
                   <div className="relative aspect-[16/10] bg-neutral-900 overflow-hidden shrink-0">
                     <img
                       src={film.image}
-                      alt={`${film.title} film music poster`}
+                      alt={`${film.title} — Malayalam Film Music Direction by Sumesh Koottickal`}
                       onError={(e) => {
                         if (e.currentTarget.src !== film.fallbackImage) {
                           e.currentTarget.src = film.fallbackImage;
@@ -164,9 +164,9 @@ export const Biography: React.FC = () => {
                   </div>
                   <div className="p-3 sm:p-4 flex flex-col flex-1 justify-between">
                     <div>
-                      <h4 className="font-display text-xs sm:text-sm md:text-sm lg:text-base font-bold tracking-wider text-white uppercase mb-1 line-clamp-1">
+                      <h3 className="font-display text-xs sm:text-sm md:text-sm lg:text-base font-bold tracking-wider text-white uppercase mb-1 line-clamp-1">
                         {film.title}
-                      </h4>
+                      </h3>
                       <span className="text-[10px] sm:text-xs font-sans tracking-widest text-neutral-400 uppercase mb-1.5 block line-clamp-1">
                         {film.role}
                       </span>
@@ -200,7 +200,7 @@ export const Biography: React.FC = () => {
                   <div className="relative aspect-[16/10] bg-neutral-900 overflow-hidden shrink-0">
                     <img
                       src={project.image}
-                      alt={project.title}
+                      alt={`${project.title} — Composed by Sumesh Koottickal`}
                       onError={(e) => {
                         if (e.currentTarget.src !== project.fallbackImage) {
                           e.currentTarget.src = project.fallbackImage;
@@ -220,9 +220,9 @@ export const Biography: React.FC = () => {
                       <span className="text-[10px] font-sans tracking-widest text-neutral-400 uppercase mb-1 block line-clamp-1">
                         {project.role}
                       </span>
-                      <h4 className="font-display text-sm sm:text-base font-bold tracking-wider text-white uppercase mb-2 line-clamp-1">
+                      <h3 className="font-display text-sm sm:text-base font-bold tracking-wider text-white uppercase mb-2 line-clamp-1">
                         {project.title}
-                      </h4>
+                      </h3>
                     </div>
                     <p className="text-xs text-neutral-300 font-sans leading-relaxed line-clamp-3 sm:line-clamp-4">
                       {project.description}
@@ -253,7 +253,7 @@ export const Biography: React.FC = () => {
                   <div className="relative aspect-[16/10] bg-neutral-900 overflow-hidden shrink-0">
                     <img
                       src={award.image}
-                      alt={`${award.name} ceremony`}
+                      alt={`${award.name} — Awarded to Sumesh Koottickal`}
                       onError={(e) => {
                         if (e.currentTarget.src !== award.fallbackImage) {
                           e.currentTarget.src = award.fallbackImage;
@@ -272,9 +272,9 @@ export const Biography: React.FC = () => {
                         <Award className="w-3.5 h-3.5 text-white" />
                         <span className="text-[10px] font-mono">{award.year} OFFICIAL AWARD</span>
                       </div>
-                      <h4 className="font-display text-sm sm:text-base font-bold tracking-wider text-white uppercase mb-1 line-clamp-2">
+                      <h3 className="font-display text-sm sm:text-base font-bold tracking-wider text-white uppercase mb-1 line-clamp-2">
                         {award.name}
-                      </h4>
+                      </h3>
                       {award.presentedBy && (
                         <p className="text-[11px] font-sans text-neutral-300 font-medium mb-2 line-clamp-1">
                           Presented by: {award.presentedBy}
@@ -310,7 +310,7 @@ export const Biography: React.FC = () => {
                   <div className="relative aspect-[16/10] bg-neutral-900 overflow-hidden shrink-0">
                     <img
                       src={perf.image}
-                      alt={perf.event}
+                      alt={`${perf.event} — Live Keytar Performance by Sumesh Koottickal`}
                       onError={(e) => {
                         if (e.currentTarget.src !== perf.fallbackImage) {
                           e.currentTarget.src = perf.fallbackImage;
@@ -325,9 +325,9 @@ export const Biography: React.FC = () => {
                       <span className="text-[10px] font-sans tracking-widest text-neutral-400 uppercase mb-1 block line-clamp-1">
                         {perf.role}
                       </span>
-                      <h4 className="font-display text-sm sm:text-base font-bold tracking-wider text-white uppercase mb-2 line-clamp-2">
+                      <h3 className="font-display text-sm sm:text-base font-bold tracking-wider text-white uppercase mb-2 line-clamp-2">
                         {perf.event}
-                      </h4>
+                      </h3>
                     </div>
                     <p className="text-xs text-neutral-300 font-sans leading-relaxed line-clamp-3 sm:line-clamp-4">
                       {perf.details}
@@ -351,9 +351,9 @@ export const Biography: React.FC = () => {
                     <Ship className="w-4 h-4 text-white" />
                     <span>MARITIME RESIDENCY</span>
                   </div>
-                  <h4 className="font-display text-base sm:text-xl font-bold tracking-wider text-white uppercase mb-1.5">
+                  <h3 className="font-display text-base sm:text-xl font-bold tracking-wider text-white uppercase mb-1.5">
                     {BIOGRAPHY_DATA.classicCruise.title}
-                  </h4>
+                  </h3>
                   <p className="text-xs sm:text-sm text-neutral-300 font-sans leading-relaxed">
                     {BIOGRAPHY_DATA.classicCruise.description}
                   </p>
@@ -371,9 +371,9 @@ export const Biography: React.FC = () => {
                     <Music className="w-4 h-4 text-white" />
                     <span>LIVE FUSION ENSEMBLE</span>
                   </div>
-                  <h4 className="font-display text-base sm:text-xl font-bold tracking-wider text-white uppercase mb-1.5">
+                  <h3 className="font-display text-base sm:text-xl font-bold tracking-wider text-white uppercase mb-1.5">
                     {BIOGRAPHY_DATA.theevraBand.name}
-                  </h4>
+                  </h3>
                   <p className="text-xs sm:text-sm text-neutral-300 font-sans leading-relaxed">
                     {BIOGRAPHY_DATA.theevraBand.description}
                   </p>
@@ -411,9 +411,9 @@ export const Biography: React.FC = () => {
                     </span>
                   </div>
 
-                  <h4 className="font-display text-base sm:text-lg font-bold tracking-wider text-white uppercase mb-1">
+                  <h3 className="font-display text-base sm:text-lg font-bold tracking-wider text-white uppercase mb-1">
                     {milestone.title}
-                  </h4>
+                  </h3>
 
                   <p className="text-xs sm:text-sm text-neutral-300 font-sans leading-relaxed max-w-3xl">
                     {milestone.description}

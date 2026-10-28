@@ -84,26 +84,26 @@ export interface BiographyData {
 
 export const BIOGRAPHY_DATA: BiographyData = {
   name: "SUMESH KOOTTICKAL",
-  professionalTitle: "Music Director & Keytar Performer",
+  professionalTitle: "Music Director, Composer & Keyboard Artist",
   shortIntro:
-    "An experienced music director, composer, and live keytar performer with a career spanning multiple languages and musical projects.",
+    "An experienced Indian music director, film music composer, music arranger, and professional keyboard artist with a rich career spanning Malayalam cinema, multi-lingual productions, and international stage performances.",
   headline: "ARCHITECT OF SOUND, MASTER OF THE STAGE, EXPLORER OF THE MIND.",
   summary:
-    "Sumesh Koottickal is a versatile Indian Music Director, live performer, and mentalist hailing from Kerala. Renowned for his electrifying keytar performances, symphonic arrangements, and cinematic film compositions, he bridges the worlds of classical musical nuance, contemporary stage spectacle, and psychological illusion.",
+    "Sumesh Koottickal is a versatile Indian Music Director, film music composer, keyboard artist, and mentalist from Kerala. Renowned for his electrifying keytar performances, symphonic arrangements, and cinematic film compositions, he bridges the worlds of classical musical nuance, contemporary stage spectacle, and psychological illusion.",
   
   careerBackgroundFacts: [
-    "Began his career as a music director in 2006.",
-    "Became popular as a keytar performer in 2017.",
-    "Has composed more than 600 songs in various languages.",
-    "Has worked on music for Malayalam cinema and other musical projects.",
-    "Has performed live as a keytar artist across international stages.",
-    "Began working as a keytar performer at Classic Imperial Cruise in January 2024, according to the supplied resume."
+    "Began his professional career as a music director in 2006.",
+    "Emerged as a prominent keyboard artist and keytar performer in 2017.",
+    "Has composed more than 600 original songs in various languages.",
+    "Has directed music and composed background scores for Malayalam cinema.",
+    "Has performed live as a keyboard and keytar artist across international stages.",
+    "Leading keytar performer at Classic Imperial Cruise since January 2024 (supplied resume)."
   ],
 
   paragraphs: [
-    "Rooted in the rich cultural and musical landscape of Kerala, Sumesh Koottickal has carved an individualistic niche in contemporary Indian music. As a composer and music director, his sonic signature balances sweeping melodic resonance with modern rhythmic drive.",
-    "His film composition credits include notable contributions to Malayalam cinema, such as composing the celebrated composition 'Shishiravaanil Pranayamukilaay' for the film Chinna Dada—an evocative track rendered by the legendary Padma Vibhushan Dr. K.J. Yesudas alongside Sharon Joseph, penned by lyricist Subhash Cherthala. His compositional repertoire also features music direction for Vishudha Pusthakam, Salam P. Shaji's feature film Idukki Blasters, and Mr. Hacker, alongside independent singles distributed across international streaming platforms like Apple Music and Spotify.",
-    "Beyond the studio, Sumesh transforms the live stage into an explosive arena of musical expression. Armed with his signature electric keytar and multi-tier synthesizer rigs, he delivers high-voltage stage shows that blend blistering synth leads, traditional melodic contours, and interactive crowd engagement.",
+    "Rooted in the rich cultural and musical landscape of Kerala, Sumesh Koottickal has carved an individualistic niche in contemporary Indian music. As a film music director, composer, and music arranger, his sonic signature balances sweeping melodic resonance with modern rhythmic drive and rich orchestral nuance.",
+    "His film score composition credits include notable contributions to Malayalam cinema, such as composing the celebrated composition 'Shishiravaanil Pranayamukilaay' for the film Chinna Dada—an evocative track rendered by the legendary Padma Vibhushan Dr. K.J. Yesudas alongside Sharon Joseph, penned by lyricist Subhash Cherthala. His compositional repertoire also features full music direction and original scores for Vishudha Pusthakam, Salam P. Shaji's feature film Idukki Blasters, and Mr. Hacker, alongside independent singles distributed across international streaming platforms like Apple Music and Spotify.",
+    "Beyond the recording studio, Sumesh transforms the live stage into an explosive arena of musical expression. As an accomplished keyboard artist and professional keytar player, he commands multi-tier synthesizer rigs and electric keytars, delivering high-voltage stage shows that blend blistering synth leads, traditional melodic contours, and interactive concert engagement.",
     "Complementing his musical craft is his dedication to Mentalism and psychological performance art. Blending keen observation, intuitive psychology, and stage illusion, his performance art presents audiences with a rare fusion of sound and psychological wonder."
   ],
 

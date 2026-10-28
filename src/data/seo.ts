@@ -1,10 +1,11 @@
 /**
- * Centralized SEO & Metadata Configuration
+ * Centralized SEO & Structured Data Configuration
  * 
- * Domain-dependent values are unified here. If a custom domain (e.g. https://sumeshkoottickal.com)
- * is connected in the future, updating SITE_DOMAIN updates all canonical URLs, Open Graph tags,
- * and JSON-LD structured data across the entire website.
+ * Defines unique page titles, meta descriptions, Open Graph tags, and Schema.org JSON-LD structured data.
+ * Domain-dependent values are unified here via SITE_DOMAIN.
  */
+
+import type { VideoItem } from './videos';
 
 export const SITE_DOMAIN = 'https://sumesh-koottickal.vercel.app';
 export const DEFAULT_OG_IMAGE = `${SITE_DOMAIN}/images/hero-home-new.jpg`;
@@ -18,119 +19,121 @@ export interface PageSEO {
 
 export const SEO_DATA: Record<string, PageSEO> = {
   home: {
-    title: 'Sumesh Koottickal | Music Director & Keytar Performer',
+    title: 'Sumesh Koottickal | Music Director & Keyboard Artist',
     description:
-      'Official website of Sumesh Koottickal — Music Director, Composer, and Keytar Performer. Composed 600+ songs, Malayalam film scores, sports themes, and live stage concerts.',
+      "Explore Sumesh Koottickal's music journey, film music compositions, keyboard performances, selected film music, and popular music videos.",
     canonicalPath: '/',
     keywords: [
       'Sumesh Koottickal',
-      'Sumesh Koottickal Music Director',
-      'Sumesh Koottickal Composer',
-      'Sumesh Koottickal Keytar Performer',
-      'Malayalam Music Director',
+      'Music Director',
+      'Keyboard Artist',
+      'Music Composer',
+      'Film Music Composer',
+      'Music Producer',
+      'Professional Keyboard Player',
+      'Music Arranger',
+      'Background Music Composer',
       'Malayalam Film Music',
-      'Keytar Artist',
-      'Live Music Performer',
-      'Music Composer Kerala',
-      'Theevra band',
-      'Classic Imperial Cruise'
+      'Indian Keyboard Artist',
+      'Kerala Musician',
+      'Theevra Band'
     ],
   },
   biography: {
-    title: 'About Sumesh Koottickal | Music Director & Keytar Performer Biography',
+    title: 'Sumesh Koottickal | Music Director & Composer Biography',
     description:
-      'Biography of Sumesh Koottickal: Music director since 2006, 600+ songs, Malayalam cinema scores, Universal Record Forum Icon Award, and keytar artist.',
+      'Read the official biography of Sumesh Koottickal, Indian music director and keyboard artist known for Malayalam cinema soundtracks and 600+ compositions.',
     canonicalPath: '/biography',
     keywords: [
-      'Sumesh Koottickal biography',
-      'Sumesh Koottickal Music Director',
-      'Sumesh Koottickal Composer',
-      'Sumesh Koottickal Keytar Performer',
-      'Malayalam Film Music',
-      'Chinna Dada music',
-      'Vishudha Pusthakam music director',
-      'Idukki Blasters music director',
-      'Mr. Hacker music',
-      'Universal Record Forum Icon Award'
+      'Sumesh Koottickal Biography',
+      'Music Director Biography',
+      'Music Director Kerala',
+      'Keyboard Artist Career',
+      'Malayalam Film Music Composer',
+      'Chinna Dada Music Director',
+      'Universal Record Forum Icon Award',
+      'Classic Imperial Cruise Musician',
+      'Music Portfolio'
     ],
   },
   music: {
-    title: 'Sumesh Koottickal Music | Malayalam Film Music & Songs',
+    title: 'Sumesh Koottickal | Selected Film Music & Compositions',
     description:
-      'Explore music associated with Sumesh Koottickal, including Malayalam film credits, songs, musical projects and selected releases.',
+      'Discover Malayalam film music scores, background music, original compositions, and music direction credits by Sumesh Koottickal.',
     canonicalPath: '/music',
     keywords: [
       'Sumesh Koottickal Music',
-      'Malayalam film songs',
-      'Vishudha Pusthakam',
-      'Mr. Hacker songs',
-      'Manjuthulli Pole',
-      'Chankinu Chanke',
-      'Swargam Thurannu Nee Irangeedane',
-      'Ore Oru Rajavu Messi',
-      'Kalyani',
-      'Amsham',
-      'Nishani'
-    ],
-  },
-  events: {
-    title: 'Sumesh Koottickal | Past Performances & Events',
-    description:
-      'Explore selected past performance photographs and event highlights associated with Sumesh Koottickal.',
-    canonicalPath: '/events',
-    keywords: [
-      'Sumesh Koottickal live performance',
-      'Sumesh Koottickal stage performer',
-      'Sumesh Koottickal musical performances',
-      'Live music performer Kerala',
-      'Kerala live music artist',
-      'Malayalam stage performer',
-      'Live keyboard performance'
-    ],
-  },
-  mentalism: {
-    title: 'Sumesh Koottickal | Mentalism',
-    description:
-      'Visit the official mentalism page of Sumesh Koottickal for future updates about his mentalism-related projects.',
-    canonicalPath: '/mentalism',
-    keywords: [
-      'Sumesh Koottickal mentalist',
-      'Sumesh Koottickal mentalism',
-      'Mentalist in Kerala',
-      'Mentalism performer Kerala',
-      'Mentalism show Kerala'
+      'Selected Film Music',
+      'Film Music Works',
+      'Malayalam Film Scores',
+      'Background Score Composer',
+      'Original Music Composition',
+      'Vishudha Pusthakam Music',
+      'Mr Hacker Songs',
+      'Film Song Composer'
     ],
   },
   gallery: {
-    title: 'Sumesh Koottickal Gallery | Photos & Performance Videos',
+    title: 'Sumesh Koottickal | Popular Music Videos & Performance Gallery',
     description:
-      'Explore photographs and embedded performance videos associated with Sumesh Koottickal, including music, keyboard performances and Theevra band.',
+      'Watch popular music videos, live keytar performances, and concert recordings by Indian music director and keyboard artist Sumesh Koottickal.',
     canonicalPath: '/gallery',
     keywords: [
-      'Sumesh Koottickal Gallery',
-      'Sumesh Koottickal performance videos',
-      'Keytar performance video',
-      'Live keyboard concert video',
-      'Theevra musical band photos'
+      'Popular Music Videos',
+      'Keyboard Performance Videos',
+      'Keytar Performance',
+      'Live Concert Videos',
+      'Theevra Band Video',
+      'Sumesh Koottickal YouTube',
+      'Live Music Performance'
+    ],
+  },
+  events: {
+    title: 'Sumesh Koottickal | Live Music Performances & Stage Concerts',
+    description:
+      'Explore live stage performances, keytar fusion concerts, international events, and arena appearances featuring Sumesh Koottickal.',
+    canonicalPath: '/events',
+    keywords: [
+      'Live Music Performance',
+      'Stage Concerts Kerala',
+      'Keytar Fusion Concert',
+      'Arena Music Show',
+      'Corporate Event Musician',
+      'Live Keyboard Performance',
+      'Theevra Live Stage'
+    ],
+  },
+  mentalism: {
+    title: 'Sumesh Koottickal | Psychological Mentalism & Stage Art',
+    description:
+      'Learn about psychological mentalism shows and mind-magic performances by multi-disciplinary artist and music director Sumesh Koottickal.',
+    canonicalPath: '/mentalism',
+    keywords: [
+      'Sumesh Koottickal Mentalist',
+      'Mentalism Show Kerala',
+      'Psychological Performance Art',
+      'Mind Magic Kerala',
+      'Stage Illusionist Kerala'
     ],
   },
   contact: {
-    title: 'Contact Sumesh Koottickal | Official Website',
+    title: 'Contact Sumesh Koottickal | Music Direction & Bookings',
     description:
-      'Find contact information, social media profiles and the digital visiting card for Sumesh Koottickal.',
+      'Contact music director and keyboard artist Sumesh Koottickal for film music commissions, live concert bookings, and music production enquiries.',
     canonicalPath: '/contact',
     keywords: [
       'Contact Sumesh Koottickal',
-      'Sumesh Koottickal bookings',
-      'Sumesh Koottickal contact number',
-      'Sumesh Koottickal digital visiting card',
-      'Corporate event performer Kerala bookings'
+      'Music Director Bookings',
+      'Film Music Commission',
+      'Hire Keyboard Artist',
+      'Concert Enquiries Kerala',
+      'Sumesh Koottickal Phone Number'
     ],
   },
 };
 
 /**
- * Generates JSON-LD Structured Data for Schema.org
+ * Generates Schema.org Person Structured Data for Sumesh Koottickal
  */
 export function getPersonSchema() {
   return {
@@ -143,12 +146,26 @@ export function getPersonSchema() {
     jobTitle: [
       'Music Director',
       'Keyboard Artist',
+      'Music Composer',
+      'Film Music Composer',
+      'Music Producer',
+      'Professional Keyboard Player',
+      'Music Arranger',
+      'Background Music Composer',
       'Keytar Performer',
-      'Live Performer',
       'Mentalist'
     ],
+    worksFor: {
+      '@type': 'Organization',
+      name: 'Malayalam Cinema & Indian Contemporary Music'
+    },
+    address: {
+      '@type': 'PostalAddress',
+      addressRegion: 'Kerala',
+      addressCountry: 'India'
+    },
     description:
-      'Indian Music Director, Keyboard Artist, Live Performer, and Mentalist based in Kerala, India. Known for Malayalam film compositions, live fusion concerts, and Theevra band.',
+      'Indian Music Director, Keyboard Artist, Film Music Composer, and Keytar Performer based in Kerala, India. Known for composing 600+ songs, Malayalam film soundtracks (Chinna Dada, Vishudha Pusthakam, Idukki Blasters, Mr. Hacker), and live fusion concerts.',
     sameAs: [
       'https://www.youtube.com/@Sumeshkoottickal',
       'https://www.instagram.com/sumeshkoottickal/',
@@ -160,14 +177,17 @@ export function getPersonSchema() {
   };
 }
 
+/**
+ * Generates Schema.org WebSite Structured Data
+ */
 export function getWebSiteSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'Sumesh Koottickal Official Website',
+    name: 'Sumesh Koottickal | Music Director & Keyboard Artist',
     url: SITE_DOMAIN,
     description:
-      'Official portfolio of Sumesh Koottickal — Music Director, Keyboard Artist, Performer & Mentalist.',
+      'Official portfolio and website of Sumesh Koottickal — Music Director, Film Composer, Keyboard Artist, and Stage Performer.',
     publisher: {
       '@type': 'Person',
       name: 'Sumesh Koottickal'
@@ -175,6 +195,9 @@ export function getWebSiteSchema() {
   };
 }
 
+/**
+ * Generates Schema.org ProfilePage Structured Data
+ */
 export function getProfilePageSchema(path: string, pageName: string) {
   return {
     '@context': 'https://schema.org',
@@ -185,6 +208,9 @@ export function getProfilePageSchema(path: string, pageName: string) {
   };
 }
 
+/**
+ * Generates Schema.org BreadcrumbList Structured Data
+ */
 export function getBreadcrumbSchema(items: { name: string; path: string }[]) {
   return {
     '@context': 'https://schema.org',
@@ -196,4 +222,25 @@ export function getBreadcrumbSchema(items: { name: string; path: string }[]) {
       item: `${SITE_DOMAIN}${item.path}`
     }))
   };
+}
+
+/**
+ * Generates Schema.org VideoObject Structured Data for genuine embedded videos.
+ * Excludes videos that only redirect or link externally (e.g. featured-2).
+ */
+export function getVideoObjectSchemas(videos: VideoItem[]) {
+  return videos
+    .filter((video) => !video.directWatchUrl)
+    .map((video) => ({
+      '@context': 'https://schema.org',
+      '@type': 'VideoObject',
+      name: video.title,
+      description: video.description,
+      thumbnailUrl: video.customThumbnail
+        ? `${SITE_DOMAIN}${video.customThumbnail}`
+        : `https://i.ytimg.com/vi/${video.youtubeId}/hqdefault.jpg`,
+      uploadDate: '2024-01-01T00:00:00+05:30',
+      embedUrl: `https://www.youtube.com/embed/${video.youtubeId}`,
+      contentUrl: `https://www.youtube.com/watch?v=${video.youtubeId}`,
+    }));
 }

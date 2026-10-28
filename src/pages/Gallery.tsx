@@ -9,7 +9,7 @@ import {
   VIDEO_SECTION_CONFIG,
 } from '../data/videos';
 import { SEO } from '../components/SEO';
-import { SEO_DATA, getPersonSchema, getBreadcrumbSchema } from '../data/seo';
+import { SEO_DATA, getPersonSchema, getBreadcrumbSchema, getVideoObjectSchemas } from '../data/seo';
 import { ArrowUpRight, ChevronDown } from 'lucide-react';
 
 export const Gallery: React.FC = () => {
@@ -29,6 +29,7 @@ export const Gallery: React.FC = () => {
             { name: 'Home', path: '/' },
             { name: 'Gallery', path: '/gallery' },
           ]),
+          ...getVideoObjectSchemas(FEATURED_POPULAR_VIDEOS),
         ]}
       />
 

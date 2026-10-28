@@ -21,7 +21,8 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
       <div className="absolute inset-0 z-0">
         <img
           src={imageSrc}
-          alt={`${title} banner atmosphere`}
+          alt=""
+          aria-hidden="true"
           onError={(e) => {
             if (e.currentTarget.src !== imageFallback) {
               e.currentTarget.src = imageFallback;

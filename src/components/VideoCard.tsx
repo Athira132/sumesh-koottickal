@@ -26,12 +26,12 @@ export const VideoCard: React.FC<VideoCardProps> = ({ video }) => {
         href={video.directWatchUrl}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Watch video on YouTube"
+        aria-label={`Watch ${video.title} on YouTube (opens in new tab)`}
         className="relative w-full aspect-video rounded-lg sm:rounded-xl overflow-hidden bg-neutral-900 border border-white/10 hover:border-white/30 transition-all duration-300 shadow-xl group block cursor-pointer"
       >
         <img
           src={video.customThumbnail || '/images/cover-uruki-uruki.jpg'}
-          alt="Sumesh Koottickal video cover"
+          alt={`${video.title} — Official YouTube Video by Sumesh Koottickal`}
           onError={(e) => {
             if (e.currentTarget.src !== 'https://i.ibb.co/W48YX2xT/image.png') {
               e.currentTarget.src = 'https://i.ibb.co/W48YX2xT/image.png';
@@ -69,7 +69,7 @@ export const VideoCard: React.FC<VideoCardProps> = ({ video }) => {
           id={`yt-player-${video.id}`}
           data-video-id={video.id}
           src={iframeSrc}
-          title={`Sumesh Koottickal performance video (${video.youtubeId})`}
+          title={video.title || `Sumesh Koottickal performance video (${video.youtubeId})`}
           className="w-full h-full border-0 block"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
@@ -79,7 +79,7 @@ export const VideoCard: React.FC<VideoCardProps> = ({ video }) => {
         <div className="relative w-full h-full">
           <img
             src={video.customThumbnail}
-            alt="Sumesh Koottickal — Uruki Uruki Theernnidaam video cover"
+            alt={video.title || "Sumesh Koottickal video cover"}
             onError={(e) => {
               if (e.currentTarget.src !== 'https://i.ibb.co/W48YX2xT/image.png') {
                 e.currentTarget.src = 'https://i.ibb.co/W48YX2xT/image.png';
@@ -98,7 +98,7 @@ export const VideoCard: React.FC<VideoCardProps> = ({ video }) => {
               setHasUserStarted(true);
               setIsPlaying(true);
             }}
-            aria-label="Play video inside website"
+            aria-label={`Play ${video.title} inside website`}
             className="absolute inset-0 m-auto w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-white/90 hover:bg-white text-black flex items-center justify-center shadow-2xl transition-transform duration-300 group-hover:scale-110 cursor-pointer focus:outline-none focus:ring-2 focus:ring-white"
           >
             <Play className="w-5 h-5 sm:w-6 sm:h-6 fill-black ml-0.5" />

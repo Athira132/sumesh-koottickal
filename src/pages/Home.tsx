@@ -5,7 +5,7 @@ import { GALLERY_ITEMS } from '../data/gallery';
 import { FEATURED_POPULAR_VIDEOS } from '../data/videos';
 import { VideoCard } from '../components/VideoCard';
 import { SEO } from '../components/SEO';
-import { SEO_DATA, getPersonSchema, getWebSiteSchema } from '../data/seo';
+import { SEO_DATA, getPersonSchema, getWebSiteSchema, getVideoObjectSchemas } from '../data/seo';
 import { ArrowDown, ArrowUpRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -45,7 +45,11 @@ export const Home: React.FC = () => {
         title={SEO_DATA.home.title}
         description={SEO_DATA.home.description}
         canonicalPath={SEO_DATA.home.canonicalPath}
-        schema={[getPersonSchema(), getWebSiteSchema()]}
+        schema={[
+          getWebSiteSchema(),
+          getPersonSchema(),
+          ...getVideoObjectSchemas(homepageVideos),
+        ]}
       />
 
       {/* ========================================================= */}
@@ -144,7 +148,7 @@ export const Home: React.FC = () => {
               <div className="relative rounded-2xl overflow-hidden border border-white/15 bg-neutral-900 group aspect-[3/4] shadow-2xl max-w-sm sm:max-w-md mx-auto lg:max-w-none">
                 <img
                   src="/images/home-artist-intro.jpg"
-                  alt="Sumesh Koottickal — Music Director & Keytar Performer"
+                  alt="Sumesh Koottickal — Indian Music Director & Keyboard Artist"
                   onError={(e) => {
                     if (e.currentTarget.src !== 'https://i.ibb.co/whGt8HGp/image.png') {
                       e.currentTarget.src = 'https://i.ibb.co/whGt8HGp/image.png';
@@ -154,7 +158,7 @@ export const Home: React.FC = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
                 <div className="absolute bottom-4 left-4 right-4 text-xs text-neutral-300 font-sans font-medium">
-                  Sumesh Koottickal — Music Director & Keytar Performer
+                  Sumesh Koottickal — Music Director & Keyboard Artist
                 </div>
               </div>
             </div>
@@ -170,15 +174,15 @@ export const Home: React.FC = () => {
               </h2>
 
               <p className="font-display text-sm sm:text-base text-neutral-300 font-semibold uppercase tracking-wider mb-5">
-                Music Director & Keytar Performer
+                Music Director & Keyboard Artist
               </p>
 
               <p className="text-sm sm:text-base text-white font-sans leading-relaxed mb-4 font-medium bg-black/60 p-4 rounded-xl border border-white/10">
-                An experienced music director, composer, and live keytar performer with a career spanning multiple languages and musical projects.
+                An experienced Indian music director, film music composer, music arranger, and professional keyboard artist with a prolific career spanning Malayalam cinema, multi-lingual compositions, and arena stage shows.
               </p>
 
               <p className="text-xs sm:text-sm text-neutral-300 font-sans leading-relaxed mb-6">
-                Sumesh Koottickal has composed more than 600 songs across diverse languages, directed music for Malayalam cinema, and captivated international audiences with electrifying live keytar performances and psychological mentalism.
+                Sumesh Koottickal has composed more than 600 original songs, directed music and composed background scores for Malayalam cinema, and captivated audiences across international stages with electrifying live keytar performances and psychological mentalism.
               </p>
 
               <div className="flex flex-wrap items-center gap-3 sm:gap-4">
@@ -203,6 +207,7 @@ export const Home: React.FC = () => {
       </section>
 
       {/* ========================================================= */}
+      {/* ========================================================= */}
       {/* 3. SELECTED FILM MUSIC (CONCISE HOMEPAGE SHOWCASE)         */}
       {/* ========================================================= */}
       <section className="py-12 sm:py-16 md:py-20 border-t border-white/10 bg-black">
@@ -211,9 +216,9 @@ export const Home: React.FC = () => {
             <span className="text-[11px] font-sans tracking-[0.25em] text-neutral-400 uppercase block mb-2">
               CINEMATIC SCORES & SOUNDTRACKS
             </span>
-            <h3 className="font-display text-xl sm:text-3xl md:text-4xl font-bold tracking-wider sm:tracking-cinematic text-white uppercase">
+            <h2 className="font-display text-xl sm:text-3xl md:text-4xl font-bold tracking-wider sm:tracking-cinematic text-white uppercase">
               SELECTED FILM MUSIC
-            </h3>
+            </h2>
           </div>
 
           {/* Consistent Cinematic Poster Grid: 3 columns on desktop, 2 images per row on mobile */}
@@ -228,7 +233,7 @@ export const Home: React.FC = () => {
                 <div className="relative aspect-[16/10] bg-neutral-900 overflow-hidden">
                   <img
                     src={film.image}
-                    alt={`${film.title} film poster`}
+                    alt={`${film.title} — Malayalam Film Music Composition by Sumesh Koottickal`}
                     onError={(e) => {
                       if (e.currentTarget.src !== film.fallbackImage) {
                         e.currentTarget.src = film.fallbackImage;
@@ -239,9 +244,9 @@ export const Home: React.FC = () => {
                   />
                 </div>
                 <div className="p-3 sm:p-4 text-center">
-                  <h4 className="font-display text-xs sm:text-sm md:text-base font-bold tracking-wider text-white uppercase">
+                  <h3 className="font-display text-xs sm:text-sm md:text-base font-bold tracking-wider text-white uppercase">
                     {film.title}
-                  </h4>
+                  </h3>
                 </div>
               </div>
             ))}
@@ -269,18 +274,18 @@ export const Home: React.FC = () => {
             <span className="text-[11px] font-sans tracking-[0.25em] text-neutral-400 uppercase block mb-2">
               DISTINCTIONS AT A GLANCE
             </span>
-            <h3 className="font-display text-xl sm:text-3xl font-bold tracking-wider text-white uppercase">
+            <h2 className="font-display text-xl sm:text-3xl font-bold tracking-wider text-white uppercase">
               CAREER HIGHLIGHTS & ACHIEVEMENTS
-            </h3>
+            </h2>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
             <div className="p-4 sm:p-5 rounded-xl bg-neutral-950 border border-white/10 flex flex-col justify-between">
               <span className="font-mono text-xl sm:text-2xl font-bold text-white mb-2 block">2006</span>
               <div>
-                <h4 className="font-display text-xs sm:text-sm font-bold text-white uppercase mb-1">
+                <h3 className="font-display text-xs sm:text-sm font-bold text-white uppercase mb-1">
                   Music Director
-                </h4>
+                </h3>
                 <p className="text-[11px] text-neutral-400 font-sans leading-relaxed">
                   Began professional career as a music director.
                 </p>
@@ -290,9 +295,9 @@ export const Home: React.FC = () => {
             <div className="p-4 sm:p-5 rounded-xl bg-neutral-950 border border-white/10 flex flex-col justify-between">
               <span className="font-mono text-xl sm:text-2xl font-bold text-white mb-2 block">600+</span>
               <div>
-                <h4 className="font-display text-xs sm:text-sm font-bold text-white uppercase mb-1">
+                <h3 className="font-display text-xs sm:text-sm font-bold text-white uppercase mb-1">
                   Compositions
-                </h4>
+                </h3>
                 <p className="text-[11px] text-neutral-400 font-sans leading-relaxed">
                   Composed over 600 songs across various languages.
                 </p>
@@ -302,9 +307,9 @@ export const Home: React.FC = () => {
             <div className="p-4 sm:p-5 rounded-xl bg-neutral-950 border border-white/10 flex flex-col justify-between">
               <span className="font-mono text-xl sm:text-2xl font-bold text-white mb-2 block">2016</span>
               <div>
-                <h4 className="font-display text-xs sm:text-sm font-bold text-white uppercase mb-1">
+                <h3 className="font-display text-xs sm:text-sm font-bold text-white uppercase mb-1">
                   URF Icon Award
-                </h4>
+                </h3>
                 <p className="text-[11px] text-neutral-400 font-sans leading-relaxed">
                   Presented by Padma Shri Dr. K. J. Yesudas.
                 </p>
@@ -314,9 +319,9 @@ export const Home: React.FC = () => {
             <div className="p-4 sm:p-5 rounded-xl bg-neutral-950 border border-white/10 flex flex-col justify-between">
               <span className="font-mono text-xl sm:text-2xl font-bold text-white mb-2 block">T20</span>
               <div>
-                <h4 className="font-display text-xs sm:text-sm font-bold text-white uppercase mb-1">
+                <h3 className="font-display text-xs sm:text-sm font-bold text-white uppercase mb-1">
                   Cricket Theme
-                </h4>
+                </h3>
                 <p className="text-[11px] text-neutral-400 font-sans leading-relaxed">
                   Theme music for the Indian Cricket Team (T20 World Cup).
                 </p>
@@ -326,9 +331,9 @@ export const Home: React.FC = () => {
             <div className="col-span-2 sm:col-span-1 p-4 sm:p-5 rounded-xl bg-neutral-950 border border-white/10 flex flex-col justify-between">
               <span className="font-mono text-xl sm:text-2xl font-bold text-white mb-2 block">2024</span>
               <div>
-                <h4 className="font-display text-xs sm:text-sm font-bold text-white uppercase mb-1">
+                <h3 className="font-display text-xs sm:text-sm font-bold text-white uppercase mb-1">
                   Classic Imperial
-                </h4>
+                </h3>
                 <p className="text-[11px] text-neutral-400 font-sans leading-relaxed">
                   Keytar performer at Classic Imperial Cruise since Jan 2024.
                 </p>
@@ -347,9 +352,9 @@ export const Home: React.FC = () => {
             <span className="text-[11px] font-sans tracking-[0.25em] text-neutral-400 uppercase block mb-2">
               FEATURED TRACKS & CONCERTS
             </span>
-            <h3 className="font-display text-xl sm:text-3xl md:text-4xl font-bold tracking-wider sm:tracking-cinematic text-white uppercase">
+            <h2 className="font-display text-xl sm:text-3xl md:text-4xl font-bold tracking-wider sm:tracking-cinematic text-white uppercase">
               POPULAR MUSIC & COMPOSITIONS
-            </h3>
+            </h2>
           </div>
 
           {/* First 3 featured videos: 2 columns on mobile, 3 on desktop */}
@@ -381,9 +386,9 @@ export const Home: React.FC = () => {
             <span className="text-[11px] font-sans tracking-[0.25em] text-neutral-400 uppercase block mb-2">
               VISUAL ARCHIVE
             </span>
-            <h3 className="font-display text-xl sm:text-3xl md:text-4xl font-bold tracking-wider sm:tracking-cinematic text-white uppercase">
+            <h2 className="font-display text-xl sm:text-3xl md:text-4xl font-bold tracking-wider sm:tracking-cinematic text-white uppercase">
               GALLERY
-            </h3>
+            </h2>
           </div>
 
           {/* Exactly 2 images per row on mobile (grid-cols-2), 4 on desktop, 4:3 ratio, no captions */}
