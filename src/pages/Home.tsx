@@ -16,6 +16,28 @@ export const Home: React.FC = () => {
   // Gallery items for preview: 4 images in uniform 4:3 ratio (2 per row on mobile)
   const homepageGalleryImages = GALLERY_ITEMS.slice(0, 4);
 
+  // 3 Selected films for homepage showcase
+  const homepageFilms = [
+    {
+      id: 'film-chinnadhadha',
+      title: 'Chinnadhadha',
+      image: '/images/films/film-chinnadhadha.jpg',
+      fallbackImage: 'https://i.ibb.co/LD5x5XwC/image.png',
+    },
+    {
+      id: 'film-vishudha-pusthakam',
+      title: 'Vishudha Pusthakam',
+      image: '/images/films/film-vishudha-pusthakam.jpg',
+      fallbackImage: 'https://i.ibb.co/hx3BdB31/image.png',
+    },
+    {
+      id: 'film-idukki-blasters',
+      title: 'Idukki Blasters',
+      image: '/images/films/film-idukki-blasters.jpg',
+      fallbackImage: 'https://i.ibb.co/5WrPqB29/image.png',
+    },
+  ];
+
   return (
     <div className="w-full bg-black text-white">
       {/* Dynamic Search Engine Optimization & Structured Data */}
@@ -181,9 +203,67 @@ export const Home: React.FC = () => {
       </section>
 
       {/* ========================================================= */}
-      {/* 3. HOMEPAGE ACHIEVEMENTS PREVIEW (COMPACT HIGHLIGHTS)      */}
+      {/* 3. SELECTED FILM MUSIC (CONCISE HOMEPAGE SHOWCASE)         */}
       {/* ========================================================= */}
       <section className="py-12 sm:py-16 md:py-20 border-t border-white/10 bg-black">
+        <div className="max-w-7xl mx-auto px-3.5 sm:px-6 md:px-12">
+          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
+            <span className="text-[11px] font-sans tracking-[0.25em] text-neutral-400 uppercase block mb-2">
+              CINEMATIC SCORES & SOUNDTRACKS
+            </span>
+            <h3 className="font-display text-xl sm:text-3xl md:text-4xl font-bold tracking-wider sm:tracking-cinematic text-white uppercase">
+              SELECTED FILM MUSIC
+            </h3>
+          </div>
+
+          {/* Consistent Cinematic Poster Grid: 3 columns on desktop, 2 images per row on mobile */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-5 md:gap-6">
+            {homepageFilms.map((film, index) => (
+              <div
+                key={film.id}
+                className={`group rounded-xl overflow-hidden bg-neutral-950 border border-white/10 hover:border-white/30 transition-all flex flex-col ${
+                  index === 2 ? 'col-span-2 md:col-span-1 max-w-[calc(50%-6px)] md:max-w-none mx-auto md:mx-0 w-full' : ''
+                }`}
+              >
+                <div className="relative aspect-[16/10] bg-neutral-900 overflow-hidden">
+                  <img
+                    src={film.image}
+                    alt={`${film.title} film poster`}
+                    onError={(e) => {
+                      if (e.currentTarget.src !== film.fallbackImage) {
+                        e.currentTarget.src = film.fallbackImage;
+                      }
+                    }}
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 block"
+                  />
+                </div>
+                <div className="p-3 sm:p-4 text-center">
+                  <h4 className="font-display text-xs sm:text-sm md:text-base font-bold tracking-wider text-white uppercase">
+                    {film.title}
+                  </h4>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* VIEW BIOGRAPHY Button linking to Biography page */}
+          <div className="mt-8 sm:mt-10 text-center">
+            <Link
+              to="/biography"
+              className="inline-flex items-center gap-2 px-6 sm:px-7 py-3 rounded bg-white text-black font-display tracking-widest text-xs font-bold uppercase hover:bg-neutral-200 transition-colors shadow-lg"
+            >
+              <span>VIEW BIOGRAPHY</span>
+              <ArrowUpRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================= */}
+      {/* 4. HOMEPAGE ACHIEVEMENTS PREVIEW (COMPACT HIGHLIGHTS)      */}
+      {/* ========================================================= */}
+      <section className="py-12 sm:py-16 md:py-20 border-t border-white/10 bg-neutral-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
           <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
             <span className="text-[11px] font-sans tracking-[0.25em] text-neutral-400 uppercase block mb-2">

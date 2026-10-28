@@ -121,13 +121,6 @@ export const Gallery: React.FC = () => {
           {/* Clean Uniform 4:3 Grid without captions — Two Columns on Mobile */}
           <GalleryGrid items={GALLERY_ITEMS} enableFiltering={false} />
         </section>
-
-        {/* Documentation notice for user to easily update */}
-        <div className="mt-24 p-6 rounded-xl bg-neutral-950 border border-white/10 text-center max-w-xl mx-auto">
-          <p className="text-xs text-neutral-400 font-sans leading-relaxed">
-            Featured and gallery videos can be managed in <code>src/data/videos.ts</code>. Photography items are defined in <code>src/data/gallery.ts</code>.
-          </p>
-        </div>
       </div>
     </div>
   );

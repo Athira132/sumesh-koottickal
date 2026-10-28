@@ -92,13 +92,6 @@ export const Music: React.FC = () => {
             <ArrowUpRight className="w-4 h-4" />
           </Link>
         </div>
-
-        {/* Centralized config instructions note */}
-        <div className="mt-20 p-6 rounded-xl bg-neutral-950 border border-white/10 text-center max-w-xl mx-auto">
-          <p className="text-xs text-neutral-400 font-sans leading-relaxed">
-            Music projects, film details, streaming links, and YouTube URLs can be managed in <code>src/data/music.ts</code>.
-          </p>
-        </div>
       </div>
     </div>
   );

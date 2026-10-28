@@ -41,10 +41,10 @@ export const Biography: React.FC = () => {
       <section className="py-12 sm:py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-3.5 sm:px-6 md:px-12">
           {/* Top Editorial Row: Portrait & Professional Intro */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start mb-16 md:mb-24">
-            {/* Portrait Area */}
-            <div className="lg:col-span-5">
-              <div className="relative lg:sticky lg:top-28 rounded-2xl overflow-hidden border border-white/15 bg-neutral-900 group aspect-[4/5] shadow-2xl max-w-md mx-auto lg:max-w-none">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start mb-14 md:mb-20">
+            {/* Left Column: Portrait & Career Facts */}
+            <div className="lg:col-span-5 flex flex-col gap-6">
+              <div className="relative rounded-2xl overflow-hidden border border-white/15 bg-neutral-900 group aspect-[4/5] shadow-2xl max-w-md mx-auto lg:max-w-none w-full">
                 <img
                   src={BIOGRAPHY_DATA.portrait.src}
                   alt={BIOGRAPHY_DATA.portrait.alt}
@@ -53,17 +53,33 @@ export const Biography: React.FC = () => {
                       e.currentTarget.src = BIOGRAPHY_DATA.portrait.fallbackSrc;
                     }
                   }}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 block"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
                 <div className="absolute bottom-4 left-4 right-4 text-xs text-neutral-300 font-sans font-medium">
                   {BIOGRAPHY_DATA.portrait.caption}
                 </div>
               </div>
+
+              {/* Career Background Highlights - Flow naturally under portrait on desktop to balance height */}
+              <div className="p-5 sm:p-6 rounded-xl bg-neutral-950 border border-white/10 max-w-md mx-auto lg:max-w-none w-full">
+                <h3 className="text-xs font-sans tracking-widest text-neutral-400 uppercase mb-4 flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-white" />
+                  <span>CAREER BACKGROUND FACTS</span>
+                </h3>
+                <ul className="space-y-2.5 text-xs text-neutral-300 font-sans">
+                  {BIOGRAPHY_DATA.careerBackgroundFacts.map((fact, idx) => (
+                    <li key={idx} className="flex items-start gap-2">
+                      <span className="text-neutral-500 font-mono mt-0.5">•</span>
+                      <span>{fact}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
             {/* Biography Text Area */}
-            <div className="lg:col-span-7 flex flex-col justify-center">
+            <div className="lg:col-span-7 flex flex-col justify-start">
               <span className="text-xs font-sans tracking-widest text-neutral-400 uppercase mb-2">
                 ARTIST PROFILE
               </span>
@@ -90,24 +106,8 @@ export const Biography: React.FC = () => {
                 ))}
               </div>
 
-              {/* Career Background Highlights */}
-              <div className="mt-8 pt-6 border-t border-white/10">
-                <h3 className="text-xs font-sans tracking-widest text-neutral-400 uppercase mb-4 flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-white" />
-                  <span>CAREER BACKGROUND & FACTS</span>
-                </h3>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs sm:text-sm text-neutral-300 font-sans">
-                  {BIOGRAPHY_DATA.careerBackgroundFacts.map((fact, idx) => (
-                    <li key={idx} className="flex items-start gap-2 bg-neutral-950 p-3 rounded-lg border border-white/5">
-                      <span className="text-neutral-500 font-mono mt-0.5">•</span>
-                      <span>{fact}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
               {/* Direct Page Action Links */}
-              <div className="mt-8 sm:mt-10 pt-6 sm:pt-8 border-t border-white/10 flex flex-wrap items-center gap-3 sm:gap-4">
+              <div className="mt-8 pt-6 border-t border-white/10 flex flex-wrap items-center gap-3 sm:gap-4">
                 <Link
                   to="/music"
                   className="px-6 py-3 rounded bg-white text-black font-display tracking-widest text-xs font-bold uppercase hover:bg-neutral-200 transition-colors inline-flex items-center gap-2"
@@ -130,21 +130,21 @@ export const Biography: React.FC = () => {
           {/* ========================================================= */}
           {/* SECTION 1: SELECTED FILM MUSIC                            */}
           {/* ========================================================= */}
-          <div className="py-14 sm:py-20 border-t border-white/10">
+          <div className="py-12 sm:py-16 md:py-20 border-t border-white/10">
             <SectionHeading
               tag="CINEMATIC REPERTOIRE"
               title="SELECTED FILM MUSIC"
               subtitle="Feature film soundtracks, background scores, and original compositions for Malayalam cinema."
             />
 
-            {/* Consistent grid: Exactly 2 images per row on mobile, 4 on desktop */}
-            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
+            {/* Consistent grid: Exactly 2 images per row on mobile, 4 on desktop with compact natural heights */}
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 items-start">
               {BIOGRAPHY_DATA.selectedFilmMusic.map((film) => (
                 <div
                   key={film.id}
                   className="group rounded-xl overflow-hidden bg-neutral-950 border border-white/10 hover:border-white/30 transition-all flex flex-col"
                 >
-                  <div className="relative aspect-[4/3] bg-neutral-900 overflow-hidden">
+                  <div className="relative aspect-[16/10] bg-neutral-900 overflow-hidden">
                     <img
                       src={film.image}
                       alt={`${film.title} film music poster`}
@@ -154,7 +154,7 @@ export const Biography: React.FC = () => {
                         }
                       }}
                       loading="lazy"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 block"
                     />
                     {film.year && (
                       <span className="absolute top-2 right-2 px-2 py-0.5 rounded bg-black/80 backdrop-blur-sm text-[10px] font-mono text-white border border-white/15">
@@ -162,14 +162,14 @@ export const Biography: React.FC = () => {
                       </span>
                     )}
                   </div>
-                  <div className="p-3.5 sm:p-4 flex flex-col flex-grow">
-                    <h4 className="font-display text-sm sm:text-base font-bold tracking-wider text-white uppercase mb-1">
+                  <div className="p-3 sm:p-4 flex flex-col">
+                    <h4 className="font-display text-xs sm:text-sm md:text-base font-bold tracking-wider text-white uppercase mb-1">
                       {film.title}
                     </h4>
-                    <span className="text-[10px] sm:text-xs font-sans tracking-widest text-neutral-400 uppercase mb-2">
+                    <span className="text-[10px] sm:text-xs font-sans tracking-widest text-neutral-400 uppercase mb-1.5">
                       {film.role}
                     </span>
-                    <p className="text-xs text-neutral-400 font-sans leading-relaxed line-clamp-3">
+                    <p className="text-[11px] sm:text-xs text-neutral-400 font-sans leading-relaxed">
                       {film.details}
                     </p>
                   </div>
@@ -181,20 +181,21 @@ export const Biography: React.FC = () => {
           {/* ========================================================= */}
           {/* SECTION 2: IMPORTANT COMPOSITIONS & PROJECTS              */}
           {/* ========================================================= */}
-          <div className="py-14 sm:py-20 border-t border-white/10">
+          <div className="py-12 sm:py-16 md:py-20 border-t border-white/10">
             <SectionHeading
               tag="CAREER HIGHLIGHTS"
               title="IMPORTANT COMPOSITIONS & PROJECTS"
               subtitle="Landmark sports theme anthems, viral compositions, and high-impact musical commissions."
             />
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Balanced presentation: Image on left, details on right on desktop; stacked on mobile */}
+            <div className="space-y-5 sm:space-y-6">
               {BIOGRAPHY_DATA.majorProjects.map((project) => (
                 <div
                   key={project.id}
-                  className="rounded-xl overflow-hidden bg-surface-card border border-white/10 hover:border-white/25 transition-all flex flex-col"
+                  className="rounded-xl overflow-hidden bg-surface-card border border-white/10 hover:border-white/25 transition-all p-4 sm:p-6 flex flex-col md:flex-row items-start gap-4 sm:gap-6"
                 >
-                  <div className="relative aspect-[16/10] bg-neutral-900 overflow-hidden">
+                  <div className="relative w-full md:w-5/12 aspect-[16/10] bg-neutral-900 rounded-lg overflow-hidden shrink-0">
                     <img
                       src={project.image}
                       alt={project.title}
@@ -204,7 +205,7 @@ export const Biography: React.FC = () => {
                         }
                       }}
                       loading="lazy"
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover block"
                     />
                     {project.note && (
                       <span className="absolute bottom-2 left-2 px-2.5 py-1 rounded bg-black/85 backdrop-blur-sm text-[10px] font-sans font-semibold text-white border border-white/20">
@@ -212,11 +213,11 @@ export const Biography: React.FC = () => {
                       </span>
                     )}
                   </div>
-                  <div className="p-5 sm:p-6 flex flex-col flex-grow">
-                    <span className="text-[10px] font-sans tracking-widest text-neutral-400 uppercase mb-1">
+                  <div className="w-full md:w-7/12 flex flex-col justify-start">
+                    <span className="text-[10px] sm:text-xs font-sans tracking-widest text-neutral-400 uppercase mb-1">
                       {project.role}
                     </span>
-                    <h4 className="font-display text-lg sm:text-xl font-bold tracking-wider text-white uppercase mb-3">
+                    <h4 className="font-display text-base sm:text-xl font-bold tracking-wider text-white uppercase mb-2">
                       {project.title}
                     </h4>
                     <p className="text-xs sm:text-sm text-neutral-300 font-sans leading-relaxed">
@@ -231,20 +232,21 @@ export const Biography: React.FC = () => {
           {/* ========================================================= */}
           {/* SECTION 3: AWARDS & RECOGNITION (SINGLE AWARDS SECTION)    */}
           {/* ========================================================= */}
-          <div className="py-14 sm:py-20 border-t border-white/10">
+          <div className="py-12 sm:py-16 md:py-20 border-t border-white/10">
             <SectionHeading
               tag="HONORS & FELICITATIONS"
               title="AWARDS & RECOGNITION"
               subtitle="Industry honors recognizing contributions to music direction, cinematic scoring, and performance art."
             />
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Balanced presentation: Award image on left with year badge, award details on right */}
+            <div className="space-y-5 sm:space-y-6">
               {BIOGRAPHY_DATA.awardsAndRecognition.map((award) => (
                 <div
                   key={award.id}
-                  className="rounded-xl overflow-hidden bg-surface-card border border-white/10 hover:border-white/25 transition-all flex flex-col"
+                  className="rounded-xl overflow-hidden bg-surface-card border border-white/10 hover:border-white/25 transition-all p-4 sm:p-6 flex flex-col sm:flex-row items-start gap-4 sm:gap-6"
                 >
-                  <div className="relative aspect-[4/3] bg-neutral-900 overflow-hidden">
+                  <div className="relative w-full sm:w-52 md:w-60 aspect-[4/3] bg-neutral-900 rounded-lg overflow-hidden shrink-0">
                     <img
                       src={award.image}
                       alt={`${award.name} ceremony`}
@@ -254,18 +256,18 @@ export const Biography: React.FC = () => {
                         }
                       }}
                       loading="lazy"
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover block"
                     />
-                    <span className="absolute top-3 right-3 px-2.5 py-1 rounded bg-white text-black font-display font-bold text-xs tracking-wider">
+                    <span className="absolute top-2.5 right-2.5 px-2 py-0.5 rounded bg-white text-black font-display font-bold text-xs tracking-wider">
                       {award.year}
                     </span>
                   </div>
-                  <div className="p-5 sm:p-6 flex flex-col flex-grow">
-                    <div className="flex items-center gap-2 mb-2 text-neutral-400">
-                      <Award className="w-4 h-4" />
+                  <div className="flex-1 flex flex-col justify-start">
+                    <div className="flex items-center gap-2 mb-1.5 text-neutral-400">
+                      <Award className="w-4 h-4 text-white" />
                       <span className="text-xs font-mono">{award.year} OFFICIAL AWARD</span>
                     </div>
-                    <h4 className="font-display text-lg sm:text-xl font-bold tracking-wider text-white uppercase mb-2">
+                    <h4 className="font-display text-base sm:text-xl font-bold tracking-wider text-white uppercase mb-2">
                       {award.name}
                     </h4>
                     {award.presentedBy && (
@@ -285,20 +287,21 @@ export const Biography: React.FC = () => {
           {/* ========================================================= */}
           {/* SECTION 4: LIVE PERFORMANCES & APPEARANCES                */}
           {/* ========================================================= */}
-          <div className="py-14 sm:py-20 border-t border-white/10">
+          <div className="py-12 sm:py-16 md:py-20 border-t border-white/10">
             <SectionHeading
               tag="INTERNATIONAL & ARENA STAGES"
               title="LIVE PERFORMANCES & APPEARANCES"
               subtitle="Keytar fusion showcases, state dignitary appearances, and high-profile corporate award nights."
             />
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Balanced presentation: Performance photo on left, event details on right */}
+            <div className="space-y-5 sm:space-y-6">
               {BIOGRAPHY_DATA.livePerformances.map((perf) => (
                 <div
                   key={perf.id}
-                  className="rounded-xl overflow-hidden bg-surface-card border border-white/10 hover:border-white/25 transition-all flex flex-col"
+                  className="rounded-xl overflow-hidden bg-surface-card border border-white/10 hover:border-white/25 transition-all p-4 sm:p-6 flex flex-col sm:flex-row items-start gap-4 sm:gap-6"
                 >
-                  <div className="relative aspect-[4/3] bg-neutral-900 overflow-hidden">
+                  <div className="relative w-full sm:w-52 md:w-60 aspect-[4/3] bg-neutral-900 rounded-lg overflow-hidden shrink-0">
                     <img
                       src={perf.image}
                       alt={perf.event}
@@ -308,14 +311,14 @@ export const Biography: React.FC = () => {
                         }
                       }}
                       loading="lazy"
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover block"
                     />
                   </div>
-                  <div className="p-5 sm:p-6 flex flex-col flex-grow">
-                    <span className="text-[10px] font-sans tracking-widest text-neutral-400 uppercase mb-1">
+                  <div className="flex-1 flex flex-col justify-start">
+                    <span className="text-[10px] sm:text-xs font-sans tracking-widest text-neutral-400 uppercase mb-1">
                       {perf.role}
                     </span>
-                    <h4 className="font-display text-lg sm:text-xl font-bold tracking-wider text-white uppercase mb-2">
+                    <h4 className="font-display text-base sm:text-xl font-bold tracking-wider text-white uppercase mb-2">
                       {perf.event}
                     </h4>
                     <p className="text-xs sm:text-sm text-neutral-300 font-sans leading-relaxed">
