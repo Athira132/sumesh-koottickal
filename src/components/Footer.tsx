@@ -115,6 +115,15 @@ export const Footer: React.FC = () => {
                     <ArrowUpRight className="w-3 h-3 opacity-60" />
                   </a>
                   <a
+                    href={ARTIST_DATA.socials.spotify}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-neutral-300 hover:text-white flex items-center gap-1 transition-colors"
+                  >
+                    <span>SPOTIFY</span>
+                    <ArrowUpRight className="w-3 h-3 opacity-60" />
+                  </a>
+                  <a
                     href={ARTIST_DATA.socials.vcard}
                     target="_blank"
                     rel="noopener noreferrer"

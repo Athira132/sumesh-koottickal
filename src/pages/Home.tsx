@@ -1,13 +1,21 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { ARTIST_DATA } from '../data/artist';
-import { BIOGRAPHY_DATA } from '../data/biography';
 import { GALLERY_ITEMS } from '../data/gallery';
+import { FEATURED_POPULAR_VIDEOS } from '../data/videos';
+import { VideoCard } from '../components/VideoCard';
 import { SEO } from '../components/SEO';
 import { SEO_DATA, getPersonSchema, getWebSiteSchema } from '../data/seo';
 import { ArrowDown, ArrowUpRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export const Home: React.FC = () => {
+  // First 3 featured popular music videos for compact homepage preview
+  const homepageVideos = FEATURED_POPULAR_VIDEOS.slice(0, 3);
+
+  // Gallery items for preview: 4 images in uniform 4:3 ratio (2 per row on mobile)
+  const homepageGalleryImages = GALLERY_ITEMS.slice(0, 4);
+
   return (
     <div className="w-full bg-black text-white">
       {/* Dynamic Search Engine Optimization & Structured Data */}
@@ -104,56 +112,67 @@ export const Home: React.FC = () => {
       </section>
 
       {/* ========================================================= */}
-      {/* 2. BRIEF ARTIST INTRODUCTION                              */}
+      {/* 2. ARTIST INTRODUCTION SECTION (USES SUPPLIED PHOTO)      */}
       {/* ========================================================= */}
-      <section className="py-12 sm:py-16 md:py-28 border-t border-white/10 bg-neutral-950">
+      <section className="py-12 sm:py-16 md:py-24 border-t border-white/10 bg-neutral-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-            {/* Portrait column */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
+            {/* Visual Column: Supplied Artist Intro Photo */}
             <div className="lg:col-span-5">
-              <div className="relative rounded-2xl overflow-hidden border border-white/15 bg-neutral-900 group aspect-[4/5] shadow-2xl max-w-md mx-auto lg:max-w-none">
+              <div className="relative rounded-2xl overflow-hidden border border-white/15 bg-neutral-900 group aspect-[3/4] shadow-2xl max-w-sm sm:max-w-md mx-auto lg:max-w-none">
                 <img
-                  src={BIOGRAPHY_DATA.portrait.src}
-                  alt={BIOGRAPHY_DATA.portrait.alt}
+                  src="/images/home-artist-intro.jpg"
+                  alt="Sumesh Koottickal — Music Director & Keytar Performer"
                   onError={(e) => {
-                    if (e.currentTarget.src !== BIOGRAPHY_DATA.portrait.fallbackSrc) {
-                      e.currentTarget.src = BIOGRAPHY_DATA.portrait.fallbackSrc;
+                    if (e.currentTarget.src !== 'https://i.ibb.co/whGt8HGp/image.png') {
+                      e.currentTarget.src = 'https://i.ibb.co/whGt8HGp/image.png';
                     }
                   }}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute bottom-4 left-4 right-4 text-xs text-neutral-300 font-sans font-medium">
+                  Sumesh Koottickal — Music Director & Keytar Performer
+                </div>
               </div>
             </div>
 
-            {/* Intro text column */}
+            {/* Introduction Text Column */}
             <div className="lg:col-span-7 flex flex-col justify-center">
-              <span className="text-xs font-sans tracking-widest text-neutral-400 uppercase mb-3">
+              <span className="text-xs font-sans tracking-widest text-neutral-400 uppercase mb-2">
                 MEET THE ARTIST
               </span>
-              <h2 className="font-display text-2xl sm:text-4xl md:text-5xl font-bold tracking-wide text-white uppercase leading-tight mb-6">
-                MUSIC DIRECTION, ELECTRIFYING STAGE PERFORMANCE & MENTALISM
+
+              <h2 className="font-display text-2xl sm:text-4xl md:text-5xl font-bold tracking-wide text-white uppercase leading-tight mb-2">
+                SUMESH KOOTTICKAL
               </h2>
-              <p className="text-base sm:text-lg text-neutral-300 font-sans leading-relaxed mb-6">
-                {BIOGRAPHY_DATA.summary}
+
+              <p className="font-display text-sm sm:text-base text-neutral-300 font-semibold uppercase tracking-wider mb-5">
+                Music Director & Keytar Performer
               </p>
-              <p className="text-sm text-neutral-400 font-sans leading-relaxed mb-8">
-                From landmark film vocal collaborations with legendary playback singers to high-energy keytar concerts commanding festival grounds, Sumesh Koottickal presents a singular vision of sound and performance.
+
+              <p className="text-sm sm:text-base text-white font-sans leading-relaxed mb-4 font-medium bg-black/60 p-4 rounded-xl border border-white/10">
+                An experienced music director, composer, and live keytar performer with a career spanning multiple languages and musical projects.
+              </p>
+
+              <p className="text-xs sm:text-sm text-neutral-300 font-sans leading-relaxed mb-6">
+                Sumesh Koottickal has composed more than 600 songs across diverse languages, directed music for Malayalam cinema, and captivated international audiences with electrifying live keytar performances and psychological mentalism.
               </p>
 
               <div className="flex flex-wrap items-center gap-3 sm:gap-4">
                 <Link
                   to="/biography"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded bg-white text-black font-display tracking-widest text-xs font-bold uppercase hover:bg-neutral-200 transition-colors"
+                  className="inline-flex items-center gap-2 px-6 sm:px-7 py-3 rounded bg-white text-black font-display tracking-widest text-xs font-bold uppercase hover:bg-neutral-200 transition-colors shadow-lg"
                 >
-                  <span>READ FULL BIOGRAPHY</span>
+                  <span>EXPLORE BIOGRAPHY</span>
                   <ArrowUpRight className="w-4 h-4" />
                 </Link>
+
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded border border-white/20 bg-white/5 hover:bg-white text-white hover:text-black font-display tracking-widest text-xs font-bold uppercase transition-all"
+                  className="inline-flex items-center gap-2 px-6 sm:px-7 py-3 rounded border border-white/20 bg-white/5 hover:bg-white text-white hover:text-black font-display tracking-widest text-xs font-bold uppercase transition-all"
                 >
-                  <span>BOOKINGS & ENQUIRIES</span>
+                  <span>GET IN TOUCH</span>
                 </Link>
               </div>
             </div>
@@ -162,22 +181,134 @@ export const Home: React.FC = () => {
       </section>
 
       {/* ========================================================= */}
-      {/* 3. GALLERY PREVIEW (EXACTLY THREE IMAGES, NO CAPTIONS)    */}
+      {/* 3. HOMEPAGE ACHIEVEMENTS PREVIEW (COMPACT HIGHLIGHTS)      */}
       {/* ========================================================= */}
-      <section className="py-16 md:py-28 border-t border-white/10 bg-black">
+      <section className="py-12 sm:py-16 md:py-20 border-t border-white/10 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
-          <div className="text-center max-w-2xl mx-auto mb-10 md:mb-16">
-            <span className="text-xs font-sans tracking-widest text-neutral-400 uppercase block mb-3">
-              VISUAL ARCHIVE
+          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
+            <span className="text-[11px] font-sans tracking-[0.25em] text-neutral-400 uppercase block mb-2">
+              DISTINCTIONS AT A GLANCE
             </span>
-            <h2 className="font-display text-2xl sm:text-4xl md:text-5xl font-bold tracking-wider sm:tracking-cinematic text-white uppercase mb-4">
-              GALLERY
-            </h2>
+            <h3 className="font-display text-xl sm:text-3xl font-bold tracking-wider text-white uppercase">
+              CAREER HIGHLIGHTS & ACHIEVEMENTS
+            </h3>
           </div>
 
-          {/* Exactly 3 uniform 4:3 images without captions, titles, or text overlays */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-            {GALLERY_ITEMS.slice(0, 3).map((item) => (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
+            <div className="p-4 sm:p-5 rounded-xl bg-neutral-950 border border-white/10 flex flex-col justify-between">
+              <span className="font-mono text-xl sm:text-2xl font-bold text-white mb-2 block">2006</span>
+              <div>
+                <h4 className="font-display text-xs sm:text-sm font-bold text-white uppercase mb-1">
+                  Music Director
+                </h4>
+                <p className="text-[11px] text-neutral-400 font-sans leading-relaxed">
+                  Began professional career as a music director.
+                </p>
+              </div>
+            </div>
+
+            <div className="p-4 sm:p-5 rounded-xl bg-neutral-950 border border-white/10 flex flex-col justify-between">
+              <span className="font-mono text-xl sm:text-2xl font-bold text-white mb-2 block">600+</span>
+              <div>
+                <h4 className="font-display text-xs sm:text-sm font-bold text-white uppercase mb-1">
+                  Compositions
+                </h4>
+                <p className="text-[11px] text-neutral-400 font-sans leading-relaxed">
+                  Composed over 600 songs across various languages.
+                </p>
+              </div>
+            </div>
+
+            <div className="p-4 sm:p-5 rounded-xl bg-neutral-950 border border-white/10 flex flex-col justify-between">
+              <span className="font-mono text-xl sm:text-2xl font-bold text-white mb-2 block">2016</span>
+              <div>
+                <h4 className="font-display text-xs sm:text-sm font-bold text-white uppercase mb-1">
+                  URF Icon Award
+                </h4>
+                <p className="text-[11px] text-neutral-400 font-sans leading-relaxed">
+                  Presented by Padma Shri Dr. K. J. Yesudas.
+                </p>
+              </div>
+            </div>
+
+            <div className="p-4 sm:p-5 rounded-xl bg-neutral-950 border border-white/10 flex flex-col justify-between">
+              <span className="font-mono text-xl sm:text-2xl font-bold text-white mb-2 block">T20</span>
+              <div>
+                <h4 className="font-display text-xs sm:text-sm font-bold text-white uppercase mb-1">
+                  Cricket Theme
+                </h4>
+                <p className="text-[11px] text-neutral-400 font-sans leading-relaxed">
+                  Theme music for the Indian Cricket Team (T20 World Cup).
+                </p>
+              </div>
+            </div>
+
+            <div className="col-span-2 sm:col-span-1 p-4 sm:p-5 rounded-xl bg-neutral-950 border border-white/10 flex flex-col justify-between">
+              <span className="font-mono text-xl sm:text-2xl font-bold text-white mb-2 block">2024</span>
+              <div>
+                <h4 className="font-display text-xs sm:text-sm font-bold text-white uppercase mb-1">
+                  Classic Imperial
+                </h4>
+                <p className="text-[11px] text-neutral-400 font-sans leading-relaxed">
+                  Keytar performer at Classic Imperial Cruise since Jan 2024.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================= */}
+      {/* 4. POPULAR MUSIC & COMPOSITIONS PREVIEW (FIRST 3 VIDEOS)   */}
+      {/* ========================================================= */}
+      <section className="py-12 sm:py-16 md:py-24 border-t border-white/10 bg-neutral-950">
+        <div className="max-w-7xl mx-auto px-3.5 sm:px-6 md:px-12">
+          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
+            <span className="text-[11px] font-sans tracking-[0.25em] text-neutral-400 uppercase block mb-2">
+              FEATURED TRACKS & CONCERTS
+            </span>
+            <h3 className="font-display text-xl sm:text-3xl md:text-4xl font-bold tracking-wider sm:tracking-cinematic text-white uppercase">
+              POPULAR MUSIC & COMPOSITIONS
+            </h3>
+          </div>
+
+          {/* First 3 featured videos: 2 columns on mobile, 3 on desktop */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
+            {homepageVideos.map((video) => (
+              <VideoCard key={video.id} video={video} />
+            ))}
+          </div>
+
+          {/* Centered Button to view all videos in Gallery */}
+          <div className="mt-8 sm:mt-12 text-center">
+            <Link
+              to="/gallery#popular-music"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded bg-white text-black font-display tracking-widest text-xs font-bold uppercase hover:bg-neutral-200 transition-colors shadow-lg"
+            >
+              <span>VIEW ALL VIDEOS</span>
+              <ArrowUpRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================= */}
+      {/* 5. GALLERY PREVIEW (TWO PER ROW ON MOBILE, UNIFORM 4:3)    */}
+      {/* ========================================================= */}
+      <section className="py-12 sm:py-16 md:py-24 border-t border-white/10 bg-black">
+        <div className="max-w-7xl mx-auto px-3.5 sm:px-6 md:px-12">
+          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
+            <span className="text-[11px] font-sans tracking-[0.25em] text-neutral-400 uppercase block mb-2">
+              VISUAL ARCHIVE
+            </span>
+            <h3 className="font-display text-xl sm:text-3xl md:text-4xl font-bold tracking-wider sm:tracking-cinematic text-white uppercase">
+              GALLERY
+            </h3>
+          </div>
+
+          {/* Exactly 2 images per row on mobile (grid-cols-2), 4 on desktop, 4:3 ratio, no captions */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
+            {homepageGalleryImages.map((item) => (
               <Link
                 key={item.id}
                 to="/gallery"
@@ -200,10 +331,10 @@ export const Home: React.FC = () => {
           </div>
 
           {/* Centered VIEW MORE Button linking to /gallery */}
-          <div className="mt-10 md:mt-16 text-center">
+          <div className="mt-8 sm:mt-12 text-center">
             <Link
               to="/gallery"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded bg-white text-black font-display tracking-widest text-xs font-bold uppercase hover:bg-neutral-200 transition-colors shadow-lg"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded bg-white text-black font-display tracking-widest text-xs font-bold uppercase hover:bg-neutral-200 transition-colors shadow-lg"
             >
               <span>VIEW MORE</span>
               <ArrowUpRight className="w-4 h-4" />
@@ -213,9 +344,9 @@ export const Home: React.FC = () => {
       </section>
 
       {/* ========================================================= */}
-      {/* 4. CONTACT CTA                                            */}
+      {/* 6. CONTACT CTA                                            */}
       {/* ========================================================= */}
-      <section className="py-16 md:py-28 border-t border-white/10 bg-neutral-950 text-center">
+      <section className="py-14 sm:py-20 md:py-28 border-t border-white/10 bg-neutral-950 text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 flex flex-col items-center">
           <span className="text-xs font-sans tracking-widest text-neutral-400 uppercase mb-3">
             START A CONVERSATION

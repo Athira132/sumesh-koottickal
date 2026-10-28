@@ -2,6 +2,7 @@ export interface SocialLinks {
   instagram: string;
   youtube: string;
   facebook: string;
+  spotify: string;
   vcard: string;
   appleMusic: string;
   email: string;
@@ -49,8 +50,8 @@ export interface ArtistInfo {
 export const ARTIST_DATA: ArtistInfo = {
   name: "SUMESH KOOTTICKAL",
   shortName: "SK",
-  title: "Music Director · Performer · Mentalist",
-  descriptor: "MUSIC DIRECTOR · PERFORMER · MENTALIST",
+  title: "Music Director & Keytar Performer",
+  descriptor: "MUSIC DIRECTOR · KEYTAR PERFORMER · COMPOSER",
   tagline: "Sonic narratives, explosive live keytar performances, and hypnotic stage presence.",
   location: {
     address: "Bhadra 49/82D, Vivekananda Nagar, VNRA 26, Elamakkara SO",
@@ -70,6 +71,7 @@ export const ARTIST_DATA: ArtistInfo = {
     instagram: "https://www.instagram.com/sumeshkoottickal/",
     youtube: "https://www.youtube.com/@Sumeshkoottickal",
     facebook: "https://www.facebook.com/share/1CE5V8tXRq/",
+    spotify: "https://open.spotify.com/artist/5ZogjotJcEfvs8mdWtbA6C?si=gxeOlP6oQmuXg-GHhy58KQ",
     vcard: "https://www.vkard.pro/sumesh-koottickal",
     appleMusic: "https://music.apple.com/us/artist/sumesh-koottickal/1412084049",
     email: "koottickalsumesh@gmail.com",

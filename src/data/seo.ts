@@ -18,38 +18,40 @@ export interface PageSEO {
 
 export const SEO_DATA: Record<string, PageSEO> = {
   home: {
-    title: 'Sumesh Koottickal | Music Director, Keyboard Artist & Performer',
+    title: 'Sumesh Koottickal | Music Director & Keytar Performer',
     description:
-      'Explore the official website of Sumesh Koottickal, a music director, keyboard artist and performer associated with Malayalam cinema, live music and Theevra band.',
+      'Official website of Sumesh Koottickal — Music Director, Composer, and Keytar Performer. Composed 600+ songs, Malayalam film scores, sports themes, and live stage concerts.',
     canonicalPath: '/',
     keywords: [
       'Sumesh Koottickal',
-      'Sumesh',
-      'Sumesh Koottickal musician',
-      'Sumesh Koottickal music director',
-      'Sumesh Koottickal keyboard artist',
-      'Sumesh Koottickal performer',
-      'Sumesh Koottickal mentalist',
-      'Keyboard artist in Kerala',
-      'Malayalam music director',
+      'Sumesh Koottickal Music Director',
+      'Sumesh Koottickal Composer',
+      'Sumesh Koottickal Keytar Performer',
+      'Malayalam Music Director',
+      'Malayalam Film Music',
+      'Keytar Artist',
+      'Live Music Performer',
+      'Music Composer Kerala',
       'Theevra band',
-      'Keytar performer Kerala'
+      'Classic Imperial Cruise'
     ],
   },
   biography: {
-    title: 'About Sumesh Koottickal | Musician, Performer & Music Director',
+    title: 'About Sumesh Koottickal | Music Director & Keytar Performer Biography',
     description:
-      'Discover Sumesh Koottickal\'s musical journey, Malayalam film music credits, keyboard performances, Theevra band association and career highlights.',
+      'Biography of Sumesh Koottickal: Music director since 2006, 600+ songs, Malayalam cinema scores, Universal Record Forum Icon Award, and keytar artist.',
     canonicalPath: '/biography',
     keywords: [
-      'About Sumesh Koottickal',
       'Sumesh Koottickal biography',
-      'Malayalam film music director',
-      'Music director in Malayalam cinema',
+      'Sumesh Koottickal Music Director',
+      'Sumesh Koottickal Composer',
+      'Sumesh Koottickal Keytar Performer',
+      'Malayalam Film Music',
+      'Chinna Dada music',
       'Vishudha Pusthakam music director',
+      'Idukki Blasters music director',
       'Mr. Hacker music',
-      'Theevra band',
-      'Keyboard and keytar artist'
+      'Universal Record Forum Icon Award'
     ],
   },
   music: {
@@ -151,6 +153,7 @@ export function getPersonSchema() {
       'https://www.youtube.com/@Sumeshkoottickal',
       'https://www.instagram.com/sumeshkoottickal/',
       'https://www.facebook.com/share/1CE5V8tXRq/',
+      'https://open.spotify.com/artist/5ZogjotJcEfvs8mdWtbA6C?si=gxeOlP6oQmuXg-GHhy58KQ',
       'https://www.vkard.pro/sumesh-koottickal',
       'https://music.apple.com/us/artist/sumesh-koottickal/1412084049'
     ],

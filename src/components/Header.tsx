@@ -35,6 +35,12 @@ const FacebookIcon: React.FC<{ className?: string }> = ({ className = 'w-4 h-4' 
   </svg>
 );
 
+const SpotifyIcon: React.FC<{ className?: string }> = ({ className = 'w-4 h-4' }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.494 17.306c-.215.353-.676.467-1.028.25-2.817-1.722-6.362-2.112-10.538-1.157-.402.093-.802-.158-.894-.56-.093-.403.158-.803.56-.895 4.571-1.045 8.492-.596 11.65 1.334.352.217.465.677.25 1.028zm1.467-3.262c-.27.44-.848.577-1.288.307-3.224-1.982-8.139-2.555-11.95-1.398-.495.15-1.023-.133-1.173-.628-.15-.494.133-1.023.628-1.173 4.356-1.321 9.774-.683 13.476 1.593.44.27.577.848.307 1.296zm.126-3.41c-3.865-2.296-10.245-2.508-13.93-1.389-.593.18-1.22-.164-1.399-.757-.18-.593.164-1.22.757-1.4 4.237-1.287 11.284-1.038 15.738 1.606.533.317.708 1.011.392 1.545-.317.534-1.012.709-1.558.395z" />
+  </svg>
+);
+
 export const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -86,14 +92,14 @@ export const Header: React.FC = () => {
             : 'bg-black/60 sm:bg-transparent backdrop-blur-sm sm:backdrop-blur-none py-3.5 sm:py-6'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-2.5 xs:px-4 sm:px-6 md:px-12 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-2 xs:px-3 sm:px-6 md:px-12 flex items-center justify-between">
           {/* Artist Wordmark */}
           <Link
             to="/"
-            className="group flex flex-col focus:outline-none focus:ring-1 focus:ring-white/40 rounded shrink-0 mr-1.5 sm:mr-2"
+            className="group flex flex-col focus:outline-none focus:ring-1 focus:ring-white/40 rounded shrink-0 mr-1 sm:mr-2"
             aria-label="Sumesh Koottickal Homepage"
           >
-            <span className="font-display text-xs xs:text-sm sm:text-lg md:text-2xl font-bold tracking-wider sm:tracking-cinematic text-white group-hover:text-neutral-300 transition-colors whitespace-nowrap">
+            <span className="font-display text-[11.5px] xs:text-sm sm:text-lg md:text-2xl font-bold tracking-wider sm:tracking-cinematic text-white group-hover:text-neutral-300 transition-colors whitespace-nowrap">
               {ARTIST_DATA.name}
             </span>
             <span className="text-[10px] md:text-xs text-neutral-400 font-sans tracking-widest hidden sm:block">
@@ -102,44 +108,54 @@ export const Header: React.FC = () => {
           </Link>
 
           {/* Right Controls: Social Icons & Hamburger */}
-          <div className="flex items-center gap-1.5 xs:gap-2 sm:gap-4 md:gap-6 shrink-0">
+          <div className="flex items-center gap-1 xs:gap-1.5 sm:gap-3 md:gap-4 shrink-0">
             {/* Social Media Icons (always visible beside hamburger on mobile and desktop) */}
-            <div className="flex items-center gap-1 xs:gap-1.5 sm:gap-2.5">
+            <div className="flex items-center gap-1 xs:gap-1.5 sm:gap-2 md:gap-2.5">
               <a
                 href={ARTIST_DATA.socials.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-white/20 bg-black/60 hover:bg-white hover:text-black text-white flex items-center justify-center transition-all duration-200 focus:outline-none focus:ring-1 focus:ring-white shrink-0"
+                className="w-6.5 h-6.5 xs:w-7 xs:h-7 sm:w-8 sm:h-8 rounded-full border border-white/20 bg-black/60 hover:bg-white hover:text-black text-white flex items-center justify-center transition-all duration-200 focus:outline-none focus:ring-1 focus:ring-white shrink-0"
                 aria-label="Visit Sumesh Koottickal Instagram"
               >
-                <InstagramIcon className="w-3.5 h-3.5" />
+                <InstagramIcon className="w-3 h-3 xs:w-3.5 xs:h-3.5" />
               </a>
 
               <a
                 href={ARTIST_DATA.socials.youtube}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-white/20 bg-black/60 hover:bg-white hover:text-black text-white flex items-center justify-center transition-all duration-200 focus:outline-none focus:ring-1 focus:ring-white shrink-0"
+                className="w-6.5 h-6.5 xs:w-7 xs:h-7 sm:w-8 sm:h-8 rounded-full border border-white/20 bg-black/60 hover:bg-white hover:text-black text-white flex items-center justify-center transition-all duration-200 focus:outline-none focus:ring-1 focus:ring-white shrink-0"
                 aria-label="Visit Sumesh Koottickal YouTube"
               >
-                <YoutubeIcon className="w-3.5 h-3.5" />
+                <YoutubeIcon className="w-3 h-3 xs:w-3.5 xs:h-3.5" />
               </a>
 
               <a
                 href={ARTIST_DATA.socials.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-white/20 bg-black/60 hover:bg-white hover:text-black text-white flex items-center justify-center transition-all duration-200 focus:outline-none focus:ring-1 focus:ring-white shrink-0"
+                className="w-6.5 h-6.5 xs:w-7 xs:h-7 sm:w-8 sm:h-8 rounded-full border border-white/20 bg-black/60 hover:bg-white hover:text-black text-white flex items-center justify-center transition-all duration-200 focus:outline-none focus:ring-1 focus:ring-white shrink-0"
                 aria-label="Visit Sumesh Koottickal Facebook"
               >
-                <FacebookIcon className="w-3.5 h-3.5" />
+                <FacebookIcon className="w-3 h-3 xs:w-3.5 xs:h-3.5" />
+              </a>
+
+              <a
+                href={ARTIST_DATA.socials.spotify}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-6.5 h-6.5 xs:w-7 xs:h-7 sm:w-8 sm:h-8 rounded-full border border-white/20 bg-black/60 hover:bg-white hover:text-black text-white flex items-center justify-center transition-all duration-200 focus:outline-none focus:ring-1 focus:ring-white shrink-0"
+                aria-label="Visit Sumesh Koottickal Spotify"
+              >
+                <SpotifyIcon className="w-3 h-3 xs:w-3.5 xs:h-3.5" />
               </a>
             </div>
 
             {/* Hamburger Toggle Button (Desktop & Mobile) */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="group flex items-center gap-1.5 sm:gap-2 px-2 py-1.5 sm:px-4 sm:py-2 rounded-full border border-white/20 bg-black/80 hover:border-white/50 hover:bg-neutral-900 transition-all focus:outline-none focus:ring-2 focus:ring-white/60 cursor-pointer shrink-0"
+              className="group flex items-center gap-1 xs:gap-1.5 sm:gap-2 px-1.5 py-1.5 xs:px-2 sm:px-4 sm:py-2 rounded-full border border-white/20 bg-black/80 hover:border-white/50 hover:bg-neutral-900 transition-all focus:outline-none focus:ring-2 focus:ring-white/60 cursor-pointer shrink-0"
               aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
               aria-expanded={isOpen}
             >
@@ -288,6 +304,15 @@ export const Header: React.FC = () => {
                       aria-label="Sumesh Koottickal Facebook"
                     >
                       <FacebookIcon className="w-4 h-4" />
+                    </a>
+                    <a
+                      href={ARTIST_DATA.socials.spotify}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-9 h-9 rounded-full border border-white/15 bg-neutral-900 hover:bg-white hover:text-black text-white flex items-center justify-center transition-all"
+                      aria-label="Sumesh Koottickal Spotify"
+                    >
+                      <SpotifyIcon className="w-4 h-4" />
                     </a>
                     <a
                       href={ARTIST_DATA.socials.vcard}
